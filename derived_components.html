@@ -1,0 +1,320 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Tailwind Styled Complex Components &#8212; Ofjusty 1.0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Mutable HtmlComponents" href="mutable_htmlcomponents.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="tailwind-styled-complex-components">
+<h1>Tailwind Styled Complex Components<a class="headerlink" href="#tailwind-styled-complex-components" title="Permalink to this heading">¶</a></h1>
+<section id="oj-pc-subheadingbanner">
+<h2>oj.PC.SubheadingBanner<a class="headerlink" href="#oj-pc-subheadingbanner" title="Permalink to this heading">¶</a></h2>
+<p>The SubheadingBanner function creates a styled banner with a subheading text.
+Usage</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">subheading_banner_instance_</span> <span class="o">=</span> <span class="n">oj</span><span class="o">.</span><span class="n">PC</span><span class="o">.</span><span class="n">SubheadingBanner</span><span class="p">(</span><span class="s1">&#39;Heading Text&#39;</span><span class="p">,</span> <span class="n">twsty_tags</span><span class="o">=</span><span class="p">[])</span>
+</pre></div>
+</div>
+<section id="parameters">
+<h3>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>heading_text</strong>: A string representing the text to be displayed as the subheading. This parameter is required.</p></li>
+<li><p><strong>twsty_tags</strong>: A list of Tailwind CSS classes to apply to the component. This parameter is optional.</p></li>
+<li><p><strong>heading_text_sty</strong>: A list of Tailwind CSS classes to apply to the heading text. This parameter is optional and defaults to sty.subheading_text.</p></li>
+<li><p><strong>kwargs</strong>: Additional keyword arguments.</p></li>
+</ul>
+</section>
+<section id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">subheading_banner_instance</span> <span class="o">=</span> <span class="n">SubheadingBanner</span><span class="p">(</span><span class="s1">&#39;Heading Text&#39;</span><span class="p">,</span> <span class="n">twsty_tags</span><span class="o">=</span><span class="p">[</span><span class="n">bg</span><span class="o">/</span><span class="n">blue</span><span class="o">/</span><span class="mi">5</span><span class="p">],</span> <span class="n">heading_text_sty</span><span class="o">=</span><span class="p">[</span><span class="n">fc</span><span class="o">/</span><span class="n">gray</span><span class="o">/</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>This example demonstrates how to create a SubheadingBanner component with a specified key and heading text. The optional twsty_tags parameter is used to apply additional Tailwind CSS classes to style the banner with a blue background and white text.</p>
+</section>
+</section>
+<section id="oj-pc-subsection">
+<h2>oj.PC.Subsection<a class="headerlink" href="#oj-pc-subsection" title="Permalink to this heading">¶</a></h2>
+<p>The Subsection function creates a subsection component that consists of a heading and content. It utilizes StackV to vertically stack the heading and content, creating a visually appealing subsection.</p>
+<section id="usage">
+<h3>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">subsection_instance</span> <span class="o">=</span> <span class="n">oj</span><span class="o">.</span><span class="n">PC</span><span class="o">.</span><span class="n">Subsection</span><span class="p">(</span><span class="s1">&#39;Sample Heading&#39;</span><span class="p">,</span> <span class="n">content_function</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="id1">
+<h3>Parameters<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>heading_text</strong>: A string representing the text of the subsection heading. This parameter is required.</p></li>
+<li><p><strong>content_</strong>: A callable function that generates the content to be displayed in the subsection. This parameter is required.</p></li>
+<li><p><strong>twsty_tags</strong>: A list of Tailwind CSS classes to apply to the component. This parameter is optional.</p></li>
+<li><p><strong>kwargs</strong>: Additional keyword arguments.</p></li>
+</ul>
+</section>
+</section>
+<section id="oj-pc-title">
+<h2>oj.PC.Title<a class="headerlink" href="#oj-pc-title" title="Permalink to this heading">¶</a></h2>
+<p>The Title function creates a styled component that displays a title text. It takes a key and a title text as inputs, and displays the title text with the specified alignment.</p>
+<section id="id2">
+<h3>Usage<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">title_instance_</span> <span class="o">=</span> <span class="n">oj</span><span class="o">.</span><span class="n">PC</span><span class="o">.</span><span class="n">Title_</span><span class="p">(</span><span class="s1">&#39;My Title&#39;</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s1">&#39;end&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h3>Parameters<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>title_text</strong>: A string representing the title text to be displayed. This parameter is required.</p></li>
+<li><p><strong>twsty_tags</strong>: A list of Tailwind CSS classes to apply to the component. This parameter is optional.</p></li>
+<li><p><strong>align</strong>: A string specifying the alignment of the title text. Default is set to “center”.</p></li>
+<li><p><strong>kwargs</strong>: Additional keyword arguments.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="tailwind-styled-input-components">
+<h1>Tailwind Styled Input Components<a class="headerlink" href="#tailwind-styled-input-components" title="Permalink to this heading">¶</a></h1>
+<section id="textinput">
+<h2>TextInput<a class="headerlink" href="#textinput" title="Permalink to this heading">¶</a></h2>
+<p>The TextInput function creates a styled input element.</p>
+<section id="id4">
+<h3>Usage<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">labeled_input</span> <span class="o">=</span> <span class="n">TextInput</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;input_key&#39;</span><span class="p">,</span> <span class="n">placeholder</span><span class="o">=</span><span class="s2">&quot;Enter text&quot;</span><span class="p">,</span> <span class="n">on_change</span><span class="o">=</span><span class="n">on_input_change</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="id5">
+<h3>Parameters<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>key</strong>: A string representing the key for the component instance. This parameter is required.</p></li>
+<li><p><strong>placeholder</strong>: A string representing the placeholder text for the input element. This parameter is required.</p></li>
+<li><p><strong>data_validators</strong>: A list of data validator functions to be applied to the input element. Default is an empty list.</p></li>
+<li><p><strong>twsty_tags</strong>: A list of Tailwind CSS classes to apply to the component. This parameter is optional.</p></li>
+<li><p><strong>kwargs</strong>: Additional keyword arguments.</p></li>
+</ul>
+</section>
+</section>
+<section id="oj-ac-checkboxinput">
+<h2>oj.AC.CheckboxInput<a class="headerlink" href="#oj-ac-checkboxinput" title="Permalink to this heading">¶</a></h2>
+<p>The CheckboxInput function creates a styled checkbox input element.</p>
+<section id="id6">
+<h3>Usage<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">checkbox_instance</span> <span class="o">=</span> <span class="n">CheckboxInput</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;checkbox_key&#39;</span><span class="p">,</span> <span class="n">checked</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="id7">
+<h3>Parameters<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>key</strong>: A string representing the key for the component instance. This parameter is required.</p></li>
+<li><p><strong>checked</strong>: A boolean value indicating whether the checkbox should be initially checked. Default is False.</p></li>
+<li><p><strong>twsty_tags</strong>: A list of Tailwind CSS classes to apply to the component. This parameter is optional.</p></li>
+<li><p><strong>kwargs</strong>: Additional keyword arguments.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="complex-mutable-components">
+<h1>Complex Mutable Components<a class="headerlink" href="#complex-mutable-components" title="Permalink to this heading">¶</a></h1>
+<section id="oj-mutable-stackd">
+<h2>oj.Mutable.StackD<a class="headerlink" href="#oj-mutable-stackd" title="Permalink to this heading">¶</a></h2>
+<p>StackD is a dynamic component representing a “Deck” of cards, where each card is a child element. It allows for switching between the child elements, displaying only one at a time.</p>
+<section id="id8">
+<h3>Usage<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">stackd_instance</span> <span class="o">=</span> <span class="n">oj</span><span class="o">.</span><span class="n">Mutable</span><span class="o">.</span><span class="n">StackD</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s2">&quot;my_stackd&quot;</span><span class="p">,</span> <span class="n">child</span><span class="o">=</span><span class="p">[</span><span class="n">Component1</span><span class="p">,</span> <span class="n">Component2</span><span class="p">,</span> <span class="n">Component3</span><span class="p">],</span> <span class="n">height_anchor_key</span> <span class="o">=</span> <span class="s2">&quot;component1&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="methods">
+<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>addItems(cgens)</strong>: Adds child elements to the StackD component. The first child element is set as the initially visible card.</p></li>
+<li><p><strong>bring_to_front(id)</strong>: Brings the card with the specified <cite>id</cite> to the front, making it visible and hiding the previous visible card.</p></li>
+</ul>
+</section>
+<section id="id9">
+<h3>Example<a class="headerlink" href="#id9" title="Permalink to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">stackd_instance</span> <span class="o">=</span> <span class="n">StackD</span><span class="p">(</span><span class="n">childs</span><span class="o">=</span><span class="p">[</span><span class="n">btn1</span><span class="p">,</span> <span class="n">btn2</span><span class="p">,</span> <span class="n">btn3</span><span class="p">])</span>
+<span class="n">stackd_instance</span><span class="o">.</span><span class="n">bring_to_front</span><span class="p">(</span><span class="s1">&#39;text_key&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="oj-mutable-slider">
+<h2>oj.Mutable.Slider<a class="headerlink" href="#oj-mutable-slider" title="Permalink to this heading">¶</a></h2>
+<p>The Slider function creates a custom slider component that displays a set of clickable circles based on the provided itemiter list. It takes a key and a list of items as input, displaying the items as circles within the slider. When a circle is clicked, its outline is updated, and an on-click event is triggered.</p>
+<section id="id10">
+<h3>Usage<a class="headerlink" href="#id10" title="Permalink to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">slider_instance</span> <span class="o">=</span> <span class="n">oj</span><span class="o">.</span><span class="n">Mutable</span><span class="o">.</span><span class="n">Slider</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;slider_key&#39;</span><span class="p">,</span> <span class="n">num_iter</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="id11">
+<h3>Parameters<a class="headerlink" href="#id11" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>key</strong>: A string representing the key for the component instance. This parameter is required.</p></li>
+<li><p><strong>itemiter</strong>: A list of items to be displayed as clickable circles in the slider. This parameter is required.</p></li>
+<li><p><strong>twsty_tags</strong>: A list of Tailwind CSS classes to apply to the component. This parameter is optional.</p></li>
+<li><p><strong>kwargs</strong>: Additional keyword arguments.</p></li>
+</ul>
+</section>
+<section id="id12">
+<h3>Example<a class="headerlink" href="#id12" title="Permalink to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">slider_instance</span> <span class="o">=</span> <span class="n">oj</span><span class="o">.</span><span class="n">Mutable</span><span class="o">.</span><span class="n">Slider</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;slider_key&#39;</span><span class="p">,</span> <span class="n">num_iter</span><span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">twsty_tags</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;bg-gray-200&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>This example demonstrates how to create a Slider component with a specified key and a list of items. The optional twsty_tags parameter is used to apply additional Tailwind CSS classes to style the slider with a gray background.</p>
+<p>Note: In the current implementation, the slider component is a custom component and not a built-in HTML slider input element.</p>
+</section>
+</section>
+<section id="oj-mutable-colorselector">
+<h2>oj.Mutable.ColorSelector<a class="headerlink" href="#oj-mutable-colorselector" title="Permalink to this heading">¶</a></h2>
+<p>The ColorSelector function creates a custom color selector component that combines a main color selector and a shades slider. It allows users to pick a color and its shade, then triggers an on-click event with the chosen color.</p>
+<section id="id13">
+<h3>Usage<a class="headerlink" href="#id13" title="Permalink to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">on_cs_click</span><span class="p">(</span><span class="n">dbref</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">to_target</span><span class="p">):</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;color selector  changed : &quot;</span><span class="p">,</span> <span class="n">msg</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+<span class="n">color_selector_instance</span> <span class="o">=</span> <span class="n">ColorSelector</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;color_selector_key&#39;</span><span class="p">,</span> <span class="n">on_click</span><span class="o">=</span><span class="n">on_cs_click</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="id14">
+<h3>Parameters<a class="headerlink" href="#id14" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>key</strong>: A string representing the key for the component instance. This parameter is required.</p></li>
+<li><p><strong>twsty_tags</strong>: A list of Tailwind CSS classes to apply to the component. This parameter is optional.</p></li>
+<li><p><strong>kwargs</strong>: Additional keyword arguments.</p></li>
+</ul>
+</section>
+</section>
+<section id="id15">
+<h2>Example<a class="headerlink" href="#id15" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">color_selector_instance_</span> <span class="o">=</span> <span class="n">ColorSelector_</span><span class="p">(</span><span class="s1">&#39;color_selector_key&#39;</span><span class="p">,</span> <span class="n">twsty_tags</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;bg-gray-200&#39;</span><span class="p">],</span> <span class="n">on_click</span><span class="o">=</span><span class="n">on_cs_click</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This example demonstrates how to create a ColorSelector component with a specified key. The optional twsty_tags parameter is used to apply additional Tailwind CSS classes to style the color selector with a gray background.</p>
+<section id="functionality">
+<h3>Functionality<a class="headerlink" href="#functionality" title="Permalink to this heading">¶</a></h3>
+<p>When the user selects a main color, the shades slider is updated to display shades of the chosen color. If the user clicks on a shade, the component passes the selected color in hexadecimal format to the parent component via an on-click event.</p>
+<p>Note: In the current implementation, the ColorSelector component is a custom component and not a built-in HTML color input element.</p>
+</section>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Ofjusty</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Ofjustpy Framework Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="htmlcomponents_types.html">HTMLComponent Abstract Base Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="htmlcomponents.html">Passive and Active Html Components Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mutable_htmlcomponents.html">Mutable HtmlComponents</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tailwind Styled Complex Components</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#oj-pc-subheadingbanner">oj.PC.SubheadingBanner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#oj-pc-subsection">oj.PC.Subsection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#oj-pc-title">oj.PC.Title</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#tailwind-styled-input-components">Tailwind Styled Input Components</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#textinput">TextInput</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#oj-ac-checkboxinput">oj.AC.CheckboxInput</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#complex-mutable-components">Complex Mutable Components</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#oj-mutable-stackd">oj.Mutable.StackD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#oj-mutable-slider">oj.Mutable.Slider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#oj-mutable-colorselector">oj.Mutable.ColorSelector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id15">Example</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="mutable_htmlcomponents.html" title="previous chapter">Mutable HtmlComponents</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Kabira K.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/derived_components.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

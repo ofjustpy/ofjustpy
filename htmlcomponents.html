@@ -1,0 +1,444 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Passive and Active Html Components Types &#8212; Ofjusty 1.0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Classes Mutable HtmlComponents" href="mutable_htmlcomponents.html" />
+    <link rel="prev" title="HTMLComponent Abstract Base Types" href="htmlcomponents_types.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="passive-and-active-html-components-types">
+<h1>Passive and Active Html Components Types<a class="headerlink" href="#passive-and-active-html-components-types" title="Permalink to this heading">¶</a></h1>
+<section id="passive-components">
+<h2>Passive Components<a class="headerlink" href="#passive-components" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.PC.Label">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.PC.</span></span><span class="sig-name descname"><span class="pre">Label</span></span><a class="headerlink" href="#oj.PC.Label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherits <a class="reference internal" href="htmlcomponents_types.html#PassiveHCComponent" title="PassiveHCComponent"><code class="xref py py-class docutils literal notranslate"><span class="pre">PassiveHCComponent</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>for</strong> (<em>str</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – The ‘for’ attribute of the &lt;label&gt; element specifies the id of the form control with which the label is associated. The value is the id of a form control element.</p></li>
+<li><p><strong>form</strong> (<em>str</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – The ‘form’ attribute of the &lt;label&gt; element specifies the id of the form to which the label belongs. The value is the id of a &lt;form&gt; element.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.PC.Span">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.PC.</span></span><span class="sig-name descname"><span class="pre">Span</span></span><a class="headerlink" href="#oj.PC.Span" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherits <a class="reference internal" href="htmlcomponents_types.html#PassiveHCComponent" title="PassiveHCComponent"><code class="xref py py-class docutils literal notranslate"><span class="pre">PassiveHCComponent</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.PC.Code">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.PC.</span></span><span class="sig-name descname"><span class="pre">Code</span></span><a class="headerlink" href="#oj.PC.Code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherits <a class="reference internal" href="htmlcomponents_types.html#PassiveHCComponent" title="PassiveHCComponent"><code class="xref py py-class docutils literal notranslate"><span class="pre">PassiveHCComponent</span></code></a></p>
+<p>The <cite>Code</cite> class represents the HTML &lt;code&gt; element, which is used to display inline code.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.PC.Pre">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.PC.</span></span><span class="sig-name descname"><span class="pre">Pre</span></span><a class="headerlink" href="#oj.PC.Pre" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherits <a class="reference internal" href="htmlcomponents_types.html#PassiveHCComponent" title="PassiveHCComponent"><code class="xref py py-class docutils literal notranslate"><span class="pre">PassiveHCComponent</span></code></a></p>
+<p>The <cite>Pre</cite> class represents the HTML &lt;pre&gt; element, which is used to display preformatted text.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.PC.Li">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.PC.</span></span><span class="sig-name descname"><span class="pre">Li</span></span><a class="headerlink" href="#oj.PC.Li" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherits <a class="reference internal" href="htmlcomponents_types.html#PassiveHCComponent" title="PassiveHCComponent"><code class="xref py py-class docutils literal notranslate"><span class="pre">PassiveHCComponent</span></code></a></p>
+<p>The <cite>Li</cite> class represents the HTML &lt;li&gt; element, which is used to define list items within a list.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.PC.P">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.PC.</span></span><span class="sig-name descname"><span class="pre">P</span></span><a class="headerlink" href="#oj.PC.P" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherits <a class="reference internal" href="htmlcomponents_types.html#PassiveHCComponent" title="PassiveHCComponent"><code class="xref py py-class docutils literal notranslate"><span class="pre">PassiveHCComponent</span></code></a></p>
+<p>The <cite>P</cite> class represents the HTML &lt;p&gt; element, which is used to define paragraphs.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.PC.Prose">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.PC.</span></span><span class="sig-name descname"><span class="pre">Prose</span></span><a class="headerlink" href="#oj.PC.Prose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherits <a class="reference internal" href="htmlcomponents_types.html#PassiveHCComponent" title="PassiveHCComponent"><code class="xref py py-class docutils literal notranslate"><span class="pre">PassiveHCComponent</span></code></a></p>
+<p>The <cite>Prose</cite> class represents a block-level component for displaying prose content.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.PC.Option">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.PC.</span></span><span class="sig-name descname"><span class="pre">Option</span></span><a class="headerlink" href="#oj.PC.Option" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherits <a class="reference internal" href="htmlcomponents_types.html#PassiveHCComponent" title="PassiveHCComponent"><code class="xref py py-class docutils literal notranslate"><span class="pre">PassiveHCComponent</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.PC.Hr">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.PC.</span></span><span class="sig-name descname"><span class="pre">Hr</span></span><a class="headerlink" href="#oj.PC.Hr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherits <a class="reference internal" href="htmlcomponents_types.html#PassiveHCComponent" title="PassiveHCComponent"><code class="xref py py-class docutils literal notranslate"><span class="pre">PassiveHCComponent</span></code></a>
+The <cite>Hr</cite> class represents the HTML &lt;hr&gt; element, which is used to create a thematic break or horizontal rule in a document.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.PC.Img">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.PC.</span></span><span class="sig-name descname"><span class="pre">Img</span></span><a class="headerlink" href="#oj.PC.Img" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherits <a class="reference internal" href="htmlcomponents_types.html#PassiveHCComponent" title="PassiveHCComponent"><code class="xref py py-class docutils literal notranslate"><span class="pre">PassiveHCComponent</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.PC.H1">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.PC.</span></span><span class="sig-name descname"><span class="pre">H1</span></span><a class="headerlink" href="#oj.PC.H1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherits <a class="reference internal" href="htmlcomponents_types.html#PassiveHCComponent" title="PassiveHCComponent"><code class="xref py py-class docutils literal notranslate"><span class="pre">PassiveHCComponent</span></code></a></p>
+</dd></dl>
+
+</section>
+<section id="passive-div-components">
+<h2>Passive Div Components<a class="headerlink" href="#passive-div-components" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.PC.Div">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.PC.</span></span><span class="sig-name descname"><span class="pre">Div</span></span><a class="headerlink" href="#oj.PC.Div" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherits <a class="reference internal" href="htmlcomponents_types.html#PassiveDivComponent" title="PassiveDivComponent"><code class="xref py py-class docutils literal notranslate"><span class="pre">PassiveDivComponent</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.PC.CodeDiv">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.PC.</span></span><span class="sig-name descname"><span class="pre">CodeDiv</span></span><a class="headerlink" href="#oj.PC.CodeDiv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherits <a class="reference internal" href="htmlcomponents_types.html#PassiveDivComponent" title="PassiveDivComponent"><code class="xref py py-class docutils literal notranslate"><span class="pre">PassiveDivComponent</span></code></a></p>
+<p>The <cite>CodeDiv</cite> class represents a container used for displaying code blocks or code-related content. It provides styling and structure suitable for code presentation.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.PC.PreDiv">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.PC.</span></span><span class="sig-name descname"><span class="pre">PreDiv</span></span><a class="headerlink" href="#oj.PC.PreDiv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherits <a class="reference internal" href="htmlcomponents_types.html#PassiveDivComponent" title="PassiveDivComponent"><code class="xref py py-class docutils literal notranslate"><span class="pre">PassiveDivComponent</span></code></a></p>
+<p>The <cite>PreDiv</cite> class represents a container for preformatted text, often used for code snippets or other text where spacing and line breaks should be preserved.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.PC.Collapsible">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.PC.</span></span><span class="sig-name descname"><span class="pre">Collapsible</span></span><a class="headerlink" href="#oj.PC.Collapsible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherits <a class="reference internal" href="htmlcomponents_types.html#PassiveDivComponent" title="PassiveDivComponent"><code class="xref py py-class docutils literal notranslate"><span class="pre">PassiveDivComponent</span></code></a></p>
+<p>The <cite>Collapsible</cite> class represents a collapsible container that can expand and collapse to show or hide its content. It is often used for creating expandable sections or content.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hide_banner_text</strong> – The text displayed when the content is hidden. It informs the user to click the button to expand.</p></li>
+<li><p><strong>hide_banner_classes</strong> – CSS classes for styling the banner when the content is hidden.</p></li>
+<li><p><strong>toggler_classes</strong> – CSS classes for styling the button that toggles the collapsible content.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.PC.Nav">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.PC.</span></span><span class="sig-name descname"><span class="pre">Nav</span></span><a class="headerlink" href="#oj.PC.Nav" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherits <a class="reference internal" href="htmlcomponents_types.html#PassiveDivComponent" title="PassiveDivComponent"><code class="xref py py-class docutils literal notranslate"><span class="pre">PassiveDivComponent</span></code></a></p>
+<p>The <cite>Nav</cite> class represents a navigation container, often used for creating menus, navigation bars, or links to different parts of a website.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.PC.Footer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.PC.</span></span><span class="sig-name descname"><span class="pre">Footer</span></span><a class="headerlink" href="#oj.PC.Footer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherits <a class="reference internal" href="htmlcomponents_types.html#PassiveDivComponent" title="PassiveDivComponent"><code class="xref py py-class docutils literal notranslate"><span class="pre">PassiveDivComponent</span></code></a></p>
+<p>The <cite>Footer</cite> class represents the HTML &lt;footer&gt; element, which is used to define a footer section at the bottom of a document or a webpage. It typically contains copyright information, contact details, and other footer content.</p>
+</dd></dl>
+
+</section>
+<section id="active-hc-components">
+<h2>Active HC Components<a class="headerlink" href="#active-hc-components" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.AC.Span">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.AC.</span></span><span class="sig-name descname"><span class="pre">Span</span></span><a class="headerlink" href="#oj.AC.Span" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherits <a class="reference internal" href="htmlcomponents_types.html#ActiveHCComponent" title="ActiveHCComponent"><code class="xref py py-class docutils literal notranslate"><span class="pre">ActiveHCComponent</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.AC.Button">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.AC.</span></span><span class="sig-name descname"><span class="pre">Button</span></span><a class="headerlink" href="#oj.AC.Button" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherits <a class="reference internal" href="htmlcomponents_types.html#ActiveHCComponent" title="ActiveHCComponent"><code class="xref py py-class docutils literal notranslate"><span class="pre">ActiveHCComponent</span></code></a></p>
+<p>The <cite>Button</cite> class represents an HTML &lt;button&gt; element, which is used to create interactive buttons for user interaction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>autofocus</strong> – Specifies whether the button should automatically get focus when the page loads. Possible values: True or False.</p></li>
+<li><p><strong>disabled</strong> – Specifies whether the button should be disabled or not. Possible values: True or False.</p></li>
+<li><p><strong>form</strong> – Specifies the form the button belongs to.</p></li>
+<li><p><strong>formaction</strong> – Specifies the URL of the file that will process the input control when the form is submitted.</p></li>
+<li><p><strong>formenctype</strong> – Specifies how the form-data should be encoded when submitting it to the server. Possible values: “application/x-www-form-urlencoded”, “multipart/form-data”, or “text/plain”.</p></li>
+<li><p><strong>formmethod</strong> – Specifies the HTTP method to use when sending form-data. Possible values: “GET” or “POST”.</p></li>
+<li><p><strong>formnovalidate</strong> – Specifies that the form-data should not be validated on submission. Possible values: True or False.</p></li>
+<li><p><strong>formtarget</strong> – Specifies where to display the response received after submitting the form. Possible values: “_blank”, “_self”, “_parent”, “_top”, or a custom target name.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.AC.TextInput">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.AC.</span></span><span class="sig-name descname"><span class="pre">TextInput</span></span><a class="headerlink" href="#oj.AC.TextInput" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherits <a class="reference internal" href="htmlcomponents_types.html#ActiveHCComponent" title="ActiveHCComponent"><code class="xref py py-class docutils literal notranslate"><span class="pre">ActiveHCComponent</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type</strong> – The type attribute associated with the element (always “text”).</p></li>
+<li><p><strong>autocomplete</strong> – Specifies whether the browser should enable autocomplete for the input field.</p></li>
+<li><p><strong>maxlength</strong> – Specifies the maximum number of characters allowed in the input field.</p></li>
+<li><p><strong>minlength</strong> – Specifies the minimum number of characters required in the input field.</p></li>
+<li><p><strong>pattern</strong> – Specifies a regular expression pattern that the input’s value must match to be valid.</p></li>
+<li><p><strong>placeholder</strong> – Provides a short hint that describes the expected value of the input field.</p></li>
+<li><p><strong>size</strong> – Specifies the visible width of the input field.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.AC.Img">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.AC.</span></span><span class="sig-name descname"><span class="pre">Img</span></span><a class="headerlink" href="#oj.AC.Img" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherits <a class="reference internal" href="htmlcomponents_types.html#ActiveHCComponent" title="ActiveHCComponent"><code class="xref py py-class docutils literal notranslate"><span class="pre">ActiveHCComponent</span></code></a></p>
+<p>The <cite>Img</cite> class represents the HTML &lt;img&gt; element, used to display images in a document.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>alt</strong> – A text description of the image, providing a textual alternative for users who cannot see the image.</p></li>
+<li><p><strong>crossorigin</strong> – A CORS settings attribute that indicates how the element handles crossorigin requests. Possible values: ‘anonymous’, ‘use-credentials’.</p></li>
+<li><p><strong>height</strong> – The intrinsic height of the image, in pixels. Must be a positive integer.</p></li>
+<li><p><strong>ismap</strong> – Indicates that the image is part of a server-side image map. Value should be a boolean: True or False.</p></li>
+<li><p><strong>longdesc</strong> – A URL to a more detailed description of the image.</p></li>
+<li><p><strong>sizes</strong> – The sizes attribute for the image.</p></li>
+<li><p><strong>src</strong> – The source URL of the image.</p></li>
+<li><p><strong>srcset</strong> – The srcset attribute for responsive images.</p></li>
+<li><p><strong>usemap</strong> – Specifies a client-side image map for the image.</p></li>
+<li><p><strong>width</strong> – The intrinsic width of the image, in pixels. Must be a positive integer.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.AC.CheckboxInput">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.AC.</span></span><span class="sig-name descname"><span class="pre">CheckboxInput</span></span><a class="headerlink" href="#oj.AC.CheckboxInput" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Inherits <a class="reference internal" href="htmlcomponents_types.html#ActiveHCComponent" title="ActiveHCComponent"><code class="xref py py-class docutils literal notranslate"><span class="pre">ActiveHCComponent</span></code></a></p>
+<p>The <cite>CheckboxInput</cite> class represents an HTML &lt;input&gt; element with a checkbox, allowing users to select or deselect an option.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>checked</strong> – Specifies whether the checkbox is initially checked (True) or unchecked (False). The value is a boolean.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.AC.Textarea">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.AC.</span></span><span class="sig-name descname"><span class="pre">Textarea</span></span><a class="headerlink" href="#oj.AC.Textarea" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherits <a class="reference internal" href="htmlcomponents_types.html#ActiveHCComponent" title="ActiveHCComponent"><code class="xref py py-class docutils literal notranslate"><span class="pre">ActiveHCComponent</span></code></a></p>
+<p>The <cite>Textarea</cite> class represents an HTML &lt;textarea&gt; element, which provides a multiline text input area for users.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cols</strong> – Specifies the visible width of the textarea in average character widths. Must be a positive integer.</p></li>
+<li><p><strong>rows</strong> – Specifies the visible number of lines in the textarea. Must be a positive integer.</p></li>
+<li><p><strong>wrap</strong> – Specifies how the text in the textarea is to be wrapped when submitted in a form. Possible values are “soft” (text wrapped for appearance only) and “hard” (text wrapped for both appearance and submitted text).</p></li>
+<li><p><strong>placeholder</strong> – Provides a short hint that describes the expected value of the textarea.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.AC.Div">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.AC.</span></span><span class="sig-name descname"><span class="pre">Div</span></span><a class="headerlink" href="#oj.AC.Div" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherits <a class="reference internal" href="htmlcomponents_types.html#ActiveHCComponent" title="ActiveHCComponent"><code class="xref py py-class docutils literal notranslate"><span class="pre">ActiveHCComponent</span></code></a></p>
+<p>The <cite>Div</cite> class represents the HTML &lt;div&gt; element, used for structuring and styling content within a document.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.AC.StackH">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.AC.</span></span><span class="sig-name descname"><span class="pre">StackH</span></span><a class="headerlink" href="#oj.AC.StackH" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherits <a class="reference internal" href="htmlcomponents_types.html#ActiveHCComponent" title="ActiveHCComponent"><code class="xref py py-class docutils literal notranslate"><span class="pre">ActiveHCComponent</span></code></a></p>
+<p>The <cite>StackH</cite> class represents a horizontal stack container for aligning and arranging elements horizontally within a container.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.AC.Select">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.AC.</span></span><span class="sig-name descname"><span class="pre">Select</span></span><a class="headerlink" href="#oj.AC.Select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherits <a class="reference internal" href="htmlcomponents_types.html#ActiveHCComponent" title="ActiveHCComponent"><code class="xref py py-class docutils literal notranslate"><span class="pre">ActiveHCComponent</span></code></a></p>
+<p>The <cite>Select</cite> class represents an HTML &lt;select&gt; element, used to create dropdown lists for user selection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>autofocus</strong> – Specifies whether the select element should automatically get focus when the page loads. Possible values: True or False.</p></li>
+<li><p><strong>default</strong> – Specifies the default value for the select element.</p></li>
+<li><p><strong>disabled</strong> – Specifies whether the select element should be disabled or not. Possible values: True or False.</p></li>
+<li><p><strong>form</strong> – Specifies the form to which the select element belongs (form’s id).</p></li>
+<li><p><strong>multiple</strong> – Specifies that multiple options can be selected at once. If present, the attribute does not need a value.</p></li>
+<li><p><strong>name</strong> – Specifies the name for the select element.</p></li>
+<li><p><strong>required</strong> – Specifies whether the select element is required to have a value selected. Possible values: True or False.</p></li>
+<li><p><strong>size</strong> – Specifies the number of visible options in the dropdown list.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.AC.Form">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.AC.</span></span><span class="sig-name descname"><span class="pre">Form</span></span><a class="headerlink" href="#oj.AC.Form" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherits <a class="reference internal" href="htmlcomponents_types.html#ActiveHCComponent" title="ActiveHCComponent"><code class="xref py py-class docutils literal notranslate"><span class="pre">ActiveHCComponent</span></code></a></p>
+<p>The <cite>Form</cite> class represents an HTML &lt;form&gt; element, which is used to create user input forms for submitting data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>accept_charset</strong> – Specifies the character encodings to be used for form submission. A space-separated list of character encoding names (e.g., “UTF-8 ISO-8859-1”).</p></li>
+<li><p><strong>action</strong> – Specifies the URL where form data should be submitted when the form is submitted. It can be an absolute or relative URL.</p></li>
+<li><p><strong>autocomplete</strong> – Specifies whether the browser should enable autocomplete for the entire form. Values: ‘on’ or ‘off’.</p></li>
+<li><p><strong>enctype</strong> – Specifies how the form data should be encoded when submitted to the server. Possible values are ‘application/x-www-form-urlencoded’ (default), ‘multipart/form-data’ (required for file uploads), or ‘text/plain’.</p></li>
+<li><p><strong>method</strong> – Specifies the HTTP method to use when submitting the form data. Possible values: ‘get’ (default) or ‘post’.</p></li>
+<li><p><strong>name</strong> – Specifies a name for the form, which can be used for scripting purposes, such as referencing the form from JavaScript.</p></li>
+<li><p><strong>novalidate</strong> – A boolean attribute. When present, it specifies that the form should not be validated when submitted.</p></li>
+<li><p><strong>target</strong> – Specifies where the response received after submitting the form should be displayed. Possible values include ‘_blank’ (new window or tab), ‘_self’ (same frame), ‘_parent’ (parent frame), ‘_top’ (full window body), or a named frame.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.AC.A">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.AC.</span></span><span class="sig-name descname"><span class="pre">A</span></span><a class="headerlink" href="#oj.AC.A" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherits <a class="reference internal" href="htmlcomponents_types.html#ActiveHCComponent" title="ActiveHCComponent"><code class="xref py py-class docutils literal notranslate"><span class="pre">ActiveHCComponent</span></code></a></p>
+<p>The <cite>A</cite> class represents an HTML &lt;a&gt; (anchor) element, used for creating hyperlinks within a document.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>href</strong> – Specifies the URL to which the hyperlink points.</p></li>
+<li><p><strong>title</strong> – Specifies the title of the linked document.</p></li>
+<li><p><strong>rel</strong> – Specifies the relationship between the current document and the linked document.</p></li>
+<li><p><strong>download</strong> – Specifies that the target will be downloaded when the link is clicked.</p></li>
+<li><p><strong>target</strong> – Specifies where to open the linked document. Values can include ‘_blank’, ‘_self’, ‘_parent’, ‘_top’, or a named frame.</p></li>
+<li><p><strong>scroll</strong> – Specifies whether scrolling is enabled when the hyperlink is clicked (True or False).</p></li>
+<li><p><strong>scroll_option</strong> – Specifies the type of scrolling when the hyperlink is clicked. Values can be “auto” or “smooth” (default is “smooth”).</p></li>
+<li><p><strong>block_option</strong> – Specifies the vertical alignment of the target element when scrolling. Values can be “start”, “center”, “end”, or “nearest” (default is “start”).</p></li>
+<li><p><strong>inline_option</strong> – Specifies the horizontal alignment of the target element when scrolling. Values can be “start”, “center”, “end”, or “nearest” (default is “nearest”).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.AC.Switch">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.AC.</span></span><span class="sig-name descname"><span class="pre">Switch</span></span><a class="headerlink" href="#oj.AC.Switch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherits <a class="reference internal" href="htmlcomponents_types.html#ActiveHCComponent" title="ActiveHCComponent"><code class="xref py py-class docutils literal notranslate"><span class="pre">ActiveHCComponent</span></code></a></p>
+<p>The <cite>Switch</cite> class represents a switch component, often used for on/off or toggle functionality within a user interface.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Ofjusty</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="htmlcomponents_types.html">HTMLComponent Abstract Base Types</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Passive and Active Html Components Types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#passive-components">Passive Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#passive-div-components">Passive Div Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#active-hc-components">Active HC Components</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mutable_htmlcomponents.html">Classes Mutable HtmlComponents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="derived_components.html">Tailwind Styled Complex Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="derived_components.html#tailwind-styled-input-components">Tailwind Styled Input Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="derived_components.html#complex-mutable-components-part-1">Complex Mutable Components : Part 1</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="htmlcomponents_types.html" title="previous chapter">HTMLComponent Abstract Base Types</a></li>
+      <li>Next: <a href="mutable_htmlcomponents.html" title="next chapter">Classes Mutable HtmlComponents</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Kabira K.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/htmlcomponents.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

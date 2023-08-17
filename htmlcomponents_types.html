@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>HTMLComponent Abstract Base Types &#8212; Ofjusty 1.0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Passive and Active Html Components Types" href="htmlcomponents.html" />
+    <link rel="prev" title="Welcome to Ofjusty’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="htmlcomponent-abstract-base-types">
+<h1>HTMLComponent Abstract Base Types<a class="headerlink" href="#htmlcomponent-abstract-base-types" title="Permalink to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="BaseComponent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">BaseComponent</span></span><a class="headerlink" href="#BaseComponent" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>show</strong> (<em>bool</em>) – A Boolean attribute that controls the visibility of the component.</p></li>
+<li><p><strong>debug</strong> (<em>bool</em>) – A Boolean attribute that enables or disables debugging for the component.</p></li>
+<li><p><strong>twsty_tags</strong> (<em>list</em><em>, </em><em>optional</em>) – is a list of tailwind tags (see py_tailwind_utils)</p></li>
+<li><p><strong>style</strong> (<em>str</em>) – A property to get and set the inline style for the HTML component.</p></li>
+<li><p><strong>key</strong> (<em>str</em><em>, </em><em>optional</em>) – A key to be associated with the component.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Default show<span class="colon">:</span></dt>
+<dd class="field-even"><p>True</p>
+</dd>
+<dt class="field-odd">Default debug<span class="colon">:</span></dt>
+<dd class="field-odd"><p>False</p>
+</dd>
+<dt class="field-even">Default twsty_tags<span class="colon">:</span></dt>
+<dd class="field-even"><p>[]</p>
+</dd>
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>style</strong> – A property to get and set the inline style for the HTML component.</p></li>
+<li><p><strong>classes</strong> – A list that stores Tailwind CSS classes applied to the component.</p></li>
+<li><p><strong>key</strong> – A key to be associated with the component.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="BaseComponent.remove_twsty_tags">
+<span class="sig-name descname"><span class="pre">remove_twsty_tags</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BaseComponent.remove_twsty_tags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes specified Tailwind tags from the component.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>*args</strong> (<em>str</em>) – A variable number of arguments representing the specified Tailwind tags to remove.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BaseComponent.add_twsty_tags">
+<span class="sig-name descname"><span class="pre">add_twsty_tags</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BaseComponent.add_twsty_tags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds Tailwind tags to the component.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>*args</strong> (<em>str</em>) – A variable number of arguments representing the specified Tailwind tags to add.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BaseComponent.replace_twsty_tags">
+<span class="sig-name descname"><span class="pre">replace_twsty_tags</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BaseComponent.replace_twsty_tags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replaces the existing Tailwind tags with the ones provided in <cite>*args</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>*args</strong> (<em>str</em>) – A variable number of arguments representing the specified Tailwind tags to replace.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="PassiveHCComponent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PassiveHCComponent</span></span><a class="headerlink" href="#PassiveHCComponent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherits <a class="reference internal" href="#BaseComponent" title="BaseComponent"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseComponent</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>text</strong> – The text</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>text</strong> (<em>str</em><em>, </em><em>optional</em>) – The text content to be displayed within the component.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="PassiveDivComponent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PassiveDivComponent</span></span><a class="headerlink" href="#PassiveDivComponent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherits <a class="reference internal" href="#BaseComponent" title="BaseComponent"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseComponent</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>childs</strong> (<em>list</em>) – A list of child components to be associated with the parent.</p>
+</dd>
+<dt class="field-even">Variables<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>components</strong> – The list of child components associated with the parent.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ActiveBaseComponent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ActiveBaseComponent</span></span><a class="headerlink" href="#ActiveBaseComponent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherits <a class="reference internal" href="#BaseComponent" title="BaseComponent"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseComponent</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>event_prehook</strong> (<em>Callable</em><em>, </em><em>optional</em>) – A prehook function to be applied to all event handlers.</p></li>
+<li><p><strong>on_click</strong> – handler for click event</p></li>
+<li><p><strong>on_mouseover</strong> – handler for mouseover event</p></li>
+<li><p><strong>on_mouseout</strong> – handler for mouseout event</p></li>
+<li><p><strong>on_mouseenter</strong> – handler for mouseenter event</p></li>
+<li><p><strong>on_mouseleave</strong> – handler for mouseleave event</p></li>
+<li><p><strong>on_input</strong> – handler for input event</p></li>
+<li><p><strong>on_change</strong> – handler for change event</p></li>
+<li><p><strong>on_after</strong> – handler for after event</p></li>
+<li><p><strong>on_before</strong> – handler for before event</p></li>
+<li><p><strong>on_keydown</strong> – handler for keydown event</p></li>
+<li><p><strong>on_keyup</strong> – handler for keyup event</p></li>
+<li><p><strong>on_keypress</strong> – handler for keypress event</p></li>
+<li><p><strong>on_focus</strong> – handler for focus event</p></li>
+<li><p><strong>on_blur</strong> – handler for blur event</p></li>
+<li><p><strong>on_submit</strong> – handler for submit event</p></li>
+<li><p><strong>on_dragstart</strong> – handler for dragstart event</p></li>
+<li><p><strong>on_dragover</strong> – handler for dragover event</p></li>
+<li><p><strong>on_drop</strong> – handler for drop event</p></li>
+<li><p><strong>on_click__out</strong> – handler for click__out event</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ActiveHCComponent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ActiveHCComponent</span></span><a class="headerlink" href="#ActiveHCComponent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherits <a class="reference internal" href="#ActiveBaseComponent" title="ActiveBaseComponent"><code class="xref py py-class docutils literal notranslate"><span class="pre">ActiveBaseComponent</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>text</strong> – The text</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>text</strong> (<em>str</em><em>, </em><em>optional</em>) – The text content to be displayed within the component.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ActiveDivComponent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ActiveDivComponent</span></span><a class="headerlink" href="#ActiveDivComponent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherits <a class="reference internal" href="#ActiveBaseComponent" title="ActiveBaseComponent"><code class="xref py py-class docutils literal notranslate"><span class="pre">ActiveBaseComponent</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>childs</strong> (<em>list</em>) – A list of child components to be associated with the parent.</p>
+</dd>
+<dt class="field-even">Variables<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>components</strong> – The list of child components associated with the parent.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Ofjusty</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">HTMLComponent Abstract Base Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="htmlcomponents.html">Passive and Active Html Components Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mutable_htmlcomponents.html">Classes Mutable HtmlComponents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="derived_components.html">Tailwind Styled Complex Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="derived_components.html#tailwind-styled-input-components">Tailwind Styled Input Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="derived_components.html#complex-mutable-components-part-1">Complex Mutable Components : Part 1</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to Ofjusty’s documentation!</a></li>
+      <li>Next: <a href="htmlcomponents.html" title="next chapter">Passive and Active Html Components Types</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Kabira K.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/htmlcomponents_types.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

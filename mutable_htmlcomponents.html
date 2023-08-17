@@ -1,0 +1,347 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Mutable HtmlComponents &#8212; Ofjusty 1.0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tailwind Styled Complex Components" href="derived_components.html" />
+    <link rel="prev" title="Passive and Active Html Components Types" href="htmlcomponents.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="mutable-htmlcomponents">
+<h1>Mutable HtmlComponents<a class="headerlink" href="#mutable-htmlcomponents" title="Permalink to this heading">¶</a></h1>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Mutable components within the <cite>oj.Mutable</cite> namespace can only mutate the <cite>classes</cite> attribute via <cite>twsty_tags</cite>. If you want to create HTMLComponent types that can mutate other attributes, see the example usage in <a class="reference external" href="https://github.com/ofjustpy/ofjustpy-components/blob/main/src/ofjustpy_components/hierarchy_navigator.py#L17">this GitHub repository</a>.</p>
+</div>
+<p>Below is an example usage for the <cite>oj.Mutable.Button</cite> mutable component</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mybtn</span> <span class="o">=</span> <span class="n">oj</span><span class="o">.</span><span class="n">Mutable</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s2">&quot;mubtn&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">twsty_tags</span><span class="o">=</span><span class="p">[</span><span class="n">bg</span><span class="o">/</span><span class="n">green</span><span class="o">/</span><span class="mi">1</span><span class="p">,</span> <span class="o">...</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Let’s say we want to modify the background based on some event. In the
+corresponding event handler:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">on_click_handler</span><span class="p">(</span><span class="n">dbref</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">to_mutableShell</span><span class="p">):</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">to_mutableShell: a function that returns the mutableShell of the static component</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">mybtn_ms</span> <span class="o">=</span> <span class="n">to_mutableShell</span><span class="p">(</span><span class="n">mybtn</span><span class="p">)</span>
+<span class="n">mybtn_ms</span><span class="o">.</span><span class="n">add_twsty_tags</span><span class="p">(</span><span class="n">bg</span><span class="o">/</span><span class="n">green</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Once the above handler is invoked, the button background color will change to darker color
+of green</p>
+<p>Checkout the example code snippets in <a class="reference external" href="https://github.com/ofjustpy/ofjustpy/tree/main/examples/mutable_webpages">the OfJustPy examples repository</a>.</p>
+<p>Following mutable components are supported. Their kwargs and instance attributes are same as
+their corresponding static component version.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.Mutable.Button">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.Mutable.</span></span><span class="sig-name descname"><span class="pre">Button</span></span><a class="headerlink" href="#oj.Mutable.Button" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.Mutable.Circle">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.Mutable.</span></span><span class="sig-name descname"><span class="pre">Circle</span></span><a class="headerlink" href="#oj.Mutable.Circle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.Mutable.Label">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.Mutable.</span></span><span class="sig-name descname"><span class="pre">Label</span></span><a class="headerlink" href="#oj.Mutable.Label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.Mutable.Span">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.Mutable.</span></span><span class="sig-name descname"><span class="pre">Span</span></span><a class="headerlink" href="#oj.Mutable.Span" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.Mutable.TextInput">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.Mutable.</span></span><span class="sig-name descname"><span class="pre">TextInput</span></span><a class="headerlink" href="#oj.Mutable.TextInput" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.Mutable.Container">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.Mutable.</span></span><span class="sig-name descname"><span class="pre">Container</span></span><a class="headerlink" href="#oj.Mutable.Container" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.Mutable.Div">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.Mutable.</span></span><span class="sig-name descname"><span class="pre">Div</span></span><a class="headerlink" href="#oj.Mutable.Div" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.Mutable.StackH">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.Mutable.</span></span><span class="sig-name descname"><span class="pre">StackH</span></span><a class="headerlink" href="#oj.Mutable.StackH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.Mutable.StackV">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.Mutable.</span></span><span class="sig-name descname"><span class="pre">StackV</span></span><a class="headerlink" href="#oj.Mutable.StackV" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.Mutable.StackD">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.Mutable.</span></span><span class="sig-name descname"><span class="pre">StackD</span></span><a class="headerlink" href="#oj.Mutable.StackD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.Mutable.ColorSelector">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.Mutable.</span></span><span class="sig-name descname"><span class="pre">ColorSelector</span></span><a class="headerlink" href="#oj.Mutable.ColorSelector" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.Mutable.Slider">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.Mutable.</span></span><span class="sig-name descname"><span class="pre">Slider</span></span><a class="headerlink" href="#oj.Mutable.Slider" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.Mutable.WebPage">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.Mutable.</span></span><span class="sig-name descname"><span class="pre">WebPage</span></span><a class="headerlink" href="#oj.Mutable.WebPage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.Mutable.Form">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.Mutable.</span></span><span class="sig-name descname"><span class="pre">Form</span></span><a class="headerlink" href="#oj.Mutable.Form" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<section id="hccstatic">
+<h2>HCCStatic<a class="headerlink" href="#hccstatic" title="Permalink to this heading">¶</a></h2>
+<p>Div class types whose css/classes is mutable but childs are static</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.HCCStatic.Div">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.HCCStatic.</span></span><span class="sig-name descname"><span class="pre">Div</span></span><a class="headerlink" href="#oj.HCCStatic.Div" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.HCCStatic.StackV">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.HCCStatic.</span></span><span class="sig-name descname"><span class="pre">StackV</span></span><a class="headerlink" href="#oj.HCCStatic.StackV" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="hccmutable">
+<h2>HCCMutable<a class="headerlink" href="#hccmutable" title="Permalink to this heading">¶</a></h2>
+<p>Div class types whose css/classes is static but childs are mutable</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.HCCMutable.Div">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.HCCMutable.</span></span><span class="sig-name descname"><span class="pre">Div</span></span><a class="headerlink" href="#oj.HCCMutable.Div" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.HCCMutable.StackV">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.HCCMutable.</span></span><span class="sig-name descname"><span class="pre">StackV</span></span><a class="headerlink" href="#oj.HCCMutable.StackV" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.HCCMutable.StackH">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.HCCMutable.</span></span><span class="sig-name descname"><span class="pre">StackH</span></span><a class="headerlink" href="#oj.HCCMutable.StackH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.HCCMutable.StackW">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.HCCMutable.</span></span><span class="sig-name descname"><span class="pre">StackW</span></span><a class="headerlink" href="#oj.HCCMutable.StackW" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="oj.HCCMutable.Container">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">oj.HCCMutable.</span></span><span class="sig-name descname"><span class="pre">Container</span></span><a class="headerlink" href="#oj.HCCMutable.Container" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<section id="layout-modifiers">
+<h3>Layout Modifiers<a class="headerlink" href="#layout-modifiers" title="Permalink to this heading">¶</a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="Halign">
+<span class="sig-name descname"><span class="pre">Halign</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">content</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">align</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'center'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Halign" title="Permalink to this definition">¶</a></dt>
+<dd><p>Aligns the HTML component content horizontally.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>content</strong> (<em>Ofjustpy HTML component object</em>) – The HTML component to be aligned.</p></li>
+<li><p><strong>align</strong> (<em>str</em><em>, </em><em>optional</em>) – (optional) The horizontal alignment. Default is “center”. Other options are start, end, center, between, evenly, around</p></li>
+<li><p><strong>kwargs</strong> – Additional keyword arguments for styling and attributes.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An Ofjustpy HTML component with the specified horizontal alignment.</p>
+</dd>
+</dl>
+<p>This function aligns the HTML component horizontally using the provided <cite>align</cite> parameter. You can specify the horizontal alignment using values like “left,” “center,” or “right.”</p>
+<p>Example usage:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Center-align the content</span>
+<span class="n">centered_content</span> <span class="o">=</span> <span class="n">Halign</span><span class="p">(</span><span class="n">oj</span><span class="o">.</span><span class="n">Mutable</span><span class="o">.</span><span class="n">Span</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;This is centered text&quot;</span><span class="p">),</span> <span class="n">align</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">)</span>
+
+<span class="c1"># Left-align the content</span>
+<span class="n">left_aligned_content</span> <span class="o">=</span> <span class="n">Halign</span><span class="p">(</span><span class="n">oj</span><span class="o">.</span><span class="n">Mutable</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Left-aligned text&quot;</span><span class="p">),</span> <span class="n">align</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Subsection">
+<span class="sig-name descname"><span class="pre">Subsection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">heading_text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AnyStr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">content</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">align</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'center'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">twsty_tags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Subsection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a subsection with a heading and content.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param heading_text<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The text for the subsection heading.</p>
+</dd>
+<dt class="field-even">type heading_text<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">param content<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The content of the subsection.</p>
+</dd>
+<dt class="field-even">type content<span class="colon">:</span></dt>
+<dd class="field-even"><p>Ofjustpy HTML component object</p>
+</dd>
+<dt class="field-odd">param align<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(optional) The horizontal alignment of the subsection. Default is “center”.</p>
+</dd>
+</dl>
+<p>Other options are “start,” “end,” “center,” “between,” “evenly,” “around.”
+:type align: str, optional</p>
+<dl class="field-list simple">
+<dt class="field-odd">param twsty_tags<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(optional) A list of Tailwind CSS tags for styling.</p>
+</dd>
+<dt class="field-even">type twsty_tags<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[str], optional</p>
+</dd>
+<dt class="field-odd">param kwargs<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Additional keyword arguments for styling and attributes.</p>
+</dd>
+<dt class="field-even">return<span class="colon">:</span></dt>
+<dd class="field-even"><p>An Ofjustpy HTML component representing the subsection.</p>
+</dd>
+</dl>
+<p>This function creates a subsection with a heading and content. You can specify the horizontal
+alignment of the subsection using the <cite>align</cite> parameter. The <cite>twsty_tags</cite> parameter allows you
+to apply Tailwind CSS styling to the subsection.</p>
+<p>Example usage:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a subsection with centered content</span>
+<span class="n">subsection</span> <span class="o">=</span> <span class="n">Subsection</span><span class="p">(</span>
+    <span class="n">heading_text</span><span class="o">=</span><span class="s2">&quot;Section Title&quot;</span><span class="p">,</span>
+    <span class="n">content</span><span class="o">=</span> <span class="n">oj</span><span class="o">.</span><span class="n">Mutable</span><span class="o">.</span><span class="n">Span</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;This is the subsection content.&quot;</span><span class="p">),</span>
+    <span class="n">align</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+    <span class="n">twsty_tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;bg-blue-100&quot;</span><span class="p">,</span> <span class="s2">&quot;p-4&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Subsubsection">
+<span class="sig-name descname"><span class="pre">Subsubsection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">heading_text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AnyStr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">content</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">align</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'center'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">twsty_tags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Subsubsection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Same as Subsection except heading font is bit smaller.</p>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Ofjusty</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Ofjustpy Framework Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="htmlcomponents_types.html">HTMLComponent Abstract Base Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="htmlcomponents.html">Passive and Active Html Components Types</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Mutable HtmlComponents</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#hccstatic">HCCStatic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hccmutable">HCCMutable</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="derived_components.html">Tailwind Styled Complex Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="derived_components.html#tailwind-styled-input-components">Tailwind Styled Input Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="derived_components.html#complex-mutable-components">Complex Mutable Components</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="htmlcomponents.html" title="previous chapter">Passive and Active Html Components Types</a></li>
+      <li>Next: <a href="derived_components.html" title="next chapter">Tailwind Styled Complex Components</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Kabira K.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/mutable_htmlcomponents.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

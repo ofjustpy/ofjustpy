@@ -1,0 +1,204 @@
+src/ofjustpy/Div_TF.py:51: [E501] line too long (85 > 79 characters)
+src/ofjustpy/Div_TF.py:70: [E501] line too long (85 > 79 characters)
+src/ofjustpy/Div_TF.py:90: [E501] line too long (88 > 79 characters)
+src/ofjustpy/Div_TF.py:92: [E501] line too long (85 > 79 characters)
+src/ofjustpy/Div_TF.py:105: [E501] line too long (88 > 79 characters)
+src/ofjustpy/Div_TF.py:134: [E501] line too long (82 > 79 characters)
+src/ofjustpy/Div_TF.py:141: [E501] line too long (95 > 79 characters)
+src/ofjustpy/HC_TF.py:32: [E501] line too long (86 > 79 characters)
+src/ofjustpy/HC_TF.py:50: [E501] line too long (85 > 79 characters)
+src/ofjustpy/HC_TF.py:69: [E501] line too long (85 > 79 characters)
+src/ofjustpy/HC_TF.py:89: [E501] line too long (81 > 79 characters)
+src/ofjustpy/HC_wrappers.py:4: [F401] 'typing.Any' imported but unused
+src/ofjustpy/HC_wrappers.py:6: [F401] 'typing.Callable' imported but unused
+src/ofjustpy/HC_wrappers.py:11: [F401] 'py_tailwind_utils.db' imported but unused
+src/ofjustpy/HC_wrappers.py:13: [F401] 'py_tailwind_utils.H' imported but unused
+src/ofjustpy/HC_wrappers.py:14: [F401] 'py_tailwind_utils.jc' imported but unused
+src/ofjustpy/HC_wrappers.py:16: [F401] 'py_tailwind_utils.screen' imported but unused
+src/ofjustpy/HC_wrappers.py:43: [E501] line too long (86 > 79 characters)
+src/ofjustpy/HC_wrappers.py:48: [E501] line too long (81 > 79 characters)
+src/ofjustpy/HC_wrappers.py:55: [E501] line too long (87 > 79 characters)
+src/ofjustpy/HC_wrappers.py:60: [E501] line too long (89 > 79 characters)
+src/ofjustpy/MHC_types.py:8: [F401] 'py_tailwind_utils.jc' imported but unused
+src/ofjustpy/MHC_types.py:8: [F401] 'py_tailwind_utils.screen' imported but unused
+src/ofjustpy/MHC_types.py:8: [F401] 'py_tailwind_utils.dupdate' imported but unused
+src/ofjustpy/MHC_types.py:8: [F401] 'py_tailwind_utils.cc' imported but unused
+src/ofjustpy/MHC_types.py:8: [E402] module level import not at top of file
+src/ofjustpy/MHC_types.py:27: [F811] redefinition of unused 'db' from line 8
+src/ofjustpy/MHC_types.py:27: [F811] redefinition of unused 'flx' from line 8
+src/ofjustpy/MHC_types.py:27: [E402] module level import not at top of file
+src/ofjustpy/MHC_types.py:28: [E402] module level import not at top of file
+src/ofjustpy/MHC_types.py:29: [E402] module level import not at top of file
+src/ofjustpy/MHC_types.py:30: [F401] '.ui_styles.basesty' imported but unused
+src/ofjustpy/MHC_types.py:30: [E402] module level import not at top of file
+src/ofjustpy/MHC_types.py:31: [E402] module level import not at top of file
+src/ofjustpy/MHC_types.py:32: [E402] module level import not at top of file
+src/ofjustpy/MHC_types.py:33: [E402] module level import not at top of file
+src/ofjustpy/MHC_types.py:34: [F401] 'typing.Any' imported but unused
+src/ofjustpy/MHC_types.py:34: [E402] module level import not at top of file
+src/ofjustpy/MHC_types.py:35: [E402] module level import not at top of file
+src/ofjustpy/MHC_types.py:94: [E501] line too long (93 > 79 characters)
+src/ofjustpy/MHC_types.py:135: [E501] line too long (84 > 79 characters)
+src/ofjustpy/MHC_types.py:138: [E501] line too long (83 > 79 characters)
+src/ofjustpy/MHC_types.py:142: [E501] line too long (88 > 79 characters)
+src/ofjustpy/MHC_types.py:179: [E501] line too long (80 > 79 characters)
+src/ofjustpy/MHC_types.py:198: [E501] line too long (84 > 79 characters)
+src/ofjustpy/MHC_types.py:219: [E501] line too long (83 > 79 characters)
+src/ofjustpy/SHC_types.py:11: [F401] '.ui_styles.basesty' imported but unused
+src/ofjustpy/SHC_types.py:16: [E501] line too long (82 > 79 characters)
+src/ofjustpy/SHC_types.py:26: [E501] line too long (86 > 79 characters)
+src/ofjustpy/SHC_types.py:42: [E501] line too long (86 > 79 characters)
+src/ofjustpy/SHC_types.py:56: [E501] line too long (87 > 79 characters)
+src/ofjustpy/SHC_types.py:76: [E501] line too long (85 > 79 characters)
+src/ofjustpy/SHC_types.py:99: [E501] line too long (80 > 79 characters)
+src/ofjustpy/SHC_types.py:104: [E501] line too long (85 > 79 characters)
+src/ofjustpy/SHC_types.py:131: [E501] line too long (81 > 79 characters)
+src/ofjustpy/SHC_types.py:138: [E501] line too long (82 > 79 characters)
+src/ofjustpy/SHC_types.py:142: [E501] line too long (87 > 79 characters)
+src/ofjustpy/SHC_types.py:147: [E501] line too long (81 > 79 characters)
+src/ofjustpy/TF_impl.py:41: [E501] line too long (87 > 79 characters)
+src/ofjustpy/TF_impl.py:42: [E501] line too long (84 > 79 characters)
+src/ofjustpy/TF_impl.py:44: [E501] line too long (86 > 79 characters)
+src/ofjustpy/TF_impl.py:46: [E501] line too long (105 > 79 characters)
+src/ofjustpy/TF_impl.py:47: [E501] line too long (110 > 79 characters)
+src/ofjustpy/TF_impl.py:216: [E501] line too long (85 > 79 characters)
+src/ofjustpy/WebPage_TF.py:8: [W291] trailing whitespace
+src/ofjustpy/WebPage_TF.py:105: [C901] 'gen_WebPage_type' is too complex (15)
+src/ofjustpy/WebPage_TF.py:106: [E501] line too long (84 > 79 characters)
+src/ofjustpy/__init__.py:2: [E501] line too long (91 > 79 characters)
+src/ofjustpy/__init__.py:9: [F401] '.ui_styles.set_style' imported but unused
+src/ofjustpy/__init__.py:13: [F401] '.data_validator as validator' imported but unused
+src/ofjustpy/__init__.py:29: [F401] '.static_core_tracker.uictx' imported but unused
+src/ofjustpy/__init__.py:29: [E402] module level import not at top of file
+src/ofjustpy/__init__.py:31: [F401] '.tracker.curr_session_manager' imported but unused
+src/ofjustpy/__init__.py:31: [E402] module level import not at top of file
+src/ofjustpy/__init__.py:32: [F401] '.htmlcomponents.Mutable' imported but unused
+src/ofjustpy/__init__.py:32: [F401] '.htmlcomponents.HCCMutable' imported but unused
+src/ofjustpy/__init__.py:32: [F401] '.htmlcomponents.ActiveComponents as AC' imported but unused
+src/ofjustpy/__init__.py:32: [F401] '.htmlcomponents.PassiveComponents as PC' imported but unused
+src/ofjustpy/__init__.py:32: [F401] '.htmlcomponents.HCCStatic' imported but unused
+src/ofjustpy/__init__.py:32: [E402] module level import not at top of file
+src/ofjustpy/__init__.py:39: [F401] '.HC_wrappers.Halign' imported but unused
+src/ofjustpy/__init__.py:39: [F401] '.HC_wrappers.StackH_Aligned' imported but unused
+src/ofjustpy/__init__.py:39: [F401] '.HC_wrappers.WithBanner' imported but unused
+src/ofjustpy/__init__.py:39: [E402] module level import not at top of file
+src/ofjustpy/app_code_introspect.py:8: [E402] module level import not at top of file
+src/ofjustpy/app_code_introspect.py:21: [F841] local variable 'e' is assigned to but never used
+src/ofjustpy/app_code_introspect.py:39: [F821] undefined name 'models_pymodule'
+src/ofjustpy/basesty.py:2: [F403] 'from py_tailwind_utils import *' used; unable to detect undefined names
+src/ofjustpy/chartjssty.py:2: [F403] 'from py_tailwind_utils import *' used; unable to detect undefined names
+src/ofjustpy/chartjssty.py:6: [E501] line too long (81 > 79 characters)
+src/ofjustpy/chartjssty.py:8: [E501] line too long (84 > 79 characters)
+src/ofjustpy/chartjssty.py:93: [E501] line too long (82 > 79 characters)
+src/ofjustpy/chartjssty.py:181: [E501] line too long (86 > 79 characters)
+src/ofjustpy/chartjssty.py:216: [E501] line too long (80 > 79 characters)
+src/ofjustpy/chartjssty.py:223: [E501] line too long (80 > 79 characters)
+src/ofjustpy/composed_SHC.py:1: [F401] 'typing.Any' imported but unused
+src/ofjustpy/composed_SHC.py:6: [F401] 'py_tailwind_utils.bg' imported but unused
+src/ofjustpy/composed_SHC.py:7: [F401] 'py_tailwind_utils.black' imported but unused
+src/ofjustpy/composed_SHC.py:8: [F401] 'py_tailwind_utils.cc' imported but unused
+src/ofjustpy/composed_SHC.py:10: [F401] 'py_tailwind_utils.db' imported but unused
+src/ofjustpy/composed_SHC.py:12: [F401] 'py_tailwind_utils.fz' imported but unused
+src/ofjustpy/composed_SHC.py:13: [F401] 'py_tailwind_utils.get_color_instance' imported but unused
+src/ofjustpy/composed_SHC.py:14: [F401] 'py_tailwind_utils.green' imported but unused
+src/ofjustpy/composed_SHC.py:18: [F401] 'py_tailwind_utils.jc' imported but unused
+src/ofjustpy/composed_SHC.py:20: [F401] 'py_tailwind_utils.offset' imported but unused
+src/ofjustpy/composed_SHC.py:21: [F401] 'py_tailwind_utils.onetonine' imported but unused
+src/ofjustpy/composed_SHC.py:22: [F401] 'py_tailwind_utils.outline' imported but unused
+src/ofjustpy/composed_SHC.py:24: [F401] 'py_tailwind_utils.tstr' imported but unused
+src/ofjustpy/composed_SHC.py:25: [F401] 'py_tailwind_utils.twcc2hex' imported but unused
+src/ofjustpy/composed_SHC.py:29: [F401] '.tracker.trackStub' imported but unused
+src/ofjustpy/composed_SHC.py:30: [F401] '.ui_styles.basesty' imported but unused
+src/ofjustpy/composed_SHC.py:34: [C901] 'generator' is too complex (12)
+src/ofjustpy/composed_SHC.py:41: [E501] line too long (85 > 79 characters)
+src/ofjustpy/composed_SHC.py:46: [E501] line too long (85 > 79 characters)
+src/ofjustpy/composed_SHC.py:52: [E501] line too long (82 > 79 characters)
+src/ofjustpy/composed_SHC.py:123: [E501] line too long (88 > 79 characters)
+src/ofjustpy/composed_SHC.py:127: [E501] line too long (82 > 79 characters)
+src/ofjustpy/composed_SHC.py:139: [E501] line too long (85 > 79 characters)
+src/ofjustpy/composed_SHC.py:152: [E501] line too long (81 > 79 characters)
+src/ofjustpy/composed_SHC.py:155: [E501] line too long (88 > 79 characters)
+src/ofjustpy/composed_SHC.py:172: [E501] line too long (84 > 79 characters)
+src/ofjustpy/data_validator.py:50: [F541] f-string is missing placeholders
+src/ofjustpy/data_validator.py:96: [E501] line too long (86 > 79 characters)
+src/ofjustpy/htmlcomponents.py:5: [F401] 'typing.Any' imported but unused
+src/ofjustpy/htmlcomponents.py:6: [F401] 'typing.AnyStr' imported but unused
+src/ofjustpy/htmlcomponents.py:7: [F401] 'typing.Callable' imported but unused
+src/ofjustpy/htmlcomponents.py:8: [F401] 'typing.List' imported but unused
+src/ofjustpy/htmlcomponents.py:11: [F401] 'py_tailwind_utils.conc_twtags' imported but unused
+src/ofjustpy/htmlcomponents.py:12: [F401] 'py_tailwind_utils.db' imported but unused
+src/ofjustpy/htmlcomponents.py:13: [F401] 'py_tailwind_utils.dnew' imported but unused
+src/ofjustpy/htmlcomponents.py:14: [F401] 'py_tailwind_utils.dupdate' imported but unused
+src/ofjustpy/htmlcomponents.py:15: [F401] 'py_tailwind_utils.flx' imported but unused
+src/ofjustpy/htmlcomponents.py:16: [F401] 'py_tailwind_utils.H' imported but unused
+src/ofjustpy/htmlcomponents.py:17: [F401] 'py_tailwind_utils.jc' imported but unused
+src/ofjustpy/htmlcomponents.py:18: [F401] 'py_tailwind_utils.screen' imported but unused
+src/ofjustpy/htmlcomponents.py:25: [F401] '.htmlcomponents_impl.MutableShell_CSMixin' imported but unused
+src/ofjustpy/htmlcomponents.py:36: [F401] '.MHC_types.HCCMutable' imported but unused
+src/ofjustpy/htmlcomponents.py:47: [F401] '.ui_styles.basesty' imported but unused
+src/ofjustpy/htmlcomponents.py:111: [E501] line too long (81 > 79 characters)
+src/ofjustpy/htmlcomponents_impl.py:7: [F403] 'from py_tailwind_utils import *' used; unable to detect undefined names
+src/ofjustpy/htmlcomponents_impl.py:46: [E501] line too long (82 > 79 characters)
+src/ofjustpy/icons.py:5: [E501] line too long (132 > 79 characters)
+src/ofjustpy/icons.py:6: [E501] line too long (562 > 79 characters)
+src/ofjustpy/icons.py:7: [E501] line too long (111 > 79 characters)
+src/ofjustpy/icons.py:13: [E501] line too long (128 > 79 characters)
+src/ofjustpy/icons.py:14: [E501] line too long (102 > 79 characters)
+src/ofjustpy/icons.py:20: [E501] line too long (145 > 79 characters)
+src/ofjustpy/icons.py:27: [F841] local variable 'minus_icon_svg' is assigned to but never used
+src/ofjustpy/icons.py:27: [E501] line too long (134 > 79 characters)
+src/ofjustpy/icons.py:28: [E501] line too long (87 > 79 characters)
+src/ofjustpy/monalwikisty.py:2: [F403] 'from py_tailwind_utils import *' used; unable to detect undefined names
+src/ofjustpy/monalwikisty.py:6: [E501] line too long (81 > 79 characters)
+src/ofjustpy/monalwikisty.py:8: [E501] line too long (84 > 79 characters)
+src/ofjustpy/monalwikisty.py:193: [E501] line too long (86 > 79 characters)
+src/ofjustpy/monalwikisty.py:223: [E265] block comment should start with '# '
+src/ofjustpy/monalwikisty.py:229: [E501] line too long (80 > 79 characters)
+src/ofjustpy/monalwikisty.py:236: [E501] line too long (80 > 79 characters)
+src/ofjustpy/ofjustpy_utils.py:3: [F403] 'from py_tailwind_utils import *' used; unable to detect undefined names
+src/ofjustpy/ofjustpy_utils.py:118: [F841] local variable 'SECRET_KEY' is assigned to but never used
+src/ofjustpy/ofjustpy_utils.py:120: [F841] local variable 'csrf_secret' is assigned to but never used
+src/ofjustpy/snowsty.py:2: [F403] 'from py_tailwind_utils import *' used; unable to detect undefined names
+src/ofjustpy/snowsty.py:6: [E501] line too long (86 > 79 characters)
+src/ofjustpy/snowsty.py:8: [E501] line too long (86 > 79 characters)
+src/ofjustpy/snowsty.py:10: [E501] line too long (85 > 79 characters)
+src/ofjustpy/snowsty.py:12: [E501] line too long (85 > 79 characters)
+src/ofjustpy/snowsty.py:14: [E501] line too long (85 > 79 characters)
+src/ofjustpy/snowsty.py:204: [E501] line too long (86 > 79 characters)
+src/ofjustpy/snowsty.py:234: [E265] block comment should start with '# '
+src/ofjustpy/snowsty.py:240: [E501] line too long (80 > 79 characters)
+src/ofjustpy/snowsty.py:247: [E501] line too long (80 > 79 characters)
+src/ofjustpy/tracker.py:8: [F401] 'json' imported but unused
+src/ofjustpy/tracker.py:11: [F401] 'traceback' imported but unused
+src/ofjustpy/tracker.py:12: [F401] 'typing' imported but unused
+src/ofjustpy/tracker.py:13: [F401] 'itertools.tee' imported but unused
+src/ofjustpy/tracker.py:14: [F401] 'typing.get_type_hints' imported but unused
+src/ofjustpy/tracker.py:16: [F401] 'typing.Any' imported but unused
+src/ofjustpy/tracker.py:16: [F401] 'typing.NamedTuple' imported but unused
+src/ofjustpy/tracker.py:19: [F401] 'cachetools' imported but unused
+src/ofjustpy/tracker.py:84: [E501] line too long (88 > 79 characters)
+src/ofjustpy/tracker.py:88: [E501] line too long (146 > 79 characters)
+src/ofjustpy/tracker.py:121: [E501] line too long (116 > 79 characters)
+src/ofjustpy/tracker.py:129: [F811] redefinition of unused 'traceback' from line 11
+src/ofjustpy/ui_styles.py:3: [F401] '.basesty' imported but unused
+src/ofjustpy/unsty.py:1: [F403] 'from py_tailwind_utils import *' used; unable to detect undefined names
+src/ofjustpy/unsty.py:129: [E501] line too long (80 > 79 characters)
+src/ofjustpy/unsty.py:136: [E501] line too long (80 > 79 characters)
+src/ofjustpy/versasty.py:2: [F403] 'from py_tailwind_utils import *' used; unable to detect undefined names
+src/ofjustpy/versasty.py:6: [E501] line too long (81 > 79 characters)
+src/ofjustpy/versasty.py:8: [E501] line too long (84 > 79 characters)
+src/ofjustpy/versasty.py:93: [E501] line too long (82 > 79 characters)
+src/ofjustpy/versasty.py:181: [E501] line too long (86 > 79 characters)
+src/ofjustpy/versasty.py:216: [E501] line too long (80 > 79 characters)
+src/ofjustpy/versasty.py:223: [E501] line too long (80 > 79 characters)
+2     C901 'gen_WebPage_type' is too complex (15)
+2     E265 block comment should start with '# '
+15    E402 module level import not at top of file
+91    E501 line too long (85 > 79 characters)
+65    F401 'typing.Any' imported but unused
+8     F403 'from py_tailwind_utils import *' used; unable to detect undefined names
+1     F541 f-string is missing placeholders
+3     F811 redefinition of unused 'db' from line 8
+1     F821 undefined name 'models_pymodule'
+4     F841 local variable 'e' is assigned to but never used
+1     W291 trailing whitespace
