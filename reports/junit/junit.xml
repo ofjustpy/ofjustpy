@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="6" failures="0" skipped="0" tests="6" time="38.980" timestamp="2023-08-23T11:20:45.644002" hostname="cluster-node2"><testcase classname="tests.test_selenium" name="test_test1" time="6.020"><error message="failed on setup with &quot;SystemExit&quot;">@pytest.fixture(scope="session", autouse=True)
+    def session_setup():
+        server_port =  9324
+        # ======== test setup; start browser + page loader service =======
+    
+        os.system(f"""
+        python3 browser_page_loader_service.py {server_port} &gt; browser_page_loader_service.out 2&gt; browser_page_loader_service.err&amp;
+        """)
+        time.sleep(6)
+    
+        retry_counter = 0
+        while True:
+            try:
+                conn = rpyc.connect("localhost", server_port)
+                break
+            except Exception as e:
+                retry_counter += 1
+                pass
+            if retry_counter == 6:
+                print ("unable to setup test")
+&gt;               sys.exit()
+E               SystemExit
+
+tests/test_selenium.py:79: SystemExit</error></testcase><testcase classname="tests.test_selenium" name="test_components_part1" time="6.013"><error message="failed on setup with &quot;SystemExit&quot;">@pytest.fixture(scope="session", autouse=True)
+    def session_setup():
+        server_port =  9324
+        # ======== test setup; start browser + page loader service =======
+    
+        os.system(f"""
+        python3 browser_page_loader_service.py {server_port} &gt; browser_page_loader_service.out 2&gt; browser_page_loader_service.err&amp;
+        """)
+        time.sleep(6)
+    
+        retry_counter = 0
+        while True:
+            try:
+                conn = rpyc.connect("localhost", server_port)
+                break
+            except Exception as e:
+                retry_counter += 1
+                pass
+            if retry_counter == 6:
+                print ("unable to setup test")
+&gt;               sys.exit()
+E               SystemExit
+
+tests/test_selenium.py:79: SystemExit</error></testcase><testcase classname="tests.test_selenium" name="test_components_part2" time="6.019"><error message="failed on setup with &quot;SystemExit&quot;">@pytest.fixture(scope="session", autouse=True)
+    def session_setup():
+        server_port =  9324
+        # ======== test setup; start browser + page loader service =======
+    
+        os.system(f"""
+        python3 browser_page_loader_service.py {server_port} &gt; browser_page_loader_service.out 2&gt; browser_page_loader_service.err&amp;
+        """)
+        time.sleep(6)
+    
+        retry_counter = 0
+        while True:
+            try:
+                conn = rpyc.connect("localhost", server_port)
+                break
+            except Exception as e:
+                retry_counter += 1
+                pass
+            if retry_counter == 6:
+                print ("unable to setup test")
+&gt;               sys.exit()
+E               SystemExit
+
+tests/test_selenium.py:79: SystemExit</error></testcase><testcase classname="tests.test_selenium" name="test_labeled_input" time="6.015"><error message="failed on setup with &quot;SystemExit&quot;">@pytest.fixture(scope="session", autouse=True)
+    def session_setup():
+        server_port =  9324
+        # ======== test setup; start browser + page loader service =======
+    
+        os.system(f"""
+        python3 browser_page_loader_service.py {server_port} &gt; browser_page_loader_service.out 2&gt; browser_page_loader_service.err&amp;
+        """)
+        time.sleep(6)
+    
+        retry_counter = 0
+        while True:
+            try:
+                conn = rpyc.connect("localhost", server_port)
+                break
+            except Exception as e:
+                retry_counter += 1
+                pass
+            if retry_counter == 6:
+                print ("unable to setup test")
+&gt;               sys.exit()
+E               SystemExit
+
+tests/test_selenium.py:79: SystemExit</error></testcase><testcase classname="tests.test_selenium" name="test_labeled_checkbox_view" time="6.016"><error message="failed on setup with &quot;SystemExit&quot;">@pytest.fixture(scope="session", autouse=True)
+    def session_setup():
+        server_port =  9324
+        # ======== test setup; start browser + page loader service =======
+    
+        os.system(f"""
+        python3 browser_page_loader_service.py {server_port} &gt; browser_page_loader_service.out 2&gt; browser_page_loader_service.err&amp;
+        """)
+        time.sleep(6)
+    
+        retry_counter = 0
+        while True:
+            try:
+                conn = rpyc.connect("localhost", server_port)
+                break
+            except Exception as e:
+                retry_counter += 1
+                pass
+            if retry_counter == 6:
+                print ("unable to setup test")
+&gt;               sys.exit()
+E               SystemExit
+
+tests/test_selenium.py:79: SystemExit</error></testcase><testcase classname="tests.test_selenium" name="test_subheading_banner_view" time="6.020"><error message="failed on setup with &quot;SystemExit&quot;">@pytest.fixture(scope="session", autouse=True)
+    def session_setup():
+        server_port =  9324
+        # ======== test setup; start browser + page loader service =======
+    
+        os.system(f"""
+        python3 browser_page_loader_service.py {server_port} &gt; browser_page_loader_service.out 2&gt; browser_page_loader_service.err&amp;
+        """)
+        time.sleep(6)
+    
+        retry_counter = 0
+        while True:
+            try:
+                conn = rpyc.connect("localhost", server_port)
+                break
+            except Exception as e:
+                retry_counter += 1
+                pass
+            if retry_counter == 6:
+                print ("unable to setup test")
+&gt;               sys.exit()
+E               SystemExit
+
+tests/test_selenium.py:79: SystemExit</error></testcase></testsuite></testsuites>

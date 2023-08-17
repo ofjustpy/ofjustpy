@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+wtforms = "*"
+email-validator = "*"
+aenum = "*"
+jinja2 = "*"
+addict = "*"
+cachetools = "*"
+rpyc = "*"
+function-pipes = "*"
+selenium = "*"
+bs4 = "*"
+ofjustpy-engine = "==1.0.9"
+
+[dev-packages]
+
+[requires]
+python_version = "3.11"
