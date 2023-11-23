@@ -1,7 +1,7 @@
 """
 A webdev framework that enables development of full-stack webpages and app purely in Python
 """
-__version__ = "1.0.5"
+__version__ = "1.1.1"
 import logging
 
 logger = logging.getLogger(__name__)
@@ -125,7 +125,9 @@ def create_endpoint_impl(wp_template):
 
 
 def default_page_builder(key=None, childs=[], **kwargs):
-    return Mutable.WebPage(
+    # by default we perform client side rendering
+    # its more powerful -- incorporates svelte components
+    return Mutable.ResponsiveStatic_CSR_WebPage(
         key=key,
         childs=childs,
         cookie_state_attr_names=aci.the_starlette_app.cookie_state_attr_names,
@@ -182,7 +184,7 @@ def href_builder_factory(route_name):
         # it seems we are getting
         # assert url.startswith("http")
         Acomp_ref.href = str(url)  # "https" + url[4:]
-
+        print ("updating href = ", str(url), " ", Acomp_ref.to_html())
         # Acomp_ref.href = url
 
     return href_updater

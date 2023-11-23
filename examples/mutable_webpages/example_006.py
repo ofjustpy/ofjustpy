@@ -6,6 +6,7 @@ drop down color not working in firefox
 from py_tailwind_utils import bg, blue, bd, bdr, gray, H, W, full, pd, space, y
 import ofjustpy as oj
 
+app = oj.load_app()
 def on_slider_click(dbref, msg, to_target):
     print ("Slider Value changed ")
     print (msg)
@@ -26,4 +27,4 @@ wp_endpoint = oj.create_endpoint(key="example_006",
                                  )
 
 oj.add_jproute("/", wp_endpoint)
-app = oj.load_app()
+

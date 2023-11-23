@@ -181,9 +181,24 @@ StaticCoreBaseMixin
 Mutable Div Type Factory
 +++++++++++++++++++++++++
 
-is_self_mutable, is_child_mutable
-HCCMutable
-..........
+HCCStatic: 
+.............
+
+is_self_mutable=True,
+is_child_mutable=False
+
+core_mixins
+ - HCCMixin_StaticChilds
+ - StaticCoreSharer_HCCStaticMixin
+   
+shell_mixins:
+ - RenderHTML_HCCStaticChildsMixin
+ 
+
+
+HCCMutable: 
+.............
+
 is_self_mutable=False,
 is_child_mutable=True
  

@@ -14,7 +14,7 @@ rpyc = "*"
 function-pipes = "*"
 selenium = "*"
 bs4 = "*"
-ofjustpy-engine = "==1.0.9"
+ofjustpy-engine = "==1.1.2"
 
 [dev-packages]
 

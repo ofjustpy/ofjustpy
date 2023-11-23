@@ -65,7 +65,7 @@ def gen_Div_type(
             hc_type = SCmixin.staticClassTypeGen(
                 hc_tag,
                 tagtype=hctype_mixin,
-                hccMixinType=SCmixin.HCCMixin,
+                hccMixinType=SCmixin.HCCActiveMixin,
                 jsonMixinType=SCmixin.HCCJsonMixin,
                 make_container=True,
                 attach_event_handling=True,
@@ -155,7 +155,7 @@ def gen_Div_type(
 
             return WithStub
 
-        case HCType.hcc_static_div:  # implies div is css mutable and contains mutable children
+        case HCType.hcc_static_div:  # implies div's css mutable and contains mutable children
             static_core_mixins.append(TR.SvelteSafelistMixin)
             core_hc_type, mutable_shell_type = mutableClassTypeGen(
                 hc_tag=hc_tag,

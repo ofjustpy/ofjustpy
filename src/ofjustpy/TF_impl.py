@@ -80,6 +80,7 @@ class Stub_HCStatic(StubTag):
 
         if not self.target.obj_json:
             self.target.build_json()
+
         return self.target
 
     
@@ -134,7 +135,8 @@ class Stub_DivPassive(Stub_HCPassive):
 
     def register_childrens(self):
         self.target.add_register_childs()
-
+        # all the childs have been added
+        
         # for achild in self.target.components:
         #     #call the child stubs -- so that
         #     #active childs can be registered
@@ -197,9 +199,7 @@ class Stub_DivActive(Stub_HCActive):
 
     def register_childrens(self):
         """
-        invoke the stub of the childrens so
-        that their json can be build and active
-        components be registered
+        active divs register their children post id assignment
         """
         self.target.add_register_childs()
 
@@ -229,6 +229,7 @@ def gen_Stub_HCActive(target, **kwargs):
     components, they need to be assigned an id
     """
     target.request_callback(kwargs.get("session_manager"))
+    # id has been assigned we can render html now
     return Stub_HCActive(target=target, **kwargs)
 
 @trackStub
@@ -250,6 +251,7 @@ def gen_Stub_HCCMutable(*args, **kwargs):
     since events are associated with the
     components, they need to be assigned an id
     """
+    #kwargs.get("staticCore").prepare_htmlRender()
     return Stub_HCCMutable(*args, **kwargs
                         
                     )
@@ -266,8 +268,8 @@ class Stub_HCMutable:
 
     def __call__(self, a):
         self.target = self.mutableShell_type(**self.kwargs, a=a)
-        assert self.target.id
         self.target.build_json()
+        
         return self.target
 
     @classmethod
@@ -302,7 +304,7 @@ class Stub_HCMutable:
 
 # ================================ end ===============================
 
-
+# TODO: need to refactor all the Stub 
 class Stub_DivMutable:
     """
     childs are  mutable.
@@ -358,6 +360,18 @@ class Stub_DivMutable:
     def svelte_safelist(self):
         return self.kwargs.get('staticCore').svelte_safelist
 
+class Stub_HCCStatic(Stub_DivMutable):
+    """
+    add_register_childs is called by the 
+    """
+    def __call__(self, a, attach_to_parent=True):
+        # create the component
+        # no key/id for HCC mutable
+        self.target = self.mutableShell_type(**self.kwargs, a=a)
+        self.target.build_json()
+
+        return self.target
+    
     
 class Stub_HCCMutable:
     """

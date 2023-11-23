@@ -16,7 +16,9 @@ from ofjustpy_engine.WebPage_type_mixin import WebPageMixin
 from ofjustpy_engine.jpcore import jpconfig
 from .TF_impl import gen_Stub_WebPage
 from .tracker import trackStub
-
+from .generate_WebPage_response_mixin import (ResponsiveStatic_SSR_ResponseMixin,
+                                              ResponsiveStatic_CSR_ResponseMixin
+                                              )
 
 class EventMixin(TR.EventMixinBase):
     allowed_events = [
@@ -220,13 +222,39 @@ class StaticCoreSharerMixin:
     def get_event_handler(self, event_type):
         return self.staticCore.event_handlers[event_type]
 
+class RenderHTML_HCCMutableChildsMixin:
+    attr_tracked_keys = []
+    domDict_tracked_keys = []
+    def __init__(self, *args, **kwargs):
+        pass
 
-def gen_WebPage_type(staticCoreMixins=[], mutableShellMixins=[]):
+    def to_html_iter(self):
+        # yield f'''{self.staticCore.htmlRender_chunk1}'''
+        # yield f''' {" ".join(self.htmlRender_attr)}{self.staticCore.htmlRender_chunk2}{"".join(self.htmlRender_body)}'''
+        
+        for c in self.components:
+             yield from c.to_html_iter()
+        #yield f'''{self.staticCore.htmlRender_chunk3}'''
+
+
+# going from         staticCoreMixins=[] to staticCoreMixins=None because
+# As you can see in the example, modifying the default value of a mutable parameter (mutableShellMixins in this case) will affect subsequent calls to the function that do not provide an explicit value for that parameter.
+
+
+def gen_WebPage_type(staticCoreMixins=None,
+                     mutableShellMixins=None,
+                     generate_WebPage_response_mixin=ResponsiveStatic_CSR_ResponseMixin):
+    if staticCoreMixins is None:
+        staticCoreMixins = []
+    if mutableShellMixins is None:
+        mutableShellMixins = []
+        
     if jpconfig.USE_COOKIE_MIDDLEWARE:
         mutableShellMixins.append(CookieMixin)
-
+    mutableShellMixins.append(RenderHTML_HCCMutableChildsMixin)
+    mutableShellMixins.append(generate_WebPage_response_mixin)
     class WebPage_MutableShell(
-        WebPageMixin, HCCMutable_Mixin, StaticCoreSharerMixin, *mutableShellMixins
+            WebPageMixin, HCCMutable_Mixin, StaticCoreSharerMixin,  *mutableShellMixins
     ):
         def __init__(self, *args, **kwargs):
             # should be part StaticCoreSharerBaseMixin:
@@ -286,13 +314,20 @@ def gen_WebPage_type(staticCoreMixins=[], mutableShellMixins=[]):
         # that introduce new twtags.. they need to go here
         svelte_safelist = []
         def __init__(self, *args, **kwargs):
-            HCCMutableCore.__init__(self, **kwargs)
+
             self.key = kwargs.get("key")
-            self.id = None
-            for _ in staticCoreMixins:
-                _.__init__(self, *args, **kwargs)
+
             self.kwargs = kwargs
             self.args = args
+            self.domDict = Dict()
+            self.attrs = Dict()
+            self.htmlRender_attr = []
+            self.htmlRender_body = []
+            self.id = None
+
+            for _ in staticCoreMixins:
+                _.__init__(self, *args, **kwargs)
+            HCCMutableCore.__init__(self, **kwargs)
 
         def stub(self):
             return gen_Stub_WebPage(WebPage_MutableShell,
@@ -300,8 +335,18 @@ def gen_WebPage_type(staticCoreMixins=[], mutableShellMixins=[]):
                                     staticCore=self,
                                     **self.kwargs
                                     )
+        def post_id_assign_callback(self):
+            pass
+        # def prepare_htmlRender(self):
+        #     self.htmlRender_chunk1 = f'''<{self.html_tag} {" ".join(self.htmlRender_attr)}'''
+        #     self.htmlRender_chunk2 = f'''>{"".join(self.htmlRender_body)}'''
+        #     self.htmlRender_chunk3 = f'''</{self.html_tag}>'''
+            
+        #     pass
 
     return WebPage_StaticCore
 
 
-WebPage = gen_WebPage_type()
+ResponsiveStatic_SSR_WebPage = gen_WebPage_type(generate_WebPage_response_mixin = ResponsiveStatic_SSR_ResponseMixin)
+ResponsiveStatic_CSR_WebPage = gen_WebPage_type(generate_WebPage_response_mixin = ResponsiveStatic_CSR_ResponseMixin)
+

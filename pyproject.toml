@@ -35,7 +35,7 @@ dependencies = ["addict==2.4.0",
 "cachetools==5.3.1; python_version >= '3.7'",
 "email-validator==2.0.0.post2; python_version >= '3.7'",
 "function-pipes==0.1.2; python_version >= '3.8' and python_version < '4.0'",
-"ofjustpy-engine==1.0.9; python_version >= '3.11'",
+"ofjustpy-engine==1.1.2; python_version >= '3.11'",
 "rpyc==5.3.1; python_version >= '3.7'",
 "selenium==4.11.2; python_version >= '3.7'",
 "wtforms==3.0.1; python_version >= '3.7'"

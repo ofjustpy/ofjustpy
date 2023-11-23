@@ -248,3 +248,134 @@ a websocket connection
 
 
    
+Working with composed components
++++++++++++++++++++++++++++++++++
+
+Mutable.ColorSelector
+......................
+- should have on_change event handler
+- will hook into this event
+
+
+
+Route and Mounts
++++++++++++++++++
+If a Mount includes a name, then submounts should use a {prefix}:{name} style for reverse URL lookups.
+
+.. code-block:: python
+
+   routes = [
+       Mount("/users", name="users", routes=[
+	   Route("/", user, name="user_list"),
+	   Route("/{username}", user, name="user_detail")
+       ])
+   ]
+
+.. code-block:: python
+
+   # We can use the following to return URLs...
+   url = request.url_for("users:user_list")
+   url = request.url_for("users:user_detail", username=...)
+
+
+Mounted applications may include a path=... parameter
+
+.. code-block:: python
+  routes = [
+    ...
+    Mount("/static", app=StaticFiles(directory="static"), name="static")
+]
+
+In the above StaticFiles is a mounted app.
+
+url_for is used as follows with path parameter:
+.. code-block:: python
+
+  request.url_for("static", path="/test_mount_url_for.py")
+
+While request.url_for uses "x:y:z" approach for y mounted x under z
+url_path_for uses something else: <-- we are ready to roll
+admin_url = app.url_path_for('admin', path="/admin_home")
+A element href updater
+++++++++++++++++++++++
+- when a stub is generated, a callback is issued
+  .. code-block:: python  
+		  target.request_callback(kwargs.get("session_manager"))
+
+- For A element, a mixin is created with request_callback
+  which has href_builder
+  which update the href
+The updater can be obtained from
+oj.href_builder_factory("/hello"),
+  
+- the endpoint key is used as the name label for the route   
+
+
+Optimization on hosted applications
+++++++++++++++++++++++++++++++++++++
+
+instead of url_for; use URL scheme
+at startup_event
+
+.. code-block:: python
+		
+
+		from starlette.applications import Starlette
+		from starlette.responses import JSONResponse
+		from starlette.routing import Route
+		from starlette.datastructures import URL
+
+		async def startup_event():
+		# Configuration tasks go here
+		print("Configuring parameters after the domain is fixed")
+
+		# Example: Build a URL manually
+		base_url = URL(scheme="http", host="example.com", port=8000)
+		api_url = base_url.replace(path="/api")
+		print(f"API URL: {api_url}")
+
+		async def homepage(request):
+		return JSONResponse({'message': 'Hello, Starlette!'})
+
+		app = Starlette(routes=[Route('/', homepage)])
+
+		# Register the startup event
+		app.add_event_handler('startup', startup_event)
+
+		if __name__ == "__main__":
+		import uvicorn
+
+		uvicorn.run(app, host="127.0.0.1", port=8000)
+
+		
+On to_html, prepare_htmlRender: Early optimization is source of all  evil
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+We can't precompute htmlrender even for passiveDivs and PassiveHCs because
+of oj.AC.A whose href is updated upon incoming request object.
+
+Solution 1:
+.........
+Let this be as it is. Wrap the get_responses_for_load_page into a
+cache/opt. stuff which keeps the rendered html and reuses it for
+rest of the components.
+
+Solution 2:
+............
+Somehow fix url_path_for and use base_url. This is by far the best approach if works.
+
+
+Solution 3:
+...........
+
+Final approach:
+...............
+All htmlcomponents types do not precompute htmlRender.
+We didn't need to write separate style of htmlRender for
+each one of them.
+The code would also would have been much simpler.
+
+
+Git repo and branches
+++++++++++++++++++++++
+ofjustpy_engine/no_precompute_htmlRender : The main branch use partial precompute.
+If any glitch or bug is seen, quickly more to this branch.

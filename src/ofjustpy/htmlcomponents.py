@@ -51,7 +51,7 @@ from .SHC_types import ActiveComponents as AC
 from .SHC_types import PassiveComponents
 from .static_core_tracker import uictx
 from .ui_styles import sty
-from .WebPage_TF import WebPage
+from .WebPage_TF import ResponsiveStatic_SSR_WebPage, ResponsiveStatic_CSR_WebPage
 
 
 class ActiveComponents:
@@ -142,7 +142,7 @@ class Mutable:
                     key="mcs",
                     on_change=lambda *args, cs_core=self: on_mcs_change(
                         *args, cs_core=cs_core
-                    ),
+                    )                    
                 )
 
                 self.scs = Mutable.Slider(
@@ -156,10 +156,12 @@ class Mutable:
             childs = [self.mcs, self.scs]
 
             super().__init__(
-                *args, **kwargs, childs=childs, event_prehook=CS_event_prehook
+                *args, **kwargs, childs=childs,
+                event_prehook=CS_event_prehook
             )
 
     ColorSelector = assign_id(ColorSelector)
     Slider = assign_id(Slider)
-    WebPage = assign_id(WebPage)
+    ResponsiveStatic_SSR_WebPage = assign_id(ResponsiveStatic_SSR_WebPage)
+    ResponsiveStatic_CSR_WebPage = assign_id(ResponsiveStatic_CSR_WebPage)
     Form = assign_id(MForm)

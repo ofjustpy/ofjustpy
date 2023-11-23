@@ -125,7 +125,7 @@ JsonMixin
 HCCMixin
   HCCMixin
   HCCPassiveMixin
-
+  HCCActiveMixin
 
   
 IdMixin Class
@@ -182,7 +182,7 @@ Active Div Type
 ^^^^^^^^^^^^^^^^
 - StaticCore
 - jsonMixinType == HCCJsonMixin
-- hccMixinType == HCCMixin
+- hccMixinType == HCCPassiveMixin
 - TR.EventMixin
 - KeyMixin
 - TR.IdMixin
@@ -212,3 +212,30 @@ Sharer: StaticCoreSharer_BaseMixin,
         StaticCoreSharer_EventMixin
 	HCTextSharerMixin
 	
+
+build_renderHTML logic
+''''''''''''''''''''''
+within Stub_HCPassive.__call__  -- after register_childrens build_renderHtml is called
+covers calls for HCPassive, DivPassive
+
+within Stub_HCActive.__call__  -- after register_childrens build_renderHtml is called
+covers calls for DivActive
+
+
+
+
+renderHtml design/arch
+''''''''''''''''''''''
+- staticCore has prepare_htmlRender
+- is called by gen_Stub_X
+- provides chunk1, chunk3
+
+- mutableShell.to_html_iter
+  uses chunk1, chunk2 etc. to piece together html
+
+
+DivMutable  RenderHTML_HCCMutableChildsMixin  
+DivHCCMutable RenderHTML_HCCMutableChildsMixin  
+DivHCCStatic  HCCMixin_StaticChilds, RenderHTML_HCCStaticChildsMixin
+
+.HCCPassiveMixin

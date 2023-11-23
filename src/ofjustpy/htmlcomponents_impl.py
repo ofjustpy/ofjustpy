@@ -111,9 +111,11 @@ def on_mcs_change(dbref, msg, target_of, cs_core=None):
     """
     the select drop down
     """
+    print ("==>Main Selector change called")
     cs_shell = target_of(cs_core)
     cs_shell.mcs_value = msg.value
     cs_shell.component_clicked = "mcs"
+    
     pass
 
 
@@ -130,6 +132,7 @@ def on_scs_click(dbref, msg, target_of, cs_core=None):
 
 def CS_event_prehook(on_event_callback):
     def hook(cs_shell, msg, target_of):
+        print("=======> CS-prehook called ")
         if cs_shell.component_clicked == "mcs":
             cs_shell.update_slider(cs_shell.mcs_value)
 

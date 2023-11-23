@@ -209,7 +209,7 @@ class ActiveComponents:
         HCType.active,
         "Span",
         TR.SpanMixin,
-        stytags_getter_func=lambda m=ui_styles: m.sty.button,
+        stytags_getter_func=lambda m=ui_styles: m.sty.span,
     )
 
     Button = gen_HC_type(
@@ -265,9 +265,10 @@ class ActiveComponents:
         stytags_getter_func=lambda m=ui_styles: m.sty.input,
     )
     Div = gen_Div_type(HCType.active, hc_tag="ActiveDiv")
-    StackH = gen_Div_type(
-        stytags_getter_func=lambda m=ui_styles: m.sty.stackh, hc_tag="AStackH"
-    )
+    StackH = gen_Div_type(HCType.active,
+                          stytags_getter_func=lambda m=ui_styles: m.sty.stackh,
+                          hc_tag="AStackH"
+                          )
     Select = gen_Div_type(
         HCType.active,
         "Select",

@@ -45,6 +45,8 @@ def id_assigner(func):
         id = uictx._currSpath + the_comp.key
         the_comp.id = id
         curr_hierarchy_tracker[the_comp.key] = the_comp
+        the_comp.post_id_assign_callback()
+        
         return the_comp
 
     return wrapper
