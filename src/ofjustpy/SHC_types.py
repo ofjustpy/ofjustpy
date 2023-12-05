@@ -2,17 +2,18 @@
  Static (Passive and active) types generated using Stub_HC_TF
 """
 from ofjustpy_engine import HC_Div_type_mixins as TR
-
+from ofjustpy_engine.HCType import HCType
 from .composed_SHC import generator as HC_generator
 from .Div_TF import gen_Div_type
 from .HC_TF import gen_HC_type
-from .HC_TF import HCType
+
 from .ofjustpy_utils import traverse_component_hierarchy
 from .ui_styles import sty
 from . import ui_styles
 
 
 class PassiveComponents:
+
     Label = gen_HC_type(
         HCType.passive,
         "Label",
@@ -190,6 +191,26 @@ class PassiveComponents:
         stytags_getter_func=lambda m=ui_styles: m.sty.footer,
     )
 
+    Tr = gen_Div_type(
+        HCType.passive,
+        "Tr",
+        TR.TrMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.tr,
+    )
+    Table = gen_Div_type(
+        HCType.passive,
+        "Table",
+        TR.TableMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.table,
+    )
+    Td = gen_Div_type(
+        HCType.passive,
+        "Td",
+        TR.TdMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.td,
+    )
+    
+    
     (
         Halign,
         Valign,

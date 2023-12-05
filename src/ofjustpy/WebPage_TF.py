@@ -14,8 +14,8 @@ from addict_tracking_changes import Dict
 from ofjustpy_engine import HC_Div_type_mixins as TR
 from ofjustpy_engine.WebPage_type_mixin import WebPageMixin
 from ofjustpy_engine.jpcore import jpconfig
-from .TF_impl import gen_Stub_WebPage
-from .tracker import trackStub
+from ofjustpy_engine.TF_impl import gen_Stub_WebPage
+
 from .generate_WebPage_response_mixin import (ResponsiveStatic_SSR_ResponseMixin,
                                               ResponsiveStatic_CSR_ResponseMixin
                                               )
@@ -266,10 +266,22 @@ def gen_WebPage_type(staticCoreMixins=None,
             for _ in mutableShellMixins:
                 _.__init__(self, *args, **kwargs)
 
+        def post_init(self, **kwargs):
+            """
+            invoke the post_init callback once the function is initialized. 
+            """
+            if self.staticCore.post_init:
+                self.staticCore.post_init(**kwargs)
+                
+            
         def react(self):
             # Not sure what the purpose of this is
             pass
 
+        def add_twsty_tags(self, *args):
+            # page-style-editor tries to update the webpage classes
+            #
+            pass
         @property
         def id(self):
             return self.staticCore.id
@@ -316,7 +328,7 @@ def gen_WebPage_type(staticCoreMixins=None,
         def __init__(self, *args, **kwargs):
 
             self.key = kwargs.get("key")
-
+            self.post_init = kwargs.get("post_init", None)
             self.kwargs = kwargs
             self.args = args
             self.domDict = Dict()

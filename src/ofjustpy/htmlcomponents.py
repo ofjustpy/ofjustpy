@@ -23,6 +23,7 @@ from py_tailwind_utils import (outline,
                                black,
                                outline,
                                )
+from ofjustpy_engine.static_core_tracker import uictx
 
 from .htmlcomponents_impl import assign_id
 from .htmlcomponents_impl import CS_event_prehook
@@ -49,7 +50,7 @@ from .MHC_types import StackV as MStackV
 from .MHC_types import TextInput as MTextInput
 from .SHC_types import ActiveComponents as AC
 from .SHC_types import PassiveComponents
-from .static_core_tracker import uictx
+
 from .ui_styles import sty
 from .WebPage_TF import ResponsiveStatic_SSR_WebPage, ResponsiveStatic_CSR_WebPage
 
@@ -145,6 +146,7 @@ class Mutable:
                     )                    
                 )
 
+                self
                 self.scs = Mutable.Slider(
                     key="scs",
                     num_iter=range(1, 10),

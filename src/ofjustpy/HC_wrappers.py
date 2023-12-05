@@ -89,7 +89,7 @@ def WithBanner(
         case "mutable":
             return HCCMutable.StackH(
                 childs=[
-                    PC.Valign(PC.Span(text=banner_text), height_tag=cc / noop),
+                    PC.Valign(PC.Span(text=banner_text), height_tag=H/8),
                     content,
                 ],
                 twsty_tags=twsty_tags,

@@ -199,7 +199,7 @@ class ResponsiveStatic_CSR_ResponseMixin:
         <html>
         <head>
         <base href={base_url}>
-        <link href="/static/style.css" rel="stylesheet" type="text/css">
+        <script src="https://cdn.tailwindcss.com"></script> 
         <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js" async></script>
         <script src="/templates/js/svelte/bundle.iife.js"></script>
         {head_html}

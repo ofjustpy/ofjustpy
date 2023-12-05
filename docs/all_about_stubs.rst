@@ -26,6 +26,15 @@ now tracking gen_stub for
 - DivPassive
    
 
+is_static
+.........
+is_static is used in two places
+
+1. mutable components do not register static components in their spath
+2. Same thing with WebPage.
+   
+   
+  
 Design Gotcha
 ..............
 - For passive/active components

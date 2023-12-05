@@ -6,16 +6,16 @@ options for other mixins
 from ofjustpy_engine import HC_Div_type_mixins as TR
 from ofjustpy_engine import SHC_types_mixin as SCmixin
 from ofjustpy_engine.mutable_HC_TF import classTypeGen as mutableClassTypeGen
+from ofjustpy_engine.HCType import HCType
 from py_tailwind_utils import conc_twtags, tstr
 from . import ui_styles
 
-from .TF_impl import gen_Stub_HCActive
-from .TF_impl import gen_Stub_HCMutable
-from .TF_impl import gen_Stub_HCPassive
-from .TF_impl import HCType
-from .TF_impl import Stub_HCMutable
-from .TF_impl import Stub_HCPassive
-from .tracker import trackStub
+from ofjustpy_engine.TF_impl import gen_Stub_HCActive
+from ofjustpy_engine.TF_impl import gen_Stub_HCMutable
+from ofjustpy_engine.TF_impl import gen_Stub_HCPassive
+from ofjustpy_engine.TF_impl import Stub_HCMutable
+from ofjustpy_engine.TF_impl import Stub_HCPassive
+
 
 
 def gen_HC_type(

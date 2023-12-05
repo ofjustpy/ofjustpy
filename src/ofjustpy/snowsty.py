@@ -276,3 +276,8 @@ code = [bg / gray / 1]
 pre = [bg / gray / 1]
 collapsible = []
 chartjs = []
+
+table = []
+tr = [*variant(bg/gray/3, rv="odd"), *variant(bg/gray/2,  rv="even")]
+
+td = [pd/x/4, pd/y/2, bt.bd]

@@ -10,7 +10,8 @@ app = oj.load_app()
 
 def on_cs_click(dbref, msg, to_target):
     print ("color selector  changed : ", msg.value)
-    print (msg)
+    print ("the base color:", dbref.mcs_value)
+    print ("the color shade:", dbref.scs_value)
     
     pass
 

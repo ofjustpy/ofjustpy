@@ -5,10 +5,9 @@ and ColorSelector
 """
 from ofjustpy_engine import HC_Div_type_mixins as TR
 from py_tailwind_utils import *
-
+from ofjustpy_engine.HCType import HCType
 from .Div_TF import gen_Div_type
-from .HC_TF import HCType
-from .static_core_tracker import id_assigner
+from ofjustpy_engine.static_core_tracker import id_assigner
 
 
 def assign_id(hc_gen):
@@ -27,7 +26,6 @@ def assign_id(hc_gen):
 class MutableShell_SliderMixin:
     attr_tracked_keys = []
     domDict_tracked_keys = []
-
     def __init__(self, *args, **kwargs):
         self.selected_circle = None
 
@@ -78,6 +76,8 @@ class MutableShell_CSMixin:
         self.mcs_value = None
         self.scs_value = None
         self.cs_value = None
+        # at begining neither mcs, or scs are clicked
+        self.component_clicked = None
         pass
 
     def update_slider(self, colortag):
@@ -132,7 +132,7 @@ def on_scs_click(dbref, msg, target_of, cs_core=None):
 
 def CS_event_prehook(on_event_callback):
     def hook(cs_shell, msg, target_of):
-        print("=======> CS-prehook called ")
+
         if cs_shell.component_clicked == "mcs":
             cs_shell.update_slider(cs_shell.mcs_value)
 

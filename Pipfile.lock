@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "d9420694217fe2d381143e0f921b6e9ca81222244aa862b352a67135a7a1acf1"
+            "sha256": "d61c52551446a4c68ad2d38d56c1946dc83133e63d9f3239d9f30195ff5d53e7"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -256,12 +256,12 @@
         },
         "ofjustpy-engine": {
             "hashes": [
-                "sha256:b5e66e52e94afefc1a6364c2cf3c27bf3f0a20626a1084dec0d50ea90ddefdd0",
-                "sha256:e67a859ec21064e5e6d5879417a22a4d536fc87e983a9839ec52c72878336803"
+                "sha256:437d19ba3efa8d02a5a216ea0fa5e0de9537cdc6b77722ac6ab48b9731fc878d",
+                "sha256:f674ba7c5a199e5686a83aa14918f30a9759197511a7ffab3e357e36f4f48291"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.11'",
-            "version": "==1.1.2"
+            "version": "==1.1.3"
         },
         "oj-signing-middleware": {
             "hashes": [

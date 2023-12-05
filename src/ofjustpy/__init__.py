@@ -1,7 +1,7 @@
 """
 A webdev framework that enables development of full-stack webpages and app purely in Python
 """
-__version__ = "1.1.1"
+__version__ = "1.1.3"
 import logging
 
 logger = logging.getLogger(__name__)
@@ -92,9 +92,9 @@ def add_jproute(path, endpoint, **kwargs):
     pass
 
 
-from .static_core_tracker import uictx
+from ofjustpy_engine.static_core_tracker import uictx
 
-from .tracker import (
+from ofjustpy_engine.tracker import (
     get_session_manager,
     sessionctx,
     curr_session_manager,
@@ -117,6 +117,7 @@ def create_endpoint_impl(wp_template):
         with sessionctx(sm):
             wp_ = wp_template.stub()
             wp = wp_(request, *args, **kwargs)
+            wp.post_init(session_manager=sm)
             wp.to_json_optimized = True
         return wp
 

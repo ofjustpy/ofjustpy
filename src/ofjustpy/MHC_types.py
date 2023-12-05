@@ -28,7 +28,8 @@ from py_tailwind_utils import db, flx
 from ofjustpy_engine import HC_Div_type_mixins as TR
 from ofjustpy_engine import mutable_TF_impl as mutable_TF_mixins
 from . import ui_styles
-from .TF_impl import HCType
+from ofjustpy_engine.HCType import HCType
+
 from .HC_TF import gen_HC_type
 from .Div_TF import gen_Div_type
 from typing import List, AnyStr, Callable, Any

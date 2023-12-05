@@ -11,6 +11,8 @@
 [![GitHub stars](https://img.shields.io/github/stars/ofjustpy/addict-tracking-changes.svg)](https://github.com/ofjustpy/ofjustpy/stargazers)
 
 
+See live demo of a website build completely using ofjustpy at [https://ofjustpy.webworks.monallabs.in](https://ofjustpy.webworks.monallabs.in)
+
 # Ofjustpy: A Full-Stack Web Development Framework in Python
 
 **Features:**
@@ -35,14 +37,52 @@ websockets (for communication between browser and server), Starlette (the async 
 amd Tailwind (for layout and design). 
 
 ## Gallery 
-- See [examples](https://webworks.monallabs.in/examples/index) for a collection of 
+
+- See live demo of a website build completely using ofjustpy at [https://ofjustpy.webworks.monallabs.in](https://ofjustpy.webworks.monallabs.in)
+
+- See [examples](https://ofjustpy.webworks.monallabs.in/examples/index) for a collection of 
 basic tutorial examples of webpages build using ofjustpy. 
 
-- See [Basic capabilities demo](https://webworks.monallabs.in/demo_basic_capabilities) for 
+- See [Basic capabilities demo](https://ofjustpy.webworks.monallabs.in/demo_basic_capabilities) for 
 webpage showing basic html components 
 
-- See [Advanced capabilities demo](https://webworks.monallabs.in/demo_advanced_capabilities)
+- See [Advanced capabilities demo](https://ofjustpy.webworks.monallabs.in/demo_advanced_capabilities)
 for webpage illustrating advanced components (hierarchy navigator,  pagination) in action. 
+
+## Setup and running ofjustpy app
+
+1. Setup python environment and install ofjustpy
+```
+python3 -m venv venv
+./venv/bin/activate
+pip install ofjustpy
+```
+2. Download example codes
+```
+git clone https://github.com/ofjustpy/ofjustpy.git
+cd ofjustpy/examples/static_webpages
+```
+
+3. Configure via justpy.env  
+
+Create file `justpy.env` and add BASE_URL to the host machine ip or name as follows:
+```
+BASE_URL=http://192.168.0.105:8000/
+```
+
+4. Set env variable `OJ_APP_MODULE` to the file containing the oj app. 
+If in the `examples/static_webpages` directory, use:
+```
+export OJ_APP_MODULE="../the_app"
+```
+
+5. Launch uvicorn with host and port arguments
+```
+uvicorn --host 192.168.0.105 example_001:app
+```
+
+6. Running into problems?. Raise issue at https://github.com/ofjustpy/ofjustpy/issues
+
 
 ## Webpage programming using Ofjustpy
 The basic paradigm for building out webpages in Ofjustpy is straighforward:
