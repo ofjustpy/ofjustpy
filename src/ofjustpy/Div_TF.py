@@ -40,6 +40,7 @@ def gen_Div_type(
                 hccMixinType=SCmixin.HCCPassiveMixin,
                 jsonMixinType=SCmixin.HCCPassiveJsonMixin,
                 make_container=True,
+                addon_mixins = static_addon_mixins
             )
 
             class WithStub(hc_type):
@@ -70,6 +71,7 @@ def gen_Div_type(
                 jsonMixinType=SCmixin.HCCJsonMixin,
                 make_container=True,
                 attach_event_handling=True,
+                addon_mixins = static_addon_mixins
             )
 
             class WithStub(hc_type):

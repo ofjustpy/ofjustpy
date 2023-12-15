@@ -6,7 +6,9 @@ from starlette.responses import HTMLResponse
 # updates justpy_app.component_file_list
 justpy_app.create_component_file_list()
 
-
+frontend_engine_type = justpy_app.jpconfig.FRONTEND_ENGINE_TYPE
+frontend_engine_libs = jpconfig.FRONTEND_ENGINE_LIBS
+    
 class ResponsiveStatic_SSR_ResponseMixin:
 
     
@@ -160,7 +162,7 @@ class ResponsiveStatic_CSR_ResponseMixin:
     and responds to them. Implies client will make websocket connection with the server.
     CSR: client side rendering: we pass a json, that is rendered by svelte runtime.
     """
-    
+
     def get_html_response_string(page_id,
                              title,
                              use_websockets,
@@ -192,7 +194,9 @@ class ResponsiveStatic_CSR_ResponseMixin:
         if body_classes:
             body_classes = f"""class="{body_classes}"
             """
+        frontend_engine_srcs = "\n".join([f"<script src='/templates/js/{frontend_engine_type}/{file_name}.js'></script>" for file_name in frontend_engine_libs])
 
+        
 
         html_response_string = f"""
         <!DOCTYPE html>
@@ -264,6 +268,7 @@ class ResponsiveStatic_CSR_ResponseMixin:
 
         components_link_srcs = "\n".join([f"""<script src={request.url_for(jpconfig.STATIC_NAME, path=file_name)}</script>""" for file_name in justpy_app.component_file_list
         ])
+
 
         page_ready = "page_ready" in self.events #???
         result_ready = "result_ready" in self.events #???

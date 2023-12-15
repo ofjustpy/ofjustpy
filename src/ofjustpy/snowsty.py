@@ -130,7 +130,7 @@ expansion_item = [mr / st / 0, bg / gray / 2, shadow.sm]
 
 inputJbutton = [pd / 4, bg / gray / 1, flex, jc.center, *border_style]
 select = [fz.sm, mr / "2", bg / "inherit"]
-selectwbanner = [bt.bd, bdr.md, bd / gray / 1, pd / 1, mr / x / 2]
+selectwbanner = [bd, bdr.md, bd / gray / 1, pd / 1, mr / x / 2]
 
 infocard = [mr / 4]
 # [db.f, flx.col, bg/pink/1]
@@ -152,9 +152,9 @@ circle = [
     fc / pink / 2,
     bdr.full,
     mr / 2,
-    noop / bt.bd,
+    noop / bd,
     bd / gray / 1,
-    *hover(noop / bds.double, noop / bt.bd, bg / gray / 1, bd / gray / 2),
+    *hover(noop / bds.double, noop / bd, bg / gray / 1, bd / gray / 2),
 ]  # bg/gray/5
 
 expansion_item = [mr / 1, bg / gray / 2]
@@ -172,7 +172,7 @@ textarea = [
     H / "full",
 ]
 
-textinput = [db.f, jc.center, bt.bd, bdr.md, bd / gray / 1]
+textinput = [db.f, jc.center, bd, bdr.md, bd / gray / 1]
 input = [bg / gray / 1, opacity / 80]
 
 
@@ -195,7 +195,7 @@ div = []
 hr = [
     mr / st / 4,
     mr / sb / 4,
-    bt.bd,
+    bd,
     bd / gray / "400/20",
     bg / gray / "400/20",
     container,
@@ -214,7 +214,7 @@ def build_classes(*args):
     return tstr(*args)
 
 
-td = [bt.bd, pd / 2, ta.center]
+td = [bd, pd / 2, ta.center]
 tr = [
     [bg / gray / 2, fc / gray / 6],
     [bg / pink / 1, fc / gray / 6],
@@ -224,8 +224,8 @@ tbl = [
     fz.sm,
     tbl.auto,
     W / full,
-    ovf / auto,
-    ovf / x / auto,
+    overflow.auto,
+    overflowx.auto,
 ]  # TODO: incorporate into twtags
 
 expansion_container = [mr / st / 8, bg / gray / 1, shadow.sm, fz.lg]
@@ -280,4 +280,30 @@ chartjs = []
 table = []
 tr = [*variant(bg/gray/3, rv="odd"), *variant(bg/gray/2,  rv="even")]
 
-td = [pd/x/4, pd/y/2, bt.bd]
+td = [pd/x/4, pd/y/2, bd]
+dt = []
+dd = []
+dl = []
+header = []
+p = []
+section = []
+aside = []
+main = []
+fieldset = []
+legend = []
+details = []
+summary = []
+article = []
+small  = []
+
+thead = []
+th = []
+tbody = []
+table = []
+br  = []
+
+time = []
+address = []
+
+script = []
+blockquote = []

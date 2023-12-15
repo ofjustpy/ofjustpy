@@ -348,6 +348,7 @@ at startup_event
 		uvicorn.run(app, host="127.0.0.1", port=8000)
 
 		
+		
 On to_html, prepare_htmlRender: Early optimization is source of all  evil
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 We can't precompute htmlrender even for passiveDivs and PassiveHCs because
@@ -379,3 +380,35 @@ Git repo and branches
 ++++++++++++++++++++++
 ofjustpy_engine/no_precompute_htmlRender : The main branch use partial precompute.
 If any glitch or bug is seen, quickly more to this branch.
+
+
+Building a new component
+^^^^^^^^^^^^^^^^^^^^^^^^^
+Passive
+.......
+
+
+Active
+.......
+- Create mixin
+- generate the class
+
+.. code-block:: python
+   from ofjustpy_engine.HCType import HCType
+   from ofjustpy.Div_TF import gen_Div_type
+   from ofjustpy import ui_styles
+   from .mixins import (AccordionItemMixin)
+
+
+   class ActiveComponents:
+       AccordionItem = gen_Div_type(
+	   HCType.active,
+	   "FB_AccordionItem",
+	   AccordionItemMixin,
+	   stytags_getter_func=lambda m=ui_styles: m.sty.label,
+       )
+       pass
+
+- assign_id       
+
+

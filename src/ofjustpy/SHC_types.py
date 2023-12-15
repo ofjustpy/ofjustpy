@@ -27,6 +27,21 @@ class PassiveComponents:
         TR.SpanMixin,
         stytags_getter_func=lambda m=ui_styles: m.sty.span,
     )
+
+    Br = gen_HC_type(
+        HCType.passive,
+        "Br",
+        TR.BrMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.br,
+    )
+    Strong = gen_Div_type(
+        HCType.passive,
+        "Strong",
+        TR.StrongMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.span,
+        static_addon_mixins = [TR.HCTextMixin]  
+        
+    )
     Code = gen_HC_type(
         HCType.passive,
         "Code",
@@ -74,6 +89,14 @@ class PassiveComponents:
         stytags_getter_func=lambda m=ui_styles: m.sty.hr,
     )
 
+    Time = gen_Div_type(
+        HCType.passive,
+        "Time",
+        TR.TimeMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.time,
+        static_addon_mixins = [TR.HCTextMixin]  
+    )
+
     Img = gen_HC_type(
         HCType.passive,
         "Img",
@@ -87,6 +110,39 @@ class PassiveComponents:
         TR.H1Mixin,
         stytags_getter_func=lambda m=ui_styles: m.sty.h1,
     )
+
+    H1Div = gen_Div_type(
+        HCType.passive,
+        "H1Div",
+        TR.H1Mixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.h1,
+        static_addon_mixins = [TR.HCTextMixin]  
+    )
+
+    H2Div = gen_Div_type(
+        HCType.passive,
+        "H2Div",
+        TR.H1Mixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.h2,
+        static_addon_mixins = [TR.HCTextMixin]  
+    )
+    ScriptDiv = gen_Div_type(
+    HCType.passive,
+    "ScriptDiv",
+    TR.ScriptMixin,  
+    stytags_getter_func=lambda m=ui_styles: m.sty.script,  
+    static_addon_mixins=[TR.HCTextMixin]  
+    )
+
+    BlockquoteDiv = gen_Div_type(
+        HCType.passive,
+        "BlockquoteDiv",
+        TR.BlockquoteMixin,  # Assuming you have the BlockquoteMixin class
+        stytags_getter_func=lambda m=ui_styles: m.sty.blockquote,  # Adjust as needed
+        static_addon_mixins=[TR.HCTextMixin]  # Assuming you want to retain text styling
+    )
+
+
 
     H2 = gen_HC_type(
         HCType.passive,
@@ -102,6 +158,15 @@ class PassiveComponents:
         stytags_getter_func=lambda m=ui_styles: m.sty.h3,
     )
 
+    H3Div = gen_Div_type(
+        HCType.passive,
+        "H3",
+        TR.H3Mixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.h3,
+        static_addon_mixins = [TR.HCTextMixin]  
+    )
+
+        
     H4 = gen_HC_type(
         HCType.passive,
         "H4",
@@ -127,6 +192,20 @@ class PassiveComponents:
         HCType.passive, "A", TR.AMixin, stytags_getter_func=lambda m=ui_styles: m.sty.A
     )
 
+    Legend = gen_HC_type(
+        HCType.passive,
+        "Legend",
+        TR.LegendMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.legend,
+    )
+
+    Small = gen_HC_type(
+        HCType.passive,
+        "Small",
+        TR.SmallMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.small,
+    )
+    
     # Div component types
     Div = gen_Div_type()
     Container = gen_Div_type(stytags_getter_func=lambda m=ui_styles: m.sty.container)
@@ -137,6 +216,24 @@ class PassiveComponents:
         TR.LabelMixin,
         stytags_getter_func=lambda m=ui_styles: m.sty.label,
     )
+
+    SpanDiv = gen_Div_type(
+        HCType.passive,
+        "Span",
+        TR.SpanMixin,
+        static_addon_mixins = [TR.HCTextMixin],
+        stytags_getter_func=lambda m=ui_styles: m.sty.span,
+    )
+    PDiv = gen_Div_type(
+        HCType.passive,
+        "Span",
+        TR.PMixin,
+        static_addon_mixins = [TR.HCTextMixin],
+        stytags_getter_func=lambda m=ui_styles: m.sty.p,
+    )
+        
+
+    
 
     StackV = gen_Div_type(stytags_getter_func=lambda m=ui_styles: m.sty.stackv)
 
@@ -150,6 +247,91 @@ class PassiveComponents:
         TR.UlMixin,
         stytags_getter_func=lambda m=ui_styles: m.sty.ul,
     )
+
+    Ol = gen_Div_type(
+        HCType.passive,
+        "Ol",
+        TR.OlMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.ol,
+    )
+
+    Li = gen_Div_type(
+        HCType.passive,
+        "Li",
+        TR.LiMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.li,
+    )
+
+    Dl = gen_Div_type(
+        HCType.passive,
+        "Dl",
+        TR.DlMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.dl,
+    )
+
+    Ul = gen_Div_type(
+        HCType.passive,
+        "Ul",
+        TR.UlMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.ul,
+    )
+
+    Optgroup = gen_Div_type(
+        HCType.passive,
+        "Optgroup",
+        TR.OptgroupMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.optgroup,
+    )
+
+
+    Details = gen_Div_type(
+        HCType.passive,
+        "Details",
+        TR.DetailsMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.details,
+    )
+
+    Summary = gen_Div_type(
+        HCType.passive,
+        "Summary",
+        TR.SummaryMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.summary,
+    )
+    
+    Datalist = gen_Div_type(
+        HCType.passive,
+        "Datalist",
+        TR.DatalistMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.datalist,
+    )
+
+    Dt = gen_HC_type(
+        HCType.passive,
+        "Dt",
+        TR.DtMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.dt,
+    )
+
+    DtDiv = gen_Div_type(
+        HCType.passive,
+        "Dt",
+        TR.DtMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.dt,
+    )
+    
+    DdDiv = gen_Div_type(
+        HCType.passive,
+        "Dd",
+        TR.DdMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.dd,
+    )
+    Dd = gen_HC_type(
+        HCType.passive,
+        "Dd",
+        TR.DdMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.dd,
+    )
+    
 
     # for PyCodeFormatter we need PreDiv/CodeDiv so that new lines are rendered
     # as newlines
@@ -184,12 +366,54 @@ class PassiveComponents:
         stytags_getter_func=lambda m=ui_styles: m.sty.nav,
     )
 
+    Section = gen_Div_type(
+        HCType.passive,
+        "section",
+        TR.SectionMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.section,
+    )
+
     Footer = gen_Div_type(
         HCType.passive,
         "Footer",
         TR.FooterMixin,
         stytags_getter_func=lambda m=ui_styles: m.sty.footer,
+         static_addon_mixins = [TR.HCTextMixin],
     )
+
+    Header = gen_Div_type(
+        HCType.passive,
+        "Header",
+        TR.HeaderMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.header,
+    )
+
+    Aside = gen_Div_type(
+        HCType.passive,
+        "Aside",
+        TR.AsideMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.aside,
+    )
+
+    Article = gen_Div_type(
+        HCType.passive,
+        "Article",
+        TR.ArticleMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.article,
+    )
+    Main = gen_Div_type(
+        HCType.passive,
+        "Main",
+        TR.MainMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.main,
+    )
+    Fieldset = gen_Div_type(
+        HCType.passive,
+        "Fieldset",
+        TR.FieldsetMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.fieldset,
+    )
+
 
     Tr = gen_Div_type(
         HCType.passive,
@@ -203,13 +427,45 @@ class PassiveComponents:
         TR.TableMixin,
         stytags_getter_func=lambda m=ui_styles: m.sty.table,
     )
+
+    Thead = gen_Div_type(
+        HCType.passive,
+        "Thead",
+        TR.TheadMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.thead,
+    )
     Td = gen_Div_type(
         HCType.passive,
         "Td",
         TR.TdMixin,
         stytags_getter_func=lambda m=ui_styles: m.sty.td,
+        static_addon_mixins = [TR.HCTextMixin],
     )
-    
+    Th = gen_Div_type(
+        HCType.passive,
+        "Th",
+        TR.ThMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.th,
+        static_addon_mixins = [TR.HCTextMixin],
+    )
+
+    Address = gen_Div_type(
+        HCType.passive,
+        "Address",
+        TR.AddressMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.address,
+        static_addon_mixins = [TR.HCTextMixin],
+    )
+
+    Tbody = gen_Div_type(
+        HCType.passive,
+        "Tbody",
+        TR.TbodyMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.tbody,
+        static_addon_mixins = [TR.HCTextMixin],
+    )
+
+        
     
     (
         Halign,
@@ -286,10 +542,17 @@ class ActiveComponents:
         stytags_getter_func=lambda m=ui_styles: m.sty.input,
     )
     Div = gen_Div_type(HCType.active, hc_tag="ActiveDiv")
+    ButtonDiv = gen_Div_type(
+        HCType.active,
+        "ButtonDiv",
+        TR.ButtonMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.button,
+    )
     StackH = gen_Div_type(HCType.active,
                           stytags_getter_func=lambda m=ui_styles: m.sty.stackh,
                           hc_tag="AStackH"
                           )
+    
     Select = gen_Div_type(
         HCType.active,
         "Select",
@@ -297,6 +560,72 @@ class ActiveComponents:
         stytags_getter_func=lambda m=ui_styles: m.sty.select,
     )
 
+    # HTTP request callback for A component
+    class A_HTTPRequestCallbackMixin:
+        def __init__(self, *args, **kwargs):
+            self.href_builder = kwargs.get("href_builder", None)
+            pass
+
+        def request_callback(self, session_manager, *args, **kwargs):
+            if self.href_builder:
+                self.href_builder(self, session_manager)
+            pass
+
+        
+    A = gen_HC_type(
+        HCType.active,
+        "A",
+        TR.AMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.A,
+        http_request_callback_mixin=A_HTTPRequestCallbackMixin,
+    )
+
+
+    Switch = gen_HC_type(
+        HCType.active,
+        "Switch",
+        TR.SwitchMixin,
+        stytags_getter_func=lambda m=ui_styles: [],
+    )
+
+    pass
+
+
+class ActiveDivs:
+    Select = gen_Div_type(
+        HCType.active,
+        "Select",
+        TR.SelectInputMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.select,
+    )
+    
+    class A_HTTPRequestCallbackMixin:
+        def __init__(self, *args, **kwargs):
+            self.href_builder = kwargs.get("href_builder", None)
+            pass
+
+        def request_callback(self, session_manager, *args, **kwargs):
+            if self.href_builder:
+                self.href_builder(self, session_manager)
+            pass
+        
+    A = gen_Div_type(
+        HCType.active,
+        "A",
+        TR.AMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.A,
+        static_addon_mixins = [TR.HCTextMixin]
+        #http_request_callback_mixin=A_HTTPRequestCallbackMixin,
+    )
+    
+    Button = gen_Div_type(
+        HCType.active,
+        "ButtonDiv",
+        TR.ButtonMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.button,
+        static_addon_mixins = [TR.HCTextMixin]
+        
+    )
     def form_hook(ufunc):
         """
         a pre-hook called before user function is called.
@@ -329,37 +658,10 @@ class ActiveComponents:
 
     class Form(FormBase):
         def __init__(self, *args, **kwargs):
-            super().__init__(*args, event_prehook=ActiveComponents.form_hook, **kwargs)
+            super().__init__(*args, event_prehook=ActiveDivs.form_hook, **kwargs)
             for citem, pitem in traverse_component_hierarchy(self):
                 if hasattr(citem, "key"):
                     print(citem.key, " ", citem, " ")
                     if hasattr(citem, "data_validators"):
                         print("child has data_validator ", citem.data_validators)
 
-    # HTTP request callback for A component
-    class A_HTTPRequestCallbackMixin:
-        def __init__(self, *args, **kwargs):
-            self.href_builder = kwargs.get("href_builder", None)
-            pass
-
-        def request_callback(self, session_manager, *args, **kwargs):
-            if self.href_builder:
-                self.href_builder(self, session_manager)
-            pass
-
-    A = gen_HC_type(
-        HCType.active,
-        "A",
-        TR.AMixin,
-        stytags_getter_func=lambda m=ui_styles: m.sty.A,
-        http_request_callback_mixin=A_HTTPRequestCallbackMixin,
-    )
-
-    Switch = gen_HC_type(
-        HCType.active,
-        "Switch",
-        TR.SwitchMixin,
-        stytags_getter_func=lambda m=ui_styles: [],
-    )
-
-    pass

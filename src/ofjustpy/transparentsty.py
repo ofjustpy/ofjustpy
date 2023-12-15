@@ -118,14 +118,14 @@ prose = [
 # prose = [fc/gray/6, "prose", "prose-2xl"]
 
 divbutton = [db.f, jc.center]
-# button = [fz.xl, bg/gray/2,  fc/gray/6, ta.center, bt.bd,
+# button = [fz.xl, bg/gray/2,  fc/gray/6, ta.center, bd,
 #           bdr.md,   pd/1, shadow.md, mr/2, op.c, hover(bg/gray/4)]
 
 expansion_item = [mr / st / 0, shadow.sm]
 
 inputJbutton = [pd / 4,  flex, jc.center, *border_style]
 select = [fz.sm, mr / "2", bg / "inherit"]
-selectwbanner = [bt.bd, bdr.md,  pd / 1, mr / x / 2]
+selectwbanner = [bd, bdr.md,  pd / 1, mr / x / 2]
 
 infocard = [mr / 4]
 # [db.f, flx.col, bg/pink/1]
@@ -144,8 +144,8 @@ circle = [
     H / 6,
     bdr.full,
     mr / 2,
-    noop / bt.bd,
-    *hover(noop / bds.double, noop / bt.bd, bg / gray / 1, bd / gray / 2),
+    noop / bd,
+    *hover(noop / bds.double, noop / bd, bg / gray / 1, bd / gray / 2),
 ]  # bg/gray/5
 
 expansion_item = [mr / 1]
@@ -161,7 +161,7 @@ textarea = [
     H / "full",
 ]
 
-textinput = [db.f, jc.center, bt.bd, bdr.md]
+textinput = [db.f, jc.center, bd, bdr.md]
 input = [opacity / 80]
 
 
@@ -184,7 +184,7 @@ div = []
 hr = [
     mr / st / 4,
     mr / sb / 4,
-    bt.bd,
+    bd,
     bd / gray / "400/20",
     bg / gray / "400/20",
     container,
@@ -203,7 +203,7 @@ def build_classes(*args):
     return tstr(*args)
 
 
-td = [bt.bd, pd / 2, ta.center]
+td = [bd, pd / 2, ta.center]
 tr = [
     [],
     [],
@@ -213,8 +213,8 @@ tbl = [
     fz.sm,
     tbl.auto,
     W / full,
-    ovf / auto,
-    ovf / x / auto,
+    overflow.auto,
+    overflowx.auto,
 ]  # TODO: incorporate into twtags
 
 expansion_container = [mr / st / 8,  shadow.sm, fz.lg]

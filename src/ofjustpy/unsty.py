@@ -73,7 +73,7 @@ infocard = []
 barpanel = []
 
 slider = [H / 6, db.f, ai.center]
-circle = [W / 6, H / 6, bdr.full, *hover(noop / bds.double, noop / bt.bd)]
+circle = [W / 6, H / 6, bdr.full, *hover(noop / bds.double, noop / bd)]
 
 expansion_item = []
 
@@ -112,10 +112,10 @@ def build_classes(*args):
     return tstr(*args)
 
 
-td = [bt.bd, ta.center]
+td = [bd, ta.center]
 tr = []
 
-tbl = [fz.sm, tbl.auto, W / full, ovf / auto, ovf / x / auto]
+tbl = [fz.sm, tbl.auto, W / full, overflow.auto, overflowx.auto]
 
 expansion_container = [fz.lg]
 
@@ -153,3 +153,31 @@ code = []
 pre = []
 collapsible = []
 chartjs = []
+dt = []
+dd = []
+dl = []
+header = []
+p = []
+section = []
+aside = []
+main = []
+
+fieldset = []
+legend = []
+optgroup = []
+datalist = []
+
+details = []
+summary = []
+article = []
+small  = []
+thead = []
+th = []
+tbody = []
+table = []
+br = []
+time = []
+
+address = []
+script = []
+blockquote = []

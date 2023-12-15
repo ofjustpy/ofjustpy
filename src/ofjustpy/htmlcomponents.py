@@ -49,6 +49,7 @@ from .MHC_types import StackH as MStackH
 from .MHC_types import StackV as MStackV
 from .MHC_types import TextInput as MTextInput
 from .SHC_types import ActiveComponents as AC
+from .SHC_types import ActiveDivs as AD
 from .SHC_types import PassiveComponents
 
 from .ui_styles import sty
@@ -66,6 +67,7 @@ class ActiveComponents:
     A = assign_id(AC.A)
     Textarea = assign_id(AC.Textarea)
     Div = assign_id(AC.Div)
+    ButtonDiv = assign_id(AC.Div)
     StackH = assign_id(AC.StackH)
     Select = assign_id(AC.Select)
     Switch = assign_id(AC.Switch)
@@ -91,6 +93,12 @@ class ActiveComponents:
     pass
 
 
+class ActiveDivs:
+    Select = assign_id(AD.Select)
+    A = assign_id(AD.A)
+    Button = assign_id(AD.Button)
+    Form = assign_id(AD.Form)
+    
 class HCCStatic:
     Div = assign_id(HCCStatic.Div)
     StackV = assign_id(HCCStatic.StackV)

@@ -14,7 +14,8 @@ from py_tailwind_utils import (
     screen,
     invisible,
     ppos,
-    ovf,
+    overflow,
+    overflowx,
     auto,
     dupdate,
     dnew,
@@ -152,7 +153,7 @@ class StackDMixin:
     when it is shuffled.
     """
 
-    svelte_safelist = [W/full, H/twmax, ovf/auto, ppos.absolute, invisible]
+    svelte_safelist = [W/full, H/twmax, overflow.auto, ppos.absolute, invisible]
     
         
     attr_tracked_keys = []
@@ -165,7 +166,7 @@ class StackDMixin:
             if dbref.staticCore.key == height_anchor_key:
                 dbref.add_twsty_tags(W / full, H / twmax)
             else:
-                dbref.add_twsty_tags(W / full, H / twmax, ovf / auto, ppos.absolute)
+                dbref.add_twsty_tags(W / full, H / twmax, overflow.auto, ppos.absolute)
             dbref.add_twsty_tags(invisible)
         self.selected_card_spath = self.components[0].id
         selected_dbref = self.spathMap[self.selected_card_spath]
@@ -194,7 +195,7 @@ class StackDMixin:
 class StackDSvelteSafelist:
     """
     """
-    svelte_safelist = [W/full, H/twmax, ovf/auto, ppos.absolute, invisible]
+    svelte_safelist = [W/full, H/twmax, overflow.auto, ppos.absolute, invisible]
 
     def __init__(self, *args, **kwargs):
         pass
