@@ -90,6 +90,7 @@ class ActiveComponents:
         pass
 
     MainColorSelector = assign_id(MainColorSelector)
+    Datalist = assign_id(AC.Datalist)
     pass
 
 
@@ -97,6 +98,8 @@ class ActiveDivs:
     Select = assign_id(AD.Select)
     A = assign_id(AD.A)
     Button = assign_id(AD.Button)
+    TextInput = assign_id(AD.TextInput)
+    Textarea = assign_id(AD.Textarea)
     Form = assign_id(AD.Form)
     
 class HCCStatic:

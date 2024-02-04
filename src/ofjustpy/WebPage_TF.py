@@ -271,6 +271,7 @@ def gen_WebPage_type(staticCoreMixins=None,
             invoke the post_init callback once the function is initialized. 
             """
             if self.staticCore.post_init:
+                print ("calling static core post init")
                 self.staticCore.post_init(**kwargs)
                 
             
@@ -282,6 +283,11 @@ def gen_WebPage_type(staticCoreMixins=None,
             # page-style-editor tries to update the webpage classes
             #
             pass
+        
+        # TODO: Webpage should behave like a usual mutable component
+        def remove_twsty_tags(self, *args):
+            pass
+        
         @property
         def id(self):
             return self.staticCore.id

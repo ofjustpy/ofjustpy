@@ -10,7 +10,7 @@ Welcome to Ofjusty's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   derived_components
+   user_manual
 
 Indices and tables
 ==================

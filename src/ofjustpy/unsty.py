@@ -112,7 +112,7 @@ def build_classes(*args):
     return tstr(*args)
 
 
-td = [bd, ta.center]
+td = []
 tr = []
 
 tbl = [fz.sm, tbl.auto, W / full, overflow.auto, overflowx.auto]

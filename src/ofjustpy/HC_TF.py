@@ -36,7 +36,6 @@ def gen_HC_type(
     staticCore_addonMixins, mutableShell_addonMixins: apply only to mutable components
     """
 
-
     match hc_type:
         case HCType.passive:
             hc_type = SCmixin.staticClassTypeGen(

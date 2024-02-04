@@ -134,6 +134,10 @@ def gen_Div_type(
                     stytags = []
                     if stytags_getter_func:
                         stytags = stytags_getter_func()
+                    # For mutable types twsty_tags, classes
+                    # are part of MutableShell.
+                    # we need to ship them from staticCore to mutableShell
+                    # via stubs
                     self.twsty_tags = conc_twtags(
                         *stytags, *kwargs.pop("twsty_tags", [])
                     )
@@ -176,6 +180,10 @@ def gen_Div_type(
                     if stytags_getter_func:
                         stytags = stytags_getter_func()
 
+                    # For static-div types twsty_tags, classes
+                    # are part of MutableShell.
+                    # we need to ship them from staticCore to mutableShell
+                    # via stubs
                     self.twsty_tags = conc_twtags(
                         *stytags, *kwargs.pop("twsty_tags", [])
                     )

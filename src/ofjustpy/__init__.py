@@ -106,7 +106,10 @@ from .htmlcomponents import (
     ActiveComponents as AC,
     PassiveComponents as PC,
     HCCStatic,
+    ActiveDivs as AD
+
 )
+from .SHC_types import     PassiveDivs as PD
 from .HC_wrappers import Halign, StackH_Aligned, WithBanner
 
 
@@ -119,6 +122,7 @@ def create_endpoint_impl(wp_template):
             wp = wp_(request, *args, **kwargs)
             wp.post_init(session_manager=sm)
             wp.to_json_optimized = True
+            wp.session_manager = sm
         return wp
 
     wp_endpoint.route_name = wp_template.key
