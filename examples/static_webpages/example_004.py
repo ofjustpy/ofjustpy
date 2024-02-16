@@ -9,7 +9,9 @@ from addict_tracking_changes import Dict
 app = oj.load_app()
 def mouseover_action(dbref, msg, target_of):
     print ("in mouseover_action")
-    print (msg)
+    # buttons msg do not have value
+    #print (msg)
+    print (dbref.value)
     pass
 
 
@@ -19,13 +21,13 @@ all_btns = [oj.AC.Button(key=f"btn_{idx}",
                                          ta.center,
                                          bdr.lg,
                                          bd/gray/3,
-                                         bt.bd,
+                                         boxtopo.bd,
                                          fw.medium,
                                          *gradient(gray/2, gray/2, gray/1),
                                          shadow/gray/2,
                                          shadow.md
                                          ],
-                           on_click = mouseover_action,
+                           on_mouseover = mouseover_action,
                          text=f"abtn_{idx}",
                          value = idx
                            

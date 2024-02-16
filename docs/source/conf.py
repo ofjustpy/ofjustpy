@@ -7,7 +7,7 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'Ofjusty'
-copyright = '2023, Kabira K'
+copyright = '2024, Monallabs'
 author = 'Kabira K'
 release = '1.0.0'
 

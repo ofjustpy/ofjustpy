@@ -247,7 +247,7 @@ Icon_PaginationRight = lambda **kwargs: parse_svg_component("""<svg
       </svg>""")
 
       
-Icon_Minus =  lambda **kwargs: parse_svg_component("""<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+Icon_Minus =  lambda **kwargs: parse_svg_component("""<svg xmlns="http://www.w3.org/2000/svg" class="h-2 w-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
 </svg>""")
 

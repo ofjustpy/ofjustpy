@@ -8,7 +8,7 @@ from py_tailwind_utils import *
 from ofjustpy_engine.HCType import HCType
 from .Div_TF import gen_Div_type
 from ofjustpy_engine.static_core_tracker import id_assigner
-
+from ofjustpy import ui_styles
 
 def assign_id(hc_gen):
     """
@@ -36,6 +36,7 @@ SliderBase = gen_Div_type(
     TR.DivMixin,
     static_core_mixins=[],
     mutable_shell_mixins=[MutableShell_SliderMixin],
+    stytags_getter_func = lambda m = ui_styles: m.sty.slider
 )
 
 
@@ -44,12 +45,13 @@ def on_circle_click(dbref, msg, target_of, slider_core=None):
 
     if slider.selected_circle is not None:
         slider.selected_circle.remove_twsty_tags(
-            outline / offset / 2, outline / black / 0, outline / 2, outline.double
+            outlinesty._, outline/blue/9, outline/2
         )
+        pass
 
     slider.selected_circle = dbref
     slider.selected_circle.add_twsty_tags(
-        outline / offset / 2, outline / black / 0, outline / 2, outline.double
+        outlinesty._, outline/blue/9, outline/2
     )
     # call the slider div registed function
     slider.app_value = dbref.staticCore.value

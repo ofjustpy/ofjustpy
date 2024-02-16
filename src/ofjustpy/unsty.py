@@ -149,6 +149,7 @@ container = [container]
 
 default_border = [bd / 2, bdr.lg]
 dockbar = [*stackh, jc.center, W / full, H / 16]
+undock_button = []
 code = []
 pre = []
 collapsible = []

@@ -1,5 +1,5 @@
 """
-A webdev framework that enables development of full-stack webpages and app purely in Python
+A webdev framework that enables development of full-stack webpages and apps purely in Python
 """
 __version__ = "1.1.3"
 import logging
@@ -41,7 +41,7 @@ def load_app():
     if aci.the_starlette_app is not None:
         return aci.the_starlette_app
 
-    # the first time load app is called
+    # the first time load_app is called
     # it will load OJ_APP_MODULE which will
     # call build_app
     OJ_APP_MODULE = "./app"
@@ -82,7 +82,9 @@ class MountCtx:
 
 def add_jproute(path, endpoint, **kwargs):
     """
-    kwargs to hold name argument
+    endpoint: is a function that returns WebPage-like object
+    wrap endpoint in a function that will return a starlette-response like object
+    register that function with starlette at the given path. 
     """
     starlette_endpoint = aci.the_starlette_app.response(endpoint)
     aci.mount_route_stack[-1].append(

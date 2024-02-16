@@ -1,17 +1,17 @@
 # https://www.creative-tim.com/learning-lab/tailwind-starter-kit/documentation/css/typography/headings
 from py_tailwind_utils import *
 
-h1 = [xl3, lh.normal, lh.normal, mr / st / 0, mr / sb / 2, text / gray / 6]
+h1 = [xl3, fw.bold,  mr/sl/2, fc/slate/7]
 
-h2 = [fz.lg, lh.normal, fw.semibold, mr / sl / 2, mr / sb / 2]  # "prose", "prose-2xl"
+h2 = [fz.lg, fw.semibold, mr / sl / 2,  fc/slate/7]  # "prose", "prose-2xl"
 
-h3 = [fz.lg, fw.semibold, lh.normal, mr / sl / 2, mr / sb / 2]  # "prose", "prose-2xl"
+h3 = [fz.lg, fw.normal,  mr / sl / 2, fc/slate/6]  # "prose", "prose-2xl"
 
-h4 = [fz._, lh.normal, fw.semibold, mr / sl / 2, mr / sb / 2]  # "prose", "prose-2xl"
+h4 = [fz._,  fw.normal, mr / sl / 2, fc/slate/6]  # "prose", "prose-2xl"
 
-h5 = [fz._, lh.normal, fw.semibold, mr / sl / 2, mr / sb / 2]  # "prose", "prose-2xl"
+h5 = [fz._,  fw.light, mr / sl / 2, fc/slate/5]  # "prose", "prose-2xl"
 
-h6 = [fz._, lh.normal, fw.semibold, mr / sl / 2, mr / sb / 2]  # "prose", "prose-2xl"
+h6 = [fz.sm,  fw.light, mr / sl / 2, fc/slate/5]  # "prose", "prose-2xl"
 
 para = [
     base,
@@ -35,7 +35,7 @@ button = [
     pd / x / 4,
     pd / y / 2,
     bold,
-    outline._,
+    outlinesty._,
     shadow._,
     shadow.sm,
     tt.u,
@@ -56,15 +56,16 @@ heading_box = [db.f, jc.around]
 heading_text = [*h1, fw.bold]
 subheading_box = [db.f, jc.around]
 subheading_text = [
-    *h2,
-    fw.bold,  # shadow.sm, #shadows no good
+    fw.bold,
+    fc/slate/"700/50",
+    # shadow.sm, #shadows no good
     # sw/slate/"500/50"
 ]  # "prose", "prose-2xl"
 
 subsubheading_text = [
-    *h3,
     fw.medium,
-    W / 96  # shadow.lg,
+    fc/slate/"500/50"
+    #W / 96  # shadow.lg,
     # sw/slate/"500/80"
 ]  # "prose", "prose-2xl"
 
@@ -116,7 +117,8 @@ heading2_span = subheading_text
 
 # span = [*theme, *spacing, db.f, ai.center]
 prose = [
-    fc / gray / 6,
+    fc / gray / 8,
+    ta.justify,
     prose.lg,
     max / W / "prose",
 ]  # TODO:use some other name than prose
@@ -138,23 +140,40 @@ infocard = [mr / 4]
 barpanel = [mr / 1]
 
 slider = [
-    H / 6,
-    bg / gray / 9,
+    bg / slate / 5,
     bg / opacity / 5,
     db.f,
     ai.center,
     mr / 1,
+    pd/2, # need some space for ring to show up
+    bdr.full,
+    space/x/2,
+    jc.center # place the items (circles) right in the center
+    
+    
 ]
 circle = [
-    W / 6,
-    H / 6,
-    bg / gray / 7,
-    fc / pink / 2,
+    W/5,
+    H/5,
+    db.bi,
     bdr.full,
-    mr / 2,
-    noop / bd,
-    bd / gray / 1,
-    *hover(noop / bds.double, noop / bd, bg / gray / 1, bd / gray / 2),
+    boxtopo.bd,
+    bd/slate/6,
+    bg/slate/6,
+    fc/white,
+    *hover(bg/transparent, fc/slate/6),
+    #*focus(outline.none, boxtopo.ring),
+    #*active(fc/slate/5),
+    fz.sm
+    # W / 6,
+    # H / 6,
+    # bg / gray / 7,
+    # fc / pink / 2,
+    # bdr.full,
+    # mr / 2,
+    # noop / bd,
+    # bd / gray / 1,
+    # *hover(noop / bds.double, noop / bd, bg / gray / 1, bd / gray / 2),
 ]  # bg/gray/5
 
 expansion_item = [mr / 1, bg / gray / 2]
@@ -277,6 +296,7 @@ pre = [bg / gray / 1]
 collapsible = []
 chartjs = []
 
+undock_button = [bd/blue/3, boxtopo.bd, bdr.full,  bg/gray/8, pd/x/3, pd/y/2, *hover(bd/blue/5)]
 table = []
 tr = [*variant(bg/gray/3, rv="odd"), *variant(bg/gray/2,  rv="even")]
 

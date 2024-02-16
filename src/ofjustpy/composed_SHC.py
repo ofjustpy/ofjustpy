@@ -26,13 +26,13 @@ from py_tailwind_utils import twcc2hex
 from py_tailwind_utils import variant
 from py_tailwind_utils import W
 from py_tailwind_utils import pd
-from py_tailwind_utils import sl
+from py_tailwind_utils import sl, st, sb, mr, fw, space, y
 
 
 from .ui_styles import sty
 
 
-def generator(Span, StackV, Div, H3, Para, PassiveDiv=None):
+def generator(Span, StackV, Div, H3, H5, Para,  PassiveDiv=None):
     """ """
     if not PassiveDiv:
         PassiveDiv = Div
@@ -62,15 +62,15 @@ def generator(Span, StackV, Div, H3, Para, PassiveDiv=None):
         )
 
     def SubheadingBanner(
-        heading_text: AnyStr,
-        twsty_tags: List = [],
-        heading_text_sty=sty.subheading_text,
+            heading_text: AnyStr,
+            twsty_tags: List = [],
+            heading_text_sty = sty.subheading_text,  #[fw.bold]
         **kwargs,
     ):
         spanl = Span(
             text=heading_text,
             twsty_tags=[
-                *heading_text_sty,
+                pd/sl/2, pd/st/2, pd/sb/2, 
                 # use exact 1/3 of overall space for large screen
                 *variant(W / "1/3", rv="md"),
                 # for small  screen use full width
@@ -80,7 +80,7 @@ def generator(Span, StackV, Div, H3, Para, PassiveDiv=None):
         spanm = Span(
             text=heading_text,
             twsty_tags=[
-                *heading_text_sty,
+                pd/sl/2, pd/st/2, pd/sb/2,
                 invisible,
                 *variant(W / "1/3", rv="md"),
                 # hide for small screen; noop is required to
@@ -91,7 +91,7 @@ def generator(Span, StackV, Div, H3, Para, PassiveDiv=None):
         spanx = Span(
             text=heading_text,
             twsty_tags=[
-                *heading_text_sty,
+                pd/sl/2, pd/st/2, pd/sb/2,
                 invisible,
                 *variant(W / "1/3", rv="md"),
                 # hide for small screen; noop is required to
@@ -101,7 +101,7 @@ def generator(Span, StackV, Div, H3, Para, PassiveDiv=None):
         )
 
         target = Div(
-            twsty_tags=conc_twtags(*twsty_tags, *sty.subheading_box),
+            twsty_tags=conc_twtags(*twsty_tags, mr/st/4, *heading_text_sty),
             childs=[spanl, spanm, spanx],
         )
 
@@ -110,9 +110,14 @@ def generator(Span, StackV, Div, H3, Para, PassiveDiv=None):
     def SubsubheadingBanner(
         heading_text: AnyStr,
         twsty_tags: List = [],
-        heading_text_sty=sty.subheading_text,
+        heading_text_sty=sty.subsubheading_text,
         **kwargs,
     ):
+        """
+        subheading and subsubheading are same except:
+        subheading is fw.bold
+        subsubheading is fw.medium
+        """
         return SubheadingBanner(
             heading_text,
             twsty_tags=twsty_tags,
@@ -121,23 +126,26 @@ def generator(Span, StackV, Div, H3, Para, PassiveDiv=None):
         )
 
     def Subsection(
-        heading_text: AnyStr, content: Callable, align="center", twsty_tags=[], **kwargs
+        heading_text: AnyStr, content: Callable, align="center", twsty_tags=[],
+            childs = [],
+
+            **kwargs
     ):
         return StackV(
-            twsty_tags=twsty_tags,
-            childs=[SubheadingBanner(heading_text), Halign(content, align=align)],
+            twsty_tags=[*twsty_tags, space/y/2],
+            childs=[SubheadingBanner(heading_text), Halign(content, align=align), *childs],
         )
 
-    def Subsubsection(
-        heading_text: AnyStr,
-        content: Callable,
-        twsty_tags: List = [],
-        align="center",
-        **kwargs,
-    ):
+    def Subsubsection(heading_text: AnyStr,
+                      content: Callable,
+                      twsty_tags: List = [],
+                      align="center",
+                      childs = [],
+                      **kwargs,
+                      ):
         return StackV(
             twsty_tags=twsty_tags,
-            childs=[SubsubheadingBanner(heading_text), Halign(content, align=align)],
+            childs=[SubsubheadingBanner(heading_text), Halign(content, align=align), *childs],
         )
 
     def Title(title_text: AnyStr, twsty_tags=[], align="center", **kwargs):
@@ -164,22 +172,21 @@ def generator(Span, StackV, Div, H3, Para, PassiveDiv=None):
             num_cols = kwargs.pop("num_cols", 2)
             twsty_tags = kwargs.pop("twsty_tags", [])
             twsty_tags = [*twsty_tags, *sty.stackG(num_cols, num_rows)]
-            # already taken care by SHC_types.HCCMixin
-            # self.components = kwargs.get('childs')
             super().__init__(*args, twsty_tags=twsty_tags, **kwargs)
 
     def TitledPara(
-        heading_text, content, twsty_tags=[], fix_sty_section_nesting=False, **kwargs
+            heading_text, content, twsty_tags=[], fix_sty_section_nesting=False, childs= [],
+            **kwargs
     ):
         if fix_sty_section_nesting:
             # display content across the entire width
             # add margin to give effect of content nested
             # within title
-            twsty_tags = conc_twtags(*twsty_tags, pd / sl / 4, W / full)
-            content.add_twsty_tags(pd / sl / 4, W / full)
+            twsty_tags = conc_twtags(*twsty_tags, pd / sl / 4, mr/st/2, space/y/1,  W / full)
+            content.add_twsty_tags(pd / sl / 4)
 
         return StackV(
-            childs=[H3(text=heading_text), content], twsty_tags=twsty_tags, **kwargs
+            childs=[H5(text=heading_text), content], twsty_tags=twsty_tags, **kwargs
         )
 
     return (

@@ -568,7 +568,7 @@ class PassiveDivs:
         SubTitle,
         StackG,
         TitledPara,
-    ) = HC_generator(Span, StackV, Div, H3, Prose)
+    ) = HC_generator(Span, StackV, Div, H3, H5, Prose)
         
 
 class PassiveComponents:
@@ -1086,7 +1086,7 @@ class PassiveComponents:
         SubTitle,
         StackG,
         TitledPara,
-    ) = HC_generator(Span, StackV, Div, H3, Prose)
+    ) = HC_generator(Span, StackV, Div, H3, H5, Prose)
 
 
 class ActiveComponents:
@@ -1209,6 +1209,7 @@ class ActiveComponents:
 
 
 class ActiveDivs:
+    
     Select = gen_Div_type(
         HCType.active,
         "Select",
@@ -1225,7 +1226,22 @@ class ActiveDivs:
             if self.href_builder:
                 self.href_builder(self, session_manager)
             pass
-        
+
+    Span = gen_Div_type(
+        HCType.active,
+        "Span",
+        TR.SpanMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.span,
+        static_addon_mixins = [TR.HCTextMixin]
+    )
+
+    Img = gen_Div_type(
+        HCType.active,
+        "Img",
+        TR.ImgMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.input,
+    )
+    
     A = gen_Div_type(
         HCType.active,
         "A",
@@ -1294,3 +1310,51 @@ class ActiveDivs:
                     if hasattr(citem, "data_validators"):
                         print("child has data_validator ", citem.data_validators)
 
+
+        # ========================= CheckboxInput ========================
+    def cb_hook(ufunc):
+        """
+        a wrapper over user event handler to
+        update msg.value with checked value
+        """
+
+        def wrapper(dbref, msg, to_shell):
+            print("cb_hook wrapper invoked")
+
+            msg.value = msg.checked
+            return ufunc(dbref, msg, to_shell)
+
+        return wrapper
+
+    CheckboxInputBase = gen_Div_type(
+        HCType.active,
+        "CheckboxInput",
+        TR.CheckboxInputMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.input,
+    )
+
+    class CheckboxInput(CheckboxInputBase):
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, event_prehook=ActiveComponents.cb_hook, **kwargs)
+
+    Datalist = gen_Div_type(
+        HCType.active,
+        "Datalist",
+        TR.DatalistMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.datalist,
+        static_addon_mixins = [TR.HCTextMixin],
+    )
+            
+    Switch = gen_Div_type(
+        HCType.active,
+        "Switch",
+        TR.SwitchMixin,
+        stytags_getter_func=lambda m=ui_styles: [],
+    )
+
+    StackH = gen_Div_type(HCType.active,
+                          stytags_getter_func=lambda m=ui_styles: m.sty.stackh,
+                          hc_tag="AStackH"
+                          )
+    
+    Div = gen_Div_type(HCType.active, hc_tag="ActiveDiv")

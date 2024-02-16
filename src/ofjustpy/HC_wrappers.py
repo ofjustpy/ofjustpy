@@ -72,13 +72,14 @@ def WithBanner(
     content,
     content_type="passive",
     twsty_tags: List = [],
+        height_tag = H/8,
     **kwargs,
 ):
     match content_type:
         case "passive":
             return PC.StackH(
                 childs=[
-                    PC.Valign(PC.Span(text=banner_text), height_tag=H/8),
+                    PC.Valign(PC.Span(text=banner_text), height_tag=height_tag),
                     content,
                 ],
                 twsty_tags=twsty_tags,
@@ -89,7 +90,7 @@ def WithBanner(
         case "mutable":
             return HCCMutable.StackH(
                 childs=[
-                    PC.Valign(PC.Span(text=banner_text), height_tag=H/8),
+                    PC.Valign(PC.Span(text=banner_text), height_tag=height_tag),
                     content,
                 ],
                 twsty_tags=twsty_tags,

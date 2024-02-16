@@ -19,6 +19,7 @@ from py_tailwind_utils import screen
 from py_tailwind_utils import twcc2hex
 from py_tailwind_utils.colors import _tw_color_list, get_color_instance
 from py_tailwind_utils import (outline,
+                               outlinesty,
                                offset,
                                black,
                                outline,
@@ -101,6 +102,12 @@ class ActiveDivs:
     TextInput = assign_id(AD.TextInput)
     Textarea = assign_id(AD.Textarea)
     Form = assign_id(AD.Form)
+    Div = assign_id(AD.Div)
+    StackH = assign_id(AD.StackH)
+    Switch = assign_id(AD.Switch)
+    Datalist = assign_id(AD.Datalist)
+    CheckboxInput = assign_id(AD.CheckboxInput)
+    Img = assign_id(AD.Img)
     
 class HCCStatic:
     Div = assign_id(HCCStatic.Div)
@@ -121,13 +128,13 @@ class Mutable:
     StackD = assign_id(MStackD)
 
     class Slider(SliderBase):
-        svelte_safelist = [outline / offset / 2, outline / black / 0, outline / 2, outline.double]
+        svelte_safelist = [outline / offset / 2, outline / black / 0, outline / 2, outlinesty.double]
         def __init__(self, *args, num_iter=range(1, 5), **kwargs):
             key = kwargs.get("key")
             with uictx(f"___{key}"):
                 childs = [
                     Mutable.Circle(
-                        text=f"c{i}",
+                        text=f"{i}",
                         value=i,
                         key=f"circle_{i}",
                         on_click=lambda *args, slider_core=self: on_circle_click(
@@ -157,7 +164,6 @@ class Mutable:
                     )                    
                 )
 
-                self
                 self.scs = Mutable.Slider(
                     key="scs",
                     num_iter=range(1, 10),

@@ -3,29 +3,21 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Ofjusty's documentation!
-===================================
+Welcome to Ofjustpy's documentation!
+====================================
 
+
+Ofjustpy is a full-stack web development framework in Python build on top of Starlette on server side and `Svelte <https://svelte.dev/>`_ and `Tailwind <https://tailwindcss.com/>`_ on client side. Ssee `README <https://github.com/ofjustpy/ofjustpy/tree/main/README.md>`_) for detailed
+description of Ofjustpy framework.
+
+Checkout TBD: webworks.monallabs.in, examples and demos, etc. 
+      
 .. toctree::
    :maxdepth: 2
-	      
-   :caption: Contents:
 
-   intro
-   
-   htmlcomponents_types
-
-   htmlcomponents
-
-   mutable_htmlcomponents
-   
-   derived_components
-
-   layout_modifiers
+   user_manual
 	     
-Indices and tables
-==================
+   components
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   mutable_components
+   
