@@ -69,7 +69,6 @@ class PassiveDivs:
         static_addon_mixins = [TR.HCTextMixin]  
     )
 
-
     P = gen_Div_type(
         HCType.passive,
         "P",
@@ -671,7 +670,6 @@ class PassiveComponents:
         stytags_getter_func=lambda m=ui_styles: m.sty.li,
     )
 
-
     P = gen_HC_type(
         HCType.passive, "P", TR.PMixin, stytags_getter_func=lambda m=ui_styles: m.sty.P
     )
@@ -863,12 +861,12 @@ class PassiveComponents:
         stytags_getter_func=lambda m=ui_styles: m.sty.ol,
     )
 
-    Li = gen_Div_type(
-        HCType.passive,
-        "Li",
-        TR.LiMixin,
-        stytags_getter_func=lambda m=ui_styles: m.sty.li,
-    )
+    # Li = gen_Div_type(
+    #     HCType.passive,
+    #     "Li",
+    #     TR.LiMixin,
+    #     stytags_getter_func=lambda m=ui_styles: m.sty.li,
+    # )
 
     Dl = gen_Div_type(
         HCType.passive,

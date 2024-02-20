@@ -143,7 +143,7 @@ while mutable components come in three variety: HCCMutable, HCCStatic, Mutable.
 
 #### Passive Components
 As name suggests, these do not respond to UI events and also do not undergo 
-any changes. Ofjustpy maintains only a single copy of such components (see (see [examples/static_webpages](examples/static_webpages))
+any changes. Ofjustpy maintains only a single copy of such components  (see [examples/static_webpages](examples/static_webpages))
 Examples of passive  components:
 1. oj.PC.Label
 2. oj.PC.P

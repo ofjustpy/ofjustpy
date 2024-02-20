@@ -51,7 +51,6 @@ fixture_union('component_with_details', ['static_component_with_details', 'mutab
 def test_to_html_iter(component_with_details):
     details, component = component_with_details
     html_text  = "".join(component.to_html_iter())
-    print (html_text)
     try:
         root = html.fromstring(html_text)
         

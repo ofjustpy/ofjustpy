@@ -10,7 +10,7 @@ app = oj.load_app()
 collapse_box = oj.PC.Collapsible(hide_banner_text="Expand for TextInput code",
                                  hide_banner_classes = [min/W/"1/2", W/"2/3"],
                                  childs=[oj.PC.Span(text="tifc", twsty_tags=[H/64])],
-                                 twsty_tags=[bd/gray/5, bd/1, W/"2/3", ovf/x/auto]
+                                 twsty_tags=[bd/gray/5, bd/1, W/"2/3", overflowx.auto]
                                  )
 
 wp_endpoint = oj.create_endpoint(key="example_005",

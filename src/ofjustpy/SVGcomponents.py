@@ -1,4 +1,4 @@
-from justpy.htmlcomponents import (svg_tags,
+from .justpy_svg_tags import (svg_tags,
                                    svg_tags_use,
                                    svg_presentation_attributes,
                                    svg_filter_attributes,

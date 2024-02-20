@@ -132,7 +132,7 @@ expansion_item = [mr / st / 0, bg / gray / 2, shadow.sm]
 
 inputJbutton = [pd / 4, bg / gray / 1, flex, jc.center, *border_style]
 select = [fz.sm, mr / "2", bg / "inherit"]
-selectwbanner = [bd, bdr.md, bd / gray / 1, pd / 1, mr / x / 2]
+selectwbanner = [boxtopo.bd, bdr.md, bd / gray / 1, pd / 1, mr / x / 2]
 
 infocard = [mr / 4]
 # [db.f, flx.col, bg/pink/1]
@@ -191,7 +191,7 @@ textarea = [
     H / "full",
 ]
 
-textinput = [db.f, jc.center, bd, bdr.md, bd / gray / 1]
+textinput = [db.f, jc.center, boxtopo.bd, bdr.md, bd / gray / 1]
 input = [bg / gray / 1, opacity / 80]
 
 
@@ -214,7 +214,7 @@ div = []
 hr = [
     mr / st / 4,
     mr / sb / 4,
-    bd,
+    boxtopo.bd,
     bd / gray / "400/20",
     bg / gray / "400/20",
     container,
@@ -233,7 +233,7 @@ def build_classes(*args):
     return tstr(*args)
 
 
-td = [bd, pd / 2, ta.center]
+td = [boxtopo.bd, pd / 2, ta.center]
 tr = [
     [bg / gray / 2, fc / gray / 6],
     [bg / pink / 1, fc / gray / 6],

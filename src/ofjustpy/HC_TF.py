@@ -43,6 +43,8 @@ def gen_HC_type(
                 tagtype=hctag_mixin,
                 addon_mixins=static_addon_mixins,
                 jsonMixinType=SCmixin.PassiveJsonMixin,
+                make_container = False,
+                **kwargs
             )
 
             class WithStub(hc_type):

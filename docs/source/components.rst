@@ -1,80 +1,57 @@
-Components
-~~~~~~~~~~
-
-Ofjustpy provides all the usual elementary html components that serve as building block
-for a webpage.
-
-.. important::
-
-   Checkout the super cool and ultra useful visual style editor for Ofjustpy webpages.
-   Essentially, script the webpage in Python, edit the styling/look-and-fell visually.
+Reference
+:::::::::
+  
+Ofjustpy HTML Components
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-.. important::
 
-   Ofjustpy has two very cool components: a simple to use, program, and customize  Hierarchy Navigator and desktop style Dockbar to minimize components and put it on bar.
-
-.. important::
-
-   HyperUI is a clean, fast, asthetically pleasing  UI component library written with tailwind utility classes. Ofjustpy provides HyperUI components as first class components that can incorporated with other components and manipulated using the same API's. 
-
-
-Pre-styled vs. customizable components
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Although, Ofjustpy provides tools to work with tailwind utility classes,
-components in Ofjustpy, by default, are un-styled, i.e,  there is no
-tailwind styling hard-wired to them. 
-
-Falling short of providing full-fledge pre-styled component library, Ofjustpy
-provides several assets and utilities to help with layout and styling of components
-and webpages.
-
-
-#. Ofjustpy provide useful passive container and composite components, that help quickly put together a complex UI-rich page quickly. For e.g.:
+Container and composite passive components
+++++++++++++++++++++++++++++++++++++++++++
+Ofjustpy provide useful passive container and composite components, that help quickly put together a complex UI-rich page quickly. For e.g.:
    
-   a. Title
-   b. SubheadingBanner
-   c. Section
-   d. StackH, StackG, StackV (to layout components in horizontal, vertical, and or grid)
+   a. *Title*
+   b. *SubheadingBanner*
+   c. *Section*
+   d. *StackH*, *StackG*, *StackV* (to layout components in horizontal, vertical, and or grid)
       
-#. Advanced un-styled responsive components such as:
+Advanced un-styled mutable and responsive components
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+..
+   TODO: put hyperlink to live demo pages
+   
 
-   a. StackD: StackD is a dynamic component representing a "Deck" of cards, where each card is a child element. It allows for switching between the child elements, displaying only one at a time.
-   b. Slider: The Slider function creates a custom slider component that displays a set of clickable circles based on the provided itemiter list. It takes a key and a list of items as input, displaying the items as circles within the slider. When a circle is clicked, its outline is updated, and an on-click event is triggered.
 
-   c. ColorSelector: For demonstration of mutable/responsive behaviour purposes only. The ColorSelector function creates a custom color selector component that combines a main color selector and a shades slider. It allows users to pick a color and its shade, then triggers an on-click event with the chosen color.
+Mutable composite components that respond to user actions:
 
-   d. Pagination: Break a large collection of display elements across a collection of pages. Check out the demo and usage at [demo_paginate](demos/demo_paginate.py).
+   
+   a. *StackD*: StackD is a dynamic component representing a "Deck" of cards, where each card is a child element. It allows for switching between the child elements, displaying only one at a time.
+      
+   b. *Slider*: The Slider function creates a custom slider component that displays a set of clickable circles based on the provided itemiter list. It takes a key and a list of items as input, displaying the items as circles within the slider. When a circle is clicked, its outline is updated, and an on-click event is triggered.
 
-   e. Dockbar: Plug in this component to have a bar on your page to minimize page components. See the demo/example code at [demo_dock_undock](demos/demo_dock_undock.py) for usage.
+   c. *ColorSelector*: For demonstration of mutable/responsive behaviour purposes only. The ColorSelector function creates a custom color selector component that combines a main color selector and a shades slider. It allows users to pick a color and its shade, then triggers an on-click event with the chosen color.
+
+   d. *Pagination*: Break a large collection of display elements across a collection of pages. Check out the demo and usage at [demo_paginate](demos/demo_paginate.py).
+
+   e. *Dockbar*: Plug in this component to have a bar on your page to minimize page components. See the demo/example code at [demo_dock_undock](demos/demo_dock_undock.py) for usage.
       
    f. A simple component to display a Python enum type as a select HTML component.
 
-   e. HierarchyNavigator: Display a nested [dict/addict/addict-tracking-changes](https://github.com/ofjustpy/addict-tracking-changes) dictionary as hierarchical navigation. Check out the demo/example code at [demo_hinav](demos/demo_hierarchy_navigation_using_italian_cuisine.py).
+   e. *HierarchyNavigator*: Display a nested [dict/addict/addict-tracking-changes](https://github.com/ofjustpy/addict-tracking-changes) dictionary as hierarchical navigation. Check out the demo/example code at [demo_hinav](demos/demo_hierarchy_navigation_using_italian_cuisine.py).
       
       
+HyperUI components
+++++++++++++++++++
 
 We have also made available wide collection of HyperUI components via Ofjustpy. Because
 they are pure tailwind based components, they can be incorporated and manipulated alongwith
 the native components using the same Ofjustpy constructs. Especially, useful are the TextInput,
 Select, Tabs, etc.
 
-As mentioned before, Ofjustpy provides customizable elementry and composite components. If you would like more off-the-shelf pre-fabricated and opinionated components consider Justpy (with Quasar plugin) or NiceGUI.
 
-Using elementary components
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Ofjustpy broadly provides two components: static and mutable. Static components do not change their look/content, which mutable components are allowed to change the text or the style or both.
-
-Here we will discuss static components usage. See mutable for discussion on mutable components.
-Static components itself are exists in one of two types: passive and active. Passive components
-are anonymous (i.e., they don't have an id) do not respond to events, which active components
-have an identifier and have event handlers associated with them.
-
-
-Every html tag type (span, button, etc.) is represented through a mixin class. Below is the list of all the tag mixins currently support. Each mixin takes keyword args that is applicable to that particular tag type. For e.g. `placeholder` is applicable to `input` html entity, while `autocomplete` is applicable to `form` html entity. See `HC_type_mixins_extn` for all the mixins
-currently supported in Ofjustpy.
-
-
+..
+   TODO: put hyperlink to live hyperUI demo page
+  
 
 Using Passive Components
 ++++++++++++++++++++++++
@@ -161,19 +138,18 @@ List of all passive components:
 #. oj.AD.Small 
 #. oj.AD.Th 
 #. oj.AD.Td
+
+
    
+Using Active Components
++++++++++++++++++++++++
+Active components are defined in the oj.AD namespace within OfjustPy. 
 
-Using Active Component
-++++++++++++++++++++++
+.. note::
 
-Active components are defined in `oj.AD` name space. They have additional `key` argument.
-
-.. TODO
-
-   See event handlers for associating event handling
+   For in-depth disucssion on event handler see section  `Event Handling`_.
    
-
-
+   
 .. code-block:: python
 
    def on_input_change(dbref, msg, to_ms):
@@ -199,15 +175,25 @@ List of all active components:
 #. oj.AD.CheckboxInput
 #. oj.AD.Img
 
-Event handling
-##############
+   
 
-Event handlers are functions that take 3 arguments.
+TextInput
+.........
 
+The TextInput function creates a styled input element.
+
+*Usage*
+.. code-block:: python
+
+    labeled_input = TextInput(key='input_key', placeholder="Enter text", on_change=on_input_change)
 
 
 Component Specific argument
 +++++++++++++++++++++++++++
+Every html tag type (span, button, etc.) is represented through a mixin class. Below is the list of all the tag mixins currently support. Each mixin takes keyword args that is applicable to that particular tag type. For e.g. `placeholder` is applicable to `input` html entity, while `autocomplete` is applicable to `form` html entity. See `HC_type_mixins_extn <https://github.com/ofjustpy/core-engine/blob/main/src/ofjustpy_engine/HC_type_mixins_extn.py>`_ for all the mixins
+currently supported in Ofjustpy.
+
+
 Components have their own specific attribute keyword arguments.
 
 .. py:class:: Button
@@ -221,9 +207,10 @@ Components have their own specific attribute keyword arguments.
    :ivar formnovalidate: Specifies that the form-data should not be validated on submission. Possible values: True or False.
    :ivar formtarget: Specifies where to display the response received after submitting the form. Possible values: "_blank", "_self", "_parent", "_top", or a custom target name.
 
-.. py:class:: TextInput
+		     
 
-		
+.. py:class:: TextInput
+	      
    :ivar type: The type attribute associated with the element (always "text").
    :ivar autocomplete: Specifies whether the browser should enable autocomplete for the input field.
    :ivar maxlength: Specifies the maximum number of characters allowed in the input field.
@@ -231,6 +218,7 @@ Components have their own specific attribute keyword arguments.
    :ivar pattern: Specifies a regular expression pattern that the input's value must match to be valid.
    :ivar placeholder: Provides a short hint that describes the expected value of the input field.
    :ivar size: Specifies the visible width of the input field.
+	       
 
 .. py:class::  Img
    
@@ -373,27 +361,14 @@ Components have their own specific attribute keyword arguments.
           Additional content		 
 
 Using Composite Components
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 Composite components are those that are dervied
 by putting together simpler components together.
 
-.. note::
-
-   Ofjustpy, as of now,  is primarly focussed on how the structural/programatics
-   aspects and not so much on the styling.
-   The styling of the these components is not at par with other popular ui-library.
-   However, the components are easy to customize using tailwind utility classes.
-   See HyperUI for inspirations on how configure the styling for a more publishibale
-   looks.
-   
-   We also recommend to try out our visual editor to style the composite components
-   to your liking.
-
-   If you want prefabricated/opiniated off-the-shelf component consider checking out
-   Justpy (with Quasar UI library) or NiceGUI.
-
 SubheadingBanner
 ++++++++++++++++
+The SubheadingBanner function creates a styled banner with a subheading text.
+
 .. py:function:: oj.PD.SubheadingBanner
 
    The SubheadingBanner function creates a styled banner with a subheading text. 
@@ -424,8 +399,7 @@ Usage same as `SubheadingBanner`.
 Subsection
 ++++++++++
 
-Subsection
-++++++++++
+The Subsection function creates a subsection component that consists of a heading and content. It utilizes StackV to vertically stack the heading and content, creating a visually appealing subsection.
 
 .. py:function:: Subsection(heading_text: AnyStr, content: Callable, align="center", twsty_tags=[], childs=[], **kwargs)
 
@@ -453,6 +427,8 @@ Same as Subsection
 
 Title
 +++++
+The Title function creates a styled component that displays a title text. It takes a key and a title text as inputs, and displays the title text with the specified alignment.
+SubTitle also has similar usage.
 
 .. py:function:: Title(title_text: AnyStr, twsty_tags=[], align="center", **kwargs)
 
@@ -485,6 +461,8 @@ StackG
 TitledPara
 ++++++++++
 
+The TitledPara function in the oj.PC module is used to create a titled paragraph component.
+
 .. py:function:: TitledPara(heading_text, content, twsty_tags=[], fix_sty_section_nesting=False, **kwargs)
 
    Display a titled paragraph with customizable styling.
@@ -496,7 +474,383 @@ TitledPara
    :param kwargs: Additional keyword arguments that can be passed to the function.
 
 
-.. note::
 
-   See Mutable Pages section for responsive components
+Ofjustpy Mutable Components
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Following mutable components are supported. Their kwargs and instance attributes are same as
+their corresponding static component version. Mutable components are defined in `here <https://github.com/ofjustpy/ofjustpy/blob/main/src/ofjustpy/MHC_types.py>`_). 
+
+.. py:class:: oj.Mutable.Button
+
+.. py:class:: oj.Mutable.Circle
+
+.. py:class:: oj.Mutable.Label
+
+.. py:class:: oj.Mutable.Span
+
+.. py:class:: oj.Mutable.TextInput
+
+.. py:class:: oj.Mutable.Container
+
+.. py:class:: oj.Mutable.Div
+
+.. py:class:: oj.Mutable.StackH
+
+.. py:class:: oj.Mutable.StackV
+
+.. py:class:: oj.Mutable.StackD
+
+.. py:class:: oj.Mutable.ColorSelector
+	      
+.. py:class:: oj.Mutable.Slider
+
+.. py:class:: oj.Mutable.WebPage
+
+.. py:class:: oj.Mutable.Form
+
+
+Containers for Mutable containers:
+++++++++++++++++++++++++++++++++++
+
+**HCCStatic**:
+
+Div class types whose css/classes is mutable but childs are static
+
+.. py:class:: oj.HCCStatic.Div
+	      
+.. py:class:: oj.HCCStatic.StackV
+
+	      
+
+**HCCMutable**: 
+
+
+Div class types whose css/classes is static but childs are mutable
+
+.. py:class:: oj.HCCMutable.Div
+
+.. py:class:: oj.HCCMutable.StackV
+
+.. py:class:: oj.HCCMutable.StackH
+
+.. py:class:: oj.HCCMutable.StackW
+
+.. py:class:: oj.HCCMutable.Container
+	      
+
+Using Mutable Composite Components
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+StackD
+++++++
+
+StackD is a dynamic component representing a "Deck" of cards, where each card is a child element. 
+
+.. py:class:: StackD
+	      
+   :param height_anchor_key: Fix the height of the component to the height this component will be created.
+			     
+   .. py:method:: bring_to_front(id)
+		  
+
+
+
+*Usage*:
+
+
+.. code-block:: python
+
+   stackd_instance = oj.Mutable.StackD(childs=[btn1, btn2, btn3])
+   stackd_instance.bring_to_front('text_key')
+
+.. TODO: refer to code and live demo
+
+
+
+    
+Slider
+++++++
+
+The Slider function creates a custom slider component that displays a set of clickable circles based on the provided itemiter list. It takes a key and a list of items as input, displaying the items as circles within the slider. When a circle is clicked, its outline is updated, and an on-click event is triggered.
+
+
+.. py:class:: Slider
+
+   :ivar num_iter: list of items to be displayed as clickable circles in the slider. This parameter is required.
+
+*Usage*
+
+
+.. code-block:: python
+
+    slider_instance = oj.Mutable.Slider(key='slider_key', num_iter= [1, 2, 3], twsty_tags=['bg-gray-200'])
+
+    
+ColorSelector
++++++++++++++
+
+The ColorSelector function creates a custom color selector component that combines a main color selector and a shades slider. It allows users to pick a color and its shade, then triggers an on-click event with the chosen color.
+
+.. note::
    
+   This is not a general purpose container. Its build primarly to a) demo component programing in Python, and b) has specific use case where Tailwind default colors are to be selected for a component.
+   
+
+
+   
+   
+Paginate
+++++++++
+
+.. py:function:: Paginate(key, childs, page_container_gen, num_pages=10, chunk_size=100, twsty_tags=[], stackd_tags=[H / screen], **kwargs)
+
+   Paginate a list of items into multiple pages with customizable styling.
+
+   :param key: A unique key identifying the paginated content. 
+   :param childs: A list of components to be paginated. 
+   :param page_container_gen: A callable function that generates a container for each paginated page. 
+   :param num_pages: An integer representing the number of pages to display .
+   :param chunk_size: An integer representing the number of items to display per page.
+   :param stackd_tags: The exact height of the stackD used in the paginate section.
+
+
+*Usage*
+
+
+TDB (See code and live demo)
+
+
+
+Dockbar
++++++++
+  
+Plug in this component to have a bar on your page to minimize page components. See the demo/example code at [demo_dock_undock](demos/demo_dock_undock.py) for usage.
+
+.. py:class:: Dockbar
+
+   A class representing a dockbar with dockable items and labels.
+
+   .. py:method:: __init__(dockable_items, dock_labels, *args, wdiv_type=HCCStatic.Div, **kwargs)
+
+      Initialize the Dockbar instance.
+
+      :param dockable_items: A list of dockable items to be displayed in the dockbar. This parameter is required.
+      :param dock_labels: A list of labels corresponding to the dockable items. This parameter is required.
+      :param args: Positional arguments that can be passed to the parent class constructor.
+      :param wdiv_type: The type of div used for the dockable items (default is HCCStatic.Div). If the items being docked are mutable, use Mutable.Div.
+      :param kwargs: Additional keyword arguments that can be passed to the parent class constructor.
+
+		     
+   Assuming that the item being docked are static items. If they are Mutable then use general mutable Mutable.Div for wdiv_type.
+
+*Usage*
+
+
+TDB (See code and live demo)
+
+BiSplitView
++++++++++++
+
+Display a list of components across two columns. Each column is a vertically stacked collection of cells that holds the given components.
+
+.. py:function:: BiSplitView(childs: List, hc_types, twsty_tags=[], **kwargs)
+
+   :param childs: A list of components to be displayed in the split view. 
+   :param hc_types: A dictionary containing fields:
+                  - *part_viewer*: A view function for the parts
+                  - *full_viewer*: A viewer to stack the part view for full view
+		    
+*Usage*
+
+
+See the demo/example code at [demo_BiSplitView](demos/demo_two_column_stackv.py).  
+
+
+HierarchyNavigator
+++++++++++++++++++
+
+.. py:class:: HierarchyNavigator(hierarchy, callback_child_selected, max_childs=20, max_depth=6, *args, **kwargs)
+
+   A class for displaying a nested dictionary with hierarchical navigation.
+
+   :param hierarchy: A nested dictionary to be displayed as hierarchical navigation. This parameter is required.
+   :param callback_child_selected: A callback function to be invoked when a child is selected in the hierarchical navigation. This parameter is required.
+   :param max_childs: An integer representing the maximum number of child items to be displayed at each level (default is 20).
+   :param max_depth: An integer representing the maximum depth of the hierarchical navigation (default is 6).
+
+
+
+*Usage*
+
+TBD: 
+Check out the demo/example code at [demo_hinav](demos/demo_hierarchy_navigation_using_italian_cuisine.py).
+	
+SlideShow
++++++++++
+A class representing a slideshow with a grid of door cards on one side and a deck of info cards on the other side (side by side view). The slideshow consists of a grid of door cards on one side and a deck of info cards on the other side, displayed in a side-by-side view. The info card for the door card currently under focus is brought to the top.
+   
+.. py:class:: SlideShow(key, slide_labels, slide_info, height_anchor_label, *args, **kwargs)
+
+   :param key: A unique key identifying the slideshow. 
+   :param slide_labels: A list of labels for the door cards. 
+   :param slide_info: A list of information for the info cards. 
+   :param height_anchor_label: The label that controls the height of the resulting slideshow panel. 
+
+   .. note::
+
+      The *height_anchor_label* controls the height of the resulting slideshow panel.
+
+
+      
+
+
+Subsection
+++++++++++
+
+.. py:function:: oj.Mutable.Subsection(heading_text: AnyStr, content, align="center", twsty_tags=[], **kwargs)
+   
+ Create a subsection with a heading and content.
+
+    :param heading_text: The text for the subsection heading.
+    :type heading_text: str
+
+    :param content: The content of the subsection.
+    :type content: Ofjustpy HTML component object
+
+    :param align: (optional) The horizontal alignment of the subsection. Default is "center". Other options are "start," "end," "center," "between," "evenly," "around."
+    :type align: str, optional
+
+    :param twsty_tags: (optional) A list of Tailwind CSS tags for styling.
+    :type twsty_tags: List[str], optional
+
+    :param kwargs: Additional keyword arguments for styling and attributes.
+
+    :return: An Ofjustpy HTML component representing the subsection.
+
+    This function creates a subsection with a heading and content. You can specify the horizontal
+    alignment of the subsection using the `align` parameter. The `twsty_tags` parameter allows you
+    to apply Tailwind CSS styling to the subsection.
+
+    Example usage:
+
+    .. code-block:: python
+
+        # Create a subsection with centered content
+        subsection = Subsection(
+            heading_text="Section Title",
+            content= oj.Mutable.Span(text="This is the subsection content."),
+            align="center",
+            twsty_tags=["bg-blue-100", "p-4"],
+        )
+
+.. py:function:: oj.Mutable.Subsubsection(heading_text: AnyStr, content, align="center", twsty_tags=[], **kwargs)
+
+  Same as Subsection except heading font is bit smaller.
+  
+	      
+Layout Modifiers
+~~~~~~~~~~~~~~~~
+
+oj.Halign
++++++++++
+
+Aligns the HTML component content horizontally.
+
+.. py:function:: oj.Halign(content, align="center", content_type="passive",  **kwargs)
+
+
+
+   :param content: The HTML component to be aligned.
+   :type content: Ofjustpy HTML component object 
+
+   :param align: (optional) The horizontal alignment. Default is "center". Other options are start, end, center, between, evenly, around
+   :type align: str, optional
+
+   :param content_type: "passive", "active",  or "mutable"
+   :type align: str, optional
+		
+   :param kwargs: Additional keyword arguments for styling and attributes.
+
+   :return: An Ofjustpy HTML component with the specified horizontal alignment.
+
+   This function aligns the HTML component horizontally using the provided `align` parameter. You can specify the horizontal alignment using values like "left," "center," or "right."
+
+   Example usage:
+
+   .. code-block:: python
+
+      # Center-align the content
+      centered_content = Halign(oj.Mutable.Span(text="This is centered text"), align="center")
+
+      # Left-align the content
+      left_aligned_content = Halign(oj.Mutable.Button(text="Left-aligned text"), align="left")
+
+oj.Valign
++++++++++
+
+.. py:function:: oj.PC.Valign(content: Callable, height_tag=H / screen, align="center", twsty_tags=[], **kwargs)
+		 
+   :param content: The HTML component to be aligned.
+   :type content: Ofjustpy HTML component object 
+
+   :param align: (optional) The vertical alignment. Default is "center". Other options are start, end, center, between, evenly, around
+   :type align: str, optional
+
+   :param height_tag: default h-screen. The height of the enclosing div within which
+		      the content component is aligned.
+		      
+   :param kwargs: Additional keyword arguments for styling and attributes.
+
+   :return: An Ofjustpy HTML component with the specified horizontal alignment.
+
+   This function aligns the HTML component horizontally using the provided `align` parameter. You can specify the horizontal alignment using values like "left," "center," or "right."
+
+   Example usage:
+
+   .. code-block:: python
+
+      # Center-align the content
+      centered_content = Halign(oj.Mutable.Span(text="This is centered text"), align="center")
+
+      # Left-align the content
+      left_aligned_content = Halign(oj.Mutable.Button(text="Left-aligned text"), align="left")
+      
+oj.StackH_Aligned
++++++++++++++++++
+For content which are to be stacked horizontally wrap then around two divs so that
+1. they all have same height
+2. they are positioned vertically and horizontally in center
+
+    
+.. py:function:: oj.StackH_Aligned(content, content_type="passive", valign="center", halign="center", **kwargs)
+
+
+oj.Mutable.Halign
++++++++++++++++++
+Aligns the HTML component content horizontally.
+
+
+.. py:function:: oj.Mutable.Halign(content, align="center", **kwargs)
+		 
+   :param content: The HTML component to be aligned.
+   :type content: Ofjustpy HTML component object 
+
+   :param align: (optional) The horizontal alignment. Default is "center". Other options are start, end, center, between, evenly, around
+   :type align: str, optional
+
+   :param kwargs: Additional keyword arguments for styling and attributes.
+
+   :return: An Ofjustpy HTML component with the specified horizontal alignment.
+
+   This function aligns the HTML component horizontally using the provided `align` parameter. You can specify the horizontal alignment using values like "left," "center," or "right."
+
+   Example usage:
+
+   .. code-block:: python
+
+      # Center-align the content
+      centered_content = Halign(oj.Mutable.Span(text="This is centered text"), align="center")
+
+      # Left-align the content
+      left_aligned_content = Halign(oj.Mutable.Button(text="Left-aligned text"), align="left")

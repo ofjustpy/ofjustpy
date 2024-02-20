@@ -24,7 +24,8 @@ def load_models():
         user_model = getattr(models_pymodule, user_model_name)
 
     except Exception as e:
-        print("data model not loaded yet...try again later")
+        #print("data model not loaded yet...try again later")
+        
         pass
 
 
