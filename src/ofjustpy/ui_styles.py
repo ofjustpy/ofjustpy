@@ -28,12 +28,17 @@ def set_style(label="snow"):
 
 class TwStyCtx:
     def __init__(self, arg_sty):
+        """
+        arg_sty: module to specify theme for each HTML entity type
+        """
         self.arg_sty = arg_sty
 
         pass
 
     def __enter__(self):
-        set_style(self.arg_sty)
+        #set_style(self.arg_sty)
+        global sty
+        sty = self.arg_sty
 
     def __exit__(self, exc_type, exc_value, traceback):
         set_style("snow")

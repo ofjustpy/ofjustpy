@@ -30,6 +30,7 @@ def build_app(*args, **kwargs):
     as aci.the_starlette_app.
     build_app should be called only once per runtime
     """
+
     assert aci.the_starlette_app is None
     app = jp.build_app(*args, **kwargs)
     aci.the_starlette_app = app

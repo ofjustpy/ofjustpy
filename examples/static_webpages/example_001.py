@@ -24,3 +24,6 @@ wp_endpoint = oj.create_endpoint(key="example_001",
 
 oj.add_jproute("/", wp_endpoint)
 
+# from starlette.testclient import TestClient
+# client = TestClient(app)
+# response = client.get('/')

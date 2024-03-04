@@ -23,6 +23,8 @@ from py_tailwind_utils import (outline,
                                offset,
                                black,
                                outline,
+                               space,
+                               x
                                )
 from ofjustpy_engine.static_core_tracker import uictx
 
@@ -107,6 +109,7 @@ class ActiveDivs:
     Switch = assign_id(AD.Switch)
     Datalist = assign_id(AD.Datalist)
     CheckboxInput = assign_id(AD.CheckboxInput)
+    Span = assign_id(AD.Span)
     Img = assign_id(AD.Img)
     
 class HCCStatic:
@@ -128,7 +131,7 @@ class Mutable:
     StackD = assign_id(MStackD)
 
     class Slider(SliderBase):
-        svelte_safelist = [outline / offset / 2, outline / black / 0, outline / 2, outlinesty.double]
+        svelte_safelist = [space/x/2, outline / offset / 2, outline / black / 0, outline / 2, outlinesty.double]
         def __init__(self, *args, num_iter=range(1, 5), **kwargs):
             key = kwargs.get("key")
             with uictx(f"___{key}"):

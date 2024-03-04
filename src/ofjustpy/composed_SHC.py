@@ -29,8 +29,8 @@ from py_tailwind_utils import pd
 from py_tailwind_utils import sl, st, sb, mr, fw, space, y
 
 
-from .ui_styles import sty
-
+#from .ui_styles import sty
+import ofjustpy as oj
 
 def generator(Span, StackV, Div, H3, H5, Para,  PassiveDiv=None):
     """ """
@@ -44,7 +44,7 @@ def generator(Span, StackV, Div, H3, H5, Para,  PassiveDiv=None):
         tstub: target stub, i.e., the one needs to be aligned
         """
         target = PassiveDiv(
-            twsty_tags=conc_twtags(*sty.halign(align), *twsty_tags), childs=[content]
+            twsty_tags=conc_twtags(*oj.ui_styles.sty.halign(align), *twsty_tags), childs=[content]
         )
 
         return target
@@ -57,14 +57,14 @@ def generator(Span, StackV, Div, H3, H5, Para,  PassiveDiv=None):
         """
         return PassiveDiv(
             childs=[content],
-            twsty_tags=conc_twtags(*sty.valign(align), height_tag, *twsty_tags),
+            twsty_tags=conc_twtags(*oj.ui_styles.sty.valign(align), height_tag, *twsty_tags),
             **kwargs,
         )
 
     def SubheadingBanner(
             heading_text: AnyStr,
             twsty_tags: List = [],
-            heading_text_sty = sty.subheading_text,  #[fw.bold]
+            heading_text_sty = oj.ui_styles.sty.subheading_text,  #[fw.bold]
         **kwargs,
     ):
         spanl = Span(
@@ -110,7 +110,7 @@ def generator(Span, StackV, Div, H3, H5, Para,  PassiveDiv=None):
     def SubsubheadingBanner(
         heading_text: AnyStr,
         twsty_tags: List = [],
-        heading_text_sty=sty.subsubheading_text,
+        heading_text_sty=oj.ui_styles.sty.subsubheading_text,
         **kwargs,
     ):
         """
@@ -121,7 +121,7 @@ def generator(Span, StackV, Div, H3, H5, Para,  PassiveDiv=None):
         return SubheadingBanner(
             heading_text,
             twsty_tags=twsty_tags,
-            heading_text_sty=sty.subsubheading_text,
+            heading_text_sty=oj.ui_styles.sty.subsubheading_text,
             **kwargs,
         )
 
@@ -152,7 +152,7 @@ def generator(Span, StackV, Div, H3, H5, Para,  PassiveDiv=None):
         return Halign(
             Span(
                 text=title_text,
-                twsty_tags=conc_twtags(*sty.title_text, *twsty_tags),
+                twsty_tags=conc_twtags(*oj.ui_styles.sty.title_text, *twsty_tags),
                 **kwargs,
             ),
             align=align,
@@ -161,7 +161,7 @@ def generator(Span, StackV, Div, H3, H5, Para,  PassiveDiv=None):
     def SubTitle(title_text: AnyStr, twsty_tags=[], align="center", **kwargs):  #
         return Halign(
             Span(
-                text=title_text, twsty_tags=conc_twtags(*sty.subtitle_text, *twsty_tags)
+                text=title_text, twsty_tags=conc_twtags(*oj.ui_styles.sty.subtitle_text, *twsty_tags)
             ),
             align=align,
         )
@@ -171,11 +171,14 @@ def generator(Span, StackV, Div, H3, H5, Para,  PassiveDiv=None):
             num_rows = kwargs.pop("num_rows", 2)
             num_cols = kwargs.pop("num_cols", 2)
             twsty_tags = kwargs.pop("twsty_tags", [])
-            twsty_tags = [*twsty_tags, *sty.stackG(num_cols, num_rows)]
+            twsty_tags = [*twsty_tags, *oj.ui_styles.sty.stackG(num_cols, num_rows)]
             super().__init__(*args, twsty_tags=twsty_tags, **kwargs)
 
     def TitledPara(
-            heading_text, content, twsty_tags=[], fix_sty_section_nesting=False, childs= [],
+            heading_text,
+            twsty_tags=[],
+            fix_sty_section_nesting=False,
+            childs= [],
             **kwargs
     ):
         if fix_sty_section_nesting:
@@ -183,10 +186,13 @@ def generator(Span, StackV, Div, H3, H5, Para,  PassiveDiv=None):
             # add margin to give effect of content nested
             # within title
             twsty_tags = conc_twtags(*twsty_tags, pd / sl / 4, mr/st/2, space/y/1,  W / full)
-            content.add_twsty_tags(pd / sl / 4)
+            for _ in childs:
+                _.add_twsty_tags(pd / sl / 4)
+                    
 
+        twsty_tags = conc_twtags(*oj.ui_styles.sty.titledPara, *twsty_tags)
         return StackV(
-            childs=[H5(text=heading_text), content], twsty_tags=twsty_tags, **kwargs
+            childs=[H5(text=heading_text), *childs], twsty_tags=twsty_tags, **kwargs
         )
 
     return (

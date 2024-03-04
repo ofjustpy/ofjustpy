@@ -147,7 +147,7 @@ slider = [
     mr / 1,
     pd/2, # need some space for ring to show up
     bdr.full,
-    space/x/2,
+    space/x/4,
     jc.center # place the items (circles) right in the center
     
     
@@ -327,3 +327,7 @@ address = []
 
 script = []
 blockquote = []
+
+datalist = []
+
+titledPara = []

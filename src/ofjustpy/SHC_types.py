@@ -1237,7 +1237,7 @@ class ActiveDivs:
         HCType.active,
         "Img",
         TR.ImgMixin,
-        stytags_getter_func=lambda m=ui_styles: m.sty.input,
+        stytags_getter_func=lambda m=ui_styles: m.sty.img
     )
     
     A = gen_Div_type(

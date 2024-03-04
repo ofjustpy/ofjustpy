@@ -72,7 +72,7 @@ infocard = []
 
 barpanel = []
 
-slider = [H / 6, db.f, ai.center]
+slider = [H / 6, db.f, ai.center, space/x/4]
 circle = [W / 6, H / 6, bdr.full, *hover(noop / bds.double, noop / bd)]
 
 expansion_item = []
