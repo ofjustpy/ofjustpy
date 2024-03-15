@@ -180,8 +180,7 @@ class ResponsiveStatic_CSR_ResponseMixin:
                              body_style="",
                              body_classes="",
                              body_html = "",
-                             components_link_srcs = "",
-
+                                 components_link_srcs = "",
                              ):
         """
         components_link_srcs: reference custom javascript components within /static/ directory
@@ -196,19 +195,22 @@ class ResponsiveStatic_CSR_ResponseMixin:
             """
         frontend_engine_srcs = "\n".join([f"<script src='/templates/js/{frontend_engine_type}/{file_name}.js'></script>" for file_name in frontend_engine_libs])
 
-        
 
         html_response_string = f"""
         <!DOCTYPE html>
         <html>
         <head>
         <base href={base_url}>
-        <script src="https://cdn.tailwindcss.com"></script> 
         <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js" async></script>
         <script src="/templates/js/svelte/bundle.iife.js"></script>
+        <link href="/templates/js/svelte/style.css" rel="stylesheet"
+          type="text/css">
+        <link href="/templates/js/svelte/skeleton-ui-token-style.css" rel="stylesheet"
+          type="text/css">
+        <script src="https://cdn.tailwindcss.com"></script>
         {head_html}
-        </head>
-        <body {body_style} {body_classes}>
+        </head >
+        <body {body_style} {body_classes} data-theme="skeleton">
         {body_html}
         <div id="components">
         </div>

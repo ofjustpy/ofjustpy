@@ -331,3 +331,5 @@ blockquote = []
 datalist = []
 
 titledPara = []
+
+fontawesome = []
