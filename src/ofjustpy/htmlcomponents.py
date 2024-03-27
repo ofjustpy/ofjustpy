@@ -50,7 +50,11 @@ from .MHC_types import Span as MSpan
 from .MHC_types import StackD as MStackD
 from .MHC_types import StackH as MStackH
 from .MHC_types import StackV as MStackV
+from .MHC_types import FontAwesomeIcon as MFontAwesomeIcon
+from .MHC_types import Section as MSection
+
 from .MHC_types import TextInput as MTextInput
+from .MHC_types import ButtonDiv as MButtonDiv
 from .SHC_types import ActiveComponents as AC
 from .SHC_types import ActiveDivs as AD
 from .SHC_types import PassiveComponents
@@ -187,3 +191,7 @@ class Mutable:
     ResponsiveStatic_SSR_WebPage = assign_id(ResponsiveStatic_SSR_WebPage)
     ResponsiveStatic_CSR_WebPage = assign_id(ResponsiveStatic_CSR_WebPage)
     Form = assign_id(MForm)
+    ButtonDiv = assign_id(MButtonDiv)
+    FontAwesomeIcon = assign_id(MFontAwesomeIcon)
+    Section = assign_id(MSection)
+    

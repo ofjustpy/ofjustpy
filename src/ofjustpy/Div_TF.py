@@ -25,6 +25,7 @@ def gen_Div_type(
     static_core_mixins=None,
     mutable_shell_mixins=None,
     stytags_getter_func=None,
+        **kwargs
 ):
     if not static_core_mixins:
         static_core_mixins = []
@@ -40,9 +41,9 @@ def gen_Div_type(
                 hccMixinType=SCmixin.HCCPassiveMixin,
                 jsonMixinType=SCmixin.HCCPassiveJsonMixin,
                 make_container=True,
-                addon_mixins = static_addon_mixins
+                addon_mixins = static_addon_mixins,
+                **kwargs
             )
-
             class WithStub(hc_type):
                 """
                 add stub generator for static objects
@@ -71,7 +72,8 @@ def gen_Div_type(
                 jsonMixinType=SCmixin.HCCJsonMixin,
                 make_container=True,
                 attach_event_handling=True,
-                addon_mixins = static_addon_mixins
+                addon_mixins = static_addon_mixins,
+                **kwargs
             )
 
             class WithStub(hc_type):
@@ -127,6 +129,7 @@ def gen_Div_type(
                 mutable_shell_mixins=mutable_shell_mixins,
                 is_self_mutable=True,
                 is_childs_mutable=True,
+                **kwargs
             )
 
             class WithStub(core_hc_type):

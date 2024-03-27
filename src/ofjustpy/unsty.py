@@ -183,3 +183,108 @@ address = []
 script = []
 blockquote = []
 fontawesome = []
+
+shadcnui_accordionitem  = []
+
+shadcnui_alert  = []
+shadcnui_alert_title  = []
+shadcnui_alert_description  = []
+
+shadcnui_alertdialog  = []
+
+shadcnui_alertdialog_trigger  = []
+shadcnui_alertdialog_content  = []
+shadcnui_alertdialog_header  = []
+shadcnui_alertdialog_footer  = []
+shadcnui_alertdialog_cancel  = []
+shadcnui_alertdialog_action  = []
+shadcnui_alertdialog_title  = []
+shadcnui_alertdialog_description  = []
+
+shadcnui_calendar  = []
+
+shadcnui_checkbox  = []
+
+shadcnui_label  = []
+
+shadcnui_button  = []
+
+shadcnui_select  = []
+
+shadcnui_selectitem  = []
+
+shadcnui_selectgroup  = []
+
+shadcnui_input  = []
+shadcnui_carouselitem = []
+shadcnui_carousel = []
+
+shadcnui_collapsible = []
+
+shadcnui_breadcrumb = []
+
+shadcnui_breadcrumb_list = []
+
+shadcnui_avatar = []
+
+shadcnui_avatar_image = []
+
+shadcnui_avatar_fallback = []
+
+shadcnui_breadcrumb = []
+shadcnui_breadcrumb_list = []
+shadcnui_breadcrumb_item = []
+shadcnui_breadcrumb_link = []
+shadcnui_breadcrumb_separator = []
+shadcnui_breadcrumb_page = []
+
+shadcnui_collapsible = []
+shadcnui_collapsible_trigger = []
+shadcnui_collapsible_content = []
+
+shadcnui_command = []
+shadcnui_command_input = []
+shadcnui_command_list = []
+shadcnui_command_empty = []
+
+shadcnui_command_group = []
+shadcnui_command_item = []
+shadcnui_command_separator = []
+
+
+shadcnui_dialog = []
+shadcnui_dialog_trigger = []
+shadcnui_dialog_content = []
+shadcnui_dialog_header = []
+shadcnui_dialog_title = []
+shadcnui_dialog_description = []
+
+shadcnui_drawer = []
+shadcnui_drawer_trigger = []
+shadcnui_drawer_content = []
+shadcnui_drawer_header = []
+shadcnui_drawer_title = []
+shadcnui_drawer_description = []
+shadcnui_drawer_footer = []
+shadcnui_drawer_button = []
+shadcnui_drawer_close = []
+
+shadcnui_dropdownmenu = []
+shadcnui_dropdownmenu_trigger = []
+shadcnui_dropdownmenu_content = []
+shadcnui_dropdownmenu_group = []
+shadcnui_dropdownmenu_label = []
+shadcnui_dropdownmenu_separator = []
+shadcnui_dropdownmenu_item = []
+
+shadcnui_hovercard = []
+shadcnui_hovercard_trigger = []
+shadcnui_hovercard_content = []
+
+shadcnui_menubar = []
+shadcnui_menubar_menu = []
+shadcnui_menubar_trigger = []
+shadcnui_menubar_content = []
+shadcnui_menubar_item = []
+shadcnui_menubar_separator = []
+shadcnui_menubar_shortcut = []

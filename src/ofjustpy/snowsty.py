@@ -333,3 +333,70 @@ datalist = []
 titledPara = []
 
 fontawesome = []
+
+accordion = []
+
+accordionitem = []
+tabgroup = []
+
+tab = []
+listboxitem = []
+listbox = []
+meltui_slider=[]
+
+meltui_avatar=[]
+
+
+meltui_calendar = []
+meltui_checkbox = []
+
+shadcnui_accordionitem  = []
+
+shadcnui_alert  = []
+shadcnui_alert_title  = []
+shadcnui_alert_description  = []
+
+shadcnui_alertdialog  = []
+
+shadcnui_alertdialog_trigger  = []
+shadcnui_alertdialog_content  = []
+shadcnui_alertdialog_header  = []
+shadcnui_alertdialog_footer  = []
+shadcnui_alertdialog_cancel  = []
+shadcnui_alertdialog_action  = []
+shadcnui_alertdialog_title  = []
+shadcnui_alertdialog_description  = []
+
+shadcnui_calendar  = []
+
+shadcnui_checkbox  = []
+
+shadcnui_label  = []
+
+shadcnui_button  = []
+
+shadcnui_select  = []
+
+shadcnui_selectitem  = []
+
+shadcnui_selectgroup  = []
+
+shadcnui_input  = []
+shadcnui_carouselitem = []
+shadcnui_carousel = []
+
+shadcnui_collapsible = []
+shadcnui_collapsible_trigger = []
+shadcnui_collapsible_content = []
+
+shadcnui_breadcrumb = []
+
+shadcnui_breadcrumb_list = []
+
+shadcnui_carousel = []
+shadcnui_carousel_content = []
+shadcnui_carousel_item = []
+shadcnui_carousel_previous = []
+shadcnui_carousel_next = []
+
+

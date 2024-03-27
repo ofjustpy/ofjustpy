@@ -74,6 +74,14 @@ TextInput = gen_HC_type(
     stytags_getter_func=lambda m=ui_styles: m.sty.input,
 )
 
+from . import icons
+FontAwesomeIcon = gen_HC_type(
+        HCType.mutable,
+        "FontAwesome",
+        TR.FontAwesomeIconMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.fontawesome,
+    baseComponentMixinType = icons.fontawesomeBaseComponentMixin
+    )
 
 class ChartJSBaseMixin:
     # There is nothing in the static
@@ -130,6 +138,14 @@ ChartJS = gen_HC_type(
 
 # div's css and child both are mutable
 Div = gen_Div_type(HCType.mutable, "Div", TR.DivMixin)
+
+ButtonDiv = gen_Div_type(HCType.mutable,
+    "Button",
+    TR.ButtonMixin,
+    mutable_shell_mixins=[mutable_TF_mixins.StaticCoreSharer_ValueMixin],
+    stytags_getter_func=lambda m=ui_styles: m.sty.button,
+)
+
 StackH = gen_Div_type(
     HCType.mutable,
     "Div",
@@ -141,6 +157,13 @@ StackV = gen_Div_type(
     "StackV",
     TR.DivMixin,
     stytags_getter_func=lambda m=ui_styles: m.sty.stackv,
+)
+
+Section = gen_Div_type(
+    HCType.mutable,
+    "StackV",
+    TR.SectionMixin,
+    stytags_getter_func=lambda m=ui_styles: m.sty.section,
 )
 
 

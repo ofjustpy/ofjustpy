@@ -619,7 +619,8 @@ class PassiveComponents:
         Icon_Degree,
         Icon_Rated,
         Icon_SliderNext,
-        Icon_SliderPrev
+        Icon_SliderPrev,
+        FontAwesomeIcon
 )
     Label = gen_HC_type(
         HCType.passive,

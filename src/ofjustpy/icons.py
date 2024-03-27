@@ -10,6 +10,8 @@ class fontawesomeBaseComponentMixin:
     def __init__(self, **kwargs):
         self.domDict.vue_type = "fontawesome_component"
         self.domDict.events = []
+        self.domDict.show = kwargs.get("show", True)
+        self.domDict.debug = kwargs.get("debug", False)
 
         pass
 
