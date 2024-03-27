@@ -292,6 +292,8 @@ def gen_WebPage_type(staticCoreMixins=None,
         def id(self):
             return self.staticCore.id
 
+
+            
     # class Stub_WebPage:
     #     def __init__(self, *args, **kwargs):
     #         self.args = args

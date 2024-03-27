@@ -181,6 +181,7 @@ class ResponsiveStatic_CSR_ResponseMixin:
                              body_classes="",
                              body_html = "",
                                  components_link_srcs = "",
+                                 setup_skeleton_script_src = ""
                              ):
         """
         components_link_srcs: reference custom javascript components within /static/ directory
@@ -196,6 +197,7 @@ class ResponsiveStatic_CSR_ResponseMixin:
         frontend_engine_srcs = "\n".join([f"<script src='/templates/js/{frontend_engine_type}/{file_name}.js'></script>" for file_name in frontend_engine_libs])
 
 
+        
         html_response_string = f"""
         <!DOCTYPE html>
         <html>
@@ -207,7 +209,6 @@ class ResponsiveStatic_CSR_ResponseMixin:
           type="text/css">
         <link href="/templates/js/svelte/skeleton-ui-token-style.css" rel="stylesheet"
           type="text/css">
-        <script src="https://cdn.tailwindcss.com"></script>
         {head_html}
         </head >
         <body {body_style} {body_classes} data-theme="skeleton">
@@ -240,7 +241,7 @@ class ResponsiveStatic_CSR_ResponseMixin:
         </script>
         <script src='/templates/js/event_handler.js'></script>
         <script src='/templates/js/svelte/component_generator.js'></script>
-
+        {setup_skeleton_script_src}
         <script>
         console.log("setting up justpy_core");
         justpy_core.setup()
@@ -285,6 +286,10 @@ class ResponsiveStatic_CSR_ResponseMixin:
                                                path="/")
         assert hasattr(self, "to_json_optimized")
         page_json = self.build_json()
+
+        setup_skeleton_script_src = ""
+        if jpconfig.USE_SVELTE_SKELETON:
+            setup_skeleton_script_src = "<script src='/templates/js/svelte/skeleton_setup.js'></script>"
         response_string = ResponsiveStatic_CSR_ResponseMixin.get_html_response_string(self.page_id,
                                                                          self.title,
                                                                          json.dumps(
@@ -303,7 +308,8 @@ class ResponsiveStatic_CSR_ResponseMixin:
                                                    body_style=self.body_style,
                                                    body_classes= self.body_classes,
                                                    body_html=self.head_html,
-                                                   components_link_srcs=components_link_srcs
+                                                                                      components_link_srcs=components_link_srcs,
+                                                                                      setup_skeleton_script_src = setup_skeleton_script_src
                                                    )
         return HTMLResponse(content=response_string)
     
