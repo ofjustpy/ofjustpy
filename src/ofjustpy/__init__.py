@@ -22,6 +22,7 @@ from . import data_validator as validator
 from . import app_code_introspect as aci
 
 
+
     
 def build_app(*args, **kwargs):
     """
@@ -103,14 +104,15 @@ from ofjustpy_engine.tracker import (
     curr_session_manager,
     webpage_cache,
 )
-from .htmlcomponents import (
-    Mutable,
-    HCCMutable,
-    ActiveComponents as AC,
-    PassiveComponents as PC,
-    HCCStatic,
-    ActiveDivs as AD
-
+from .htmlcomponents import (Mutable,
+                             HCCMutable,
+                             ActiveComponents as AC,
+                             PassiveComponents as PC,
+                             HCCStatic,
+                             ActiveDivs as AD,
+                             HUI,
+                             SKUI,
+                             SKHUI
 )
 from .SHC_types import     PassiveDivs as PD
 from .HC_wrappers import Halign, StackH_Aligned, WithBanner
@@ -135,12 +137,22 @@ def create_endpoint_impl(wp_template):
 def default_page_builder(key=None, childs=[], **kwargs):
     # by default we perform client side rendering
     # its more powerful -- incorporates svelte components
-    return Mutable.ResponsiveStatic_CSR_WebPage(
-        key=key,
-        childs=childs,
-        cookie_state_attr_names=aci.the_starlette_app.cookie_state_attr_names,
-        **kwargs,
-    )
+    rendering_type = kwargs.get("rendering_type", "CSR")
+    if rendering_type == "CSR":
+        return Mutable.ResponsiveStatic_CSR_WebPage(
+            key=key,
+            childs=childs,
+            cookie_state_attr_names=aci.the_starlette_app.cookie_state_attr_names,
+            **kwargs,
+        )
+    if rendering_type == "SSR":
+        return Mutable.ResponsiveStatic_SSR_WebPage(key=key,
+                                                    childs =childs,
+                                                    cookie_state_attr_names=aci.the_starlette_app.cookie_state_attr_names,
+                                                    
+                                                    **kwargs
+                                                   )
+    
 
 
 def get_page_builder():

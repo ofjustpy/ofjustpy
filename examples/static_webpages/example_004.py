@@ -17,14 +17,14 @@ def mouseover_action(dbref, msg, target_of):
 
 # lets create six buttons
 all_btns = [oj.AC.Button(key=f"btn_{idx}",
-                     twsty_tags = [fc/rose/3,
+                     twsty_tags = [fc/rose/300,
                                          ta.center,
                                          bdr.lg,
-                                         bd/gray/3,
+                                         bd/gray/300,
                                          boxtopo.bd,
                                          fw.medium,
-                                         *gradient(gray/2, gray/2, gray/1),
-                                         shadow/gray/2,
+                                         *gradient(gray/200, gray/200, gray/100),
+                                         shadow/gray/200,
                                          shadow.md
                                          ],
                            on_mouseover = mouseover_action,

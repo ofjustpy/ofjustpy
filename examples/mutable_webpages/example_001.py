@@ -14,12 +14,12 @@ def on_btn_click(dbref, msg, target_of):
     label_shell = target_of(alabel)
     
     # modify label's classes via twsty_tags
-    label_shell.add_twsty_tags(bg/blue/5, fc/rose/6, fz.xl, fw.extrabold)
+    label_shell.add_twsty_tags(bg/blue/500, fc/rose/600, fz.xl, fw.extrabold)
     pass
        
 btn = oj.AC.Button(key="abtn",
                  text="ChangeFont",
-                 twsty_tags=[W/32, H/32, bg/rose/6],
+                 twsty_tags=[W/32, H/32, bg/rose/600],
                  on_click = on_btn_click
                  )
 

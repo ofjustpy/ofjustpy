@@ -6,6 +6,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 from py_tailwind_utils import (
+    noop,
     conc_twtags,
     jc,
     db,
@@ -176,7 +177,7 @@ class StackDMixin:
     when it is shuffled.
     """
 
-    svelte_safelist = [W/full, H/twmax, overflow.auto, ppos.absolute, invisible]
+    svelte_safelist = [W/full, H/twmax, overflow.auto, ppos.absolute, noop/invisible]
     
         
     attr_tracked_keys = []
@@ -190,10 +191,10 @@ class StackDMixin:
                 dbref.add_twsty_tags(W / full, H / twmax)
             else:
                 dbref.add_twsty_tags(W / full, H / twmax, overflow.auto, ppos.absolute)
-            dbref.add_twsty_tags(invisible)
+            dbref.add_twsty_tags(noop/invisible)
         self.selected_card_spath = self.components[0].id
         selected_dbref = self.spathMap[self.selected_card_spath]
-        selected_dbref.remove_twsty_tags(invisible)
+        selected_dbref.remove_twsty_tags(noop/invisible)
 
     def bring_to_front(self, spath):
         """
@@ -202,10 +203,10 @@ class StackDMixin:
         tapk = spath
         if tapk in self.spathMap.keys():
             # hide the current front
-            self.spathMap[self.selected_card_spath].add_twsty_tags(invisible)
+            self.spathMap[self.selected_card_spath].add_twsty_tags(noop/invisible)
             # make the selected card visible
             selected_dbref = self.spathMap[tapk]
-            selected_dbref.remove_twsty_tags(invisible)
+            selected_dbref.remove_twsty_tags(noop/invisible)
             self.selected_card_spath = tapk
 
         else:
@@ -218,7 +219,7 @@ class StackDMixin:
 class StackDSvelteSafelist:
     """
     """
-    svelte_safelist = [W/full, H/twmax, overflow.auto, ppos.absolute, invisible]
+    svelte_safelist = [W/full, H/twmax, overflow.auto, ppos.absolute, noop/invisible]
 
     def __init__(self, *args, **kwargs):
         pass
@@ -339,6 +340,12 @@ class HCCStatic:
         TR.DivMixin,
         stytags_getter_func=lambda m=ui_styles: m.sty.stackv,
     )
+    StackW = gen_Div_type(
+        HCType.hcc_static_div,
+        "Div",
+        TR.DivMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.stackw,
+    )
 
 
 class HCCMutable:
@@ -379,6 +386,18 @@ class HCCMutable:
         )
         return HCCMutable.Div(childs=[content], twsty_tags=twsty_tags)
 
+
+    def Valign(
+        content: Callable, height_tag=H / screen, align="center", twsty_tags=[], **kwargs
+    ):
+        """
+        tstub: target stub, i.e., the one needs to be aligned
+        """
+        return HCCMutable.Div(
+            childs=[content],
+            twsty_tags=conc_twtags(*ui_styles.sty.valign(align), height_tag, *twsty_tags),
+            **kwargs,
+        )
     def Subsection(
         heading_text: AnyStr, content: Callable, align="center", twsty_tags=[], **kwargs
     ):

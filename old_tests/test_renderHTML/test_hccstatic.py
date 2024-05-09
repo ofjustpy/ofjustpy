@@ -14,7 +14,7 @@ def on_span_click(dbref, msg, to_ms):
     pass
 with  oj.sessionctx(sm):
     with oj.uictx("l0"):
-        label = oj.AC.Span(key = "aspan", text="labeltext", twsty_tags=[bg/blue/3])
-        sdiv = oj.HCCStatic.StackV(key="sdiv", childs = [label], twsty_tags=[bg/green/1])
+        label = oj.AC.Span(key = "aspan", text="labeltext", twsty_tags=[bg/blue/300])
+        sdiv = oj.HCCStatic.StackV(key="sdiv", childs = [label], twsty_tags=[bg/green/100])
         sdiv_shell  = sdiv.stub()(wp)
         print ( "".join(sdiv_shell.to_html_iter()))

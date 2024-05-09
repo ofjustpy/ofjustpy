@@ -17,7 +17,7 @@ mydeck = oj.Mutable.StackD(key="mydeck",
                            twsty_tags=[W/"1/2"])
 
 
-
+print(mydeck.convert_object_to_jsondict)
 def on_btn_click(dbref, msg, target_of):
     wp_ms = msg.page
     request = wp_ms.session_manager.request
@@ -31,7 +31,7 @@ def on_btn_click(dbref, msg, target_of):
         
 mybtn = oj.AC.Button(key="mybtn",
                    text="abtn",
-                   pcp=[W/32, H/32, bg/rose/6],
+                   twsty_tags=[W/32, H/32, bg/rose/600],
                    on_click=on_btn_click
                    )
 def on_mutableShell_create(wp_ms):

@@ -62,6 +62,11 @@ from .SHC_types import PassiveComponents
 from .ui_styles import sty
 from .WebPage_TF import ResponsiveStatic_SSR_WebPage, ResponsiveStatic_CSR_WebPage
 
+#  hyperui components
+import hyperui_plugin as HUI
+import skeletonui_components as SKUI
+from skeletonui_components import hyperui as SKHUI
+
 
 class ActiveComponents:
     Span = assign_id(AC.Span)
@@ -80,7 +85,7 @@ class ActiveComponents:
     Switch = assign_id(AC.Switch)
 
     class MainColorSelector(AC.Select):
-        svelte_safelist = [bg/sty.get_color_tag(option)/5 for option in twcc2hex.keys()
+        svelte_safelist = [bg/sty.get_color_tag(option)/500 for option in twcc2hex.keys()
             ]
         
         def __init__(self, *args, **kwargs):
@@ -119,6 +124,7 @@ class ActiveDivs:
 class HCCStatic:
     Div = assign_id(HCCStatic.Div)
     StackV = assign_id(HCCStatic.StackV)
+    StackW = assign_id(HCCStatic.StackW)
 
 
 class Mutable:
@@ -155,7 +161,7 @@ class Mutable:
             )
 
     class ColorSelector(CSBase):
-        svelte_safelist = [bg/get_color_instance(cn)/shid for cn in _tw_color_list for shid in range(1, 10)]
+        svelte_safelist = [bg/get_color_instance(cn)/(shid * 100) for cn in _tw_color_list for shid in range(1, 10)]
 
         def __init__(self, *args, **kwargs):
             # there are two childs

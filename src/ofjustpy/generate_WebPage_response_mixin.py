@@ -51,7 +51,8 @@ class ResponsiveStatic_SSR_ResponseMixin:
         <head>
         <base href={base_url}>
 
-        <link href="/static/style.css" rel="stylesheet" type="text/css">
+        <link href="/templates/js/svelte/style_ssr.css" rel="stylesheet"
+          type="text/css">
 
         <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js" async></script>
 
@@ -94,10 +95,8 @@ class ResponsiveStatic_SSR_ResponseMixin:
         
         <!-- async download for working client-side-rendering pages -->
         <script src='/templates/js/event_handler.js' async></script>
-        <script src='/templates/js/svelte/component_generator.js' async></script>
         <script src="/templates/js/svelte/bundle.iife.js" async></script>
-
-        </body>
+         </body>
         </html>
         </html>
         """
@@ -147,9 +146,11 @@ class ResponsiveStatic_SSR_ResponseMixin:
                                                    json.dumps(self.debug),
                                                    jpconfig.BASE_URL,
                                                 self.to_html_iter(),
+
+                                                                                      head_html = self.head_html,
                                                    body_style=self.body_style,
                                                    body_classes= self.body_classes,
-                                                   body_html=self.head_html,
+                                                   body_html=self.body_html,
                                                    components_link_srcs=components_link_srcs
                                                    )
         return HTMLResponse(content=response_string)
@@ -181,7 +182,8 @@ class ResponsiveStatic_CSR_ResponseMixin:
                              body_classes="",
                              body_html = "",
                                  components_link_srcs = "",
-                                 setup_skeleton_script_src = ""
+                                 setup_skeleton_script_src = "",
+                                 skeleton_data_theme="modern"
                              ):
         """
         components_link_srcs: reference custom javascript components within /static/ directory
@@ -195,8 +197,6 @@ class ResponsiveStatic_CSR_ResponseMixin:
             body_classes = f"""class="{body_classes}"
             """
         frontend_engine_srcs = "\n".join([f"<script src='/templates/js/{frontend_engine_type}/{file_name}.js'></script>" for file_name in frontend_engine_libs])
-
-
         
         html_response_string = f"""
         <!DOCTYPE html>
@@ -211,7 +211,7 @@ class ResponsiveStatic_CSR_ResponseMixin:
           type="text/css">
         {head_html}
         </head >
-        <body {body_style} {body_classes} data-theme="skeleton">
+        <body {body_style} {body_classes} data-theme="{skeleton_data_theme}">
         {body_html}
         <div id="components">
         </div>
@@ -305,11 +305,13 @@ class ResponsiveStatic_CSR_ResponseMixin:
                                                    jpconfig.BASE_URL,
                                                                                       
                                                                                       page_json,
+                                                                                      head_html = self.head_html,
                                                    body_style=self.body_style,
                                                    body_classes= self.body_classes,
-                                                   body_html=self.head_html,
+                                                   body_html=self.body_html,
                                                                                       components_link_srcs=components_link_srcs,
-                                                                                      setup_skeleton_script_src = setup_skeleton_script_src
+                                                                                      setup_skeleton_script_src = setup_skeleton_script_src,
+                                                                                      skeleton_data_theme = self.skeleton_data_theme
                                                    )
         return HTMLResponse(content=response_string)
     

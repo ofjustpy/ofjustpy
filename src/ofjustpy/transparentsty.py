@@ -134,7 +134,7 @@ barpanel = [mr / 1]
 
 slider = [
     H / 6,
-    bg / opacity / 5,
+    bg / opacity / 500,
     db.f,
     ai.center,
     mr / 1,
@@ -145,7 +145,7 @@ circle = [
     bdr.full,
     mr / 2,
     noop / bd,
-    *hover(noop / bds.double, noop / bd, bg / gray / 1, bd / gray / 2),
+    *hover(noop / bds.double, noop / bd, bg / gray / 100, bd / gray / 200),
 ]  # bg/gray/5
 
 expansion_item = [mr / 1]

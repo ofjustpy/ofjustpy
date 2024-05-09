@@ -6,12 +6,12 @@ mydiv = oj.HCCMutable.Div(twsty_tags=[W/"1/2"], childs=[mylabel1])
 
 def on_btn_click(dbref, msg, target_of):
     shell_mylabel1 = target_of(mylabel1)
-    shell_mylabel1.add_twsty_tags(bg/blue/5, fc/rose/6, fz.xl, fw.extrabold)
+    shell_mylabel1.add_twsty_tags(bg/blue/500, fc/rose/600, fz.xl, fw.extrabold)
     pass
 
 
 mybtn =  oj.AC.Button(key="mybtn",
-                      text="abtn", pcp=[W/32, H/32, bg/rose/6],
+                      text="abtn", twsty_tags=[W/32, H/32, bg/rose/600],
                       on_click=on_btn_click
                       )
 

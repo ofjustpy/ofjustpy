@@ -16,7 +16,7 @@ with  oj.sessionctx(sm):
     with oj.uictx("l0"):
 
         mspan = oj.Mutable.Span(key="aspan", text="hello", on_click=on_span_click)
-        mdiv = oj.HCCMutable.StackV(childs = [mspan], twsty_tags=[bg/green/1])
+        mdiv = oj.HCCMutable.StackV(childs = [mspan], twsty_tags=[bg/green/100])
         print(mdiv.htmlRender_chunk1)
         mdiv_shell  = mdiv.stub()(wp)
         print ( "".join(mdiv_shell.to_html_iter()))

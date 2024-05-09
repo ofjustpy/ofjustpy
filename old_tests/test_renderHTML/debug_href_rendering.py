@@ -20,8 +20,8 @@ hello_href = oj.AC.A(key="hello_href",
                      title="example index",
                      text=f"Back to examples index",
                      href_builder = oj.href_builder_factory("hello"),
-                     twsty_tags=[bt.bd, bdr.lg, bd/gray/6,
-                                 shadow/gray/2,
+                     twsty_tags=[bt.bd, bdr.lg, bd/gray/600,
+                                 shadow/gray/200,
                                  shadow.md
                                  ]
 

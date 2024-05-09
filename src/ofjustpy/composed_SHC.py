@@ -81,7 +81,7 @@ def generator(Span, StackV, Div, H3, H5, Para,  PassiveDiv=None):
             text=heading_text,
             twsty_tags=[
                 pd/sl/2, pd/st/2, pd/sb/2,
-                invisible,
+                noop/invisible,
                 *variant(W / "1/3", rv="md"),
                 # hide for small screen; noop is required to
                 # not pollute the hidden.modifier_chain
@@ -92,7 +92,7 @@ def generator(Span, StackV, Div, H3, H5, Para,  PassiveDiv=None):
             text=heading_text,
             twsty_tags=[
                 pd/sl/2, pd/st/2, pd/sb/2,
-                invisible,
+                noop/invisible,
                 *variant(W / "1/3", rv="md"),
                 # hide for small screen; noop is required to
                 # not pollute the hidden.modifier_chain

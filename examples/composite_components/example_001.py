@@ -9,10 +9,10 @@ app = oj.load_app()
 
 with writer_ctx:
     with Container() as root_box:
-        with Title(title_text="Title of this page", twsty_tags=[fc/slate/7]):
+        with Title(title_text="Title of this page", twsty_tags=[fc/slate/700]):
             pass
 
-        with SubTitle(title_text="A subtitle description", twsty_tags=[fc/slate/6]):
+        with SubTitle(title_text="A subtitle description", twsty_tags=[fc/slate/600]):
             pass
         
         with Subsection(heading_text = "Sample Subheading",

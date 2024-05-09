@@ -14,7 +14,7 @@ textarea_read_fc = format_code("""textarea_input_ = oj.Textarea_("myTextarea",
                            maxlength=200,
                            minlength=50,
                            debug=True,
-                           pcp=[bg/green/1, W/"1/3"],
+                           twsty_tags=[bg/green/100, W/"1/3"],
 disable_tracking=True,
                                    immutable=True
                            )"""

@@ -8,7 +8,7 @@ def on_input_change(dbref, msg, to_target):
 
 color_selector = oj.AC.MainColorSelector(
                                       key="select_drop_down",
-                                      twsty_tags=[bg/green/1, W/"1/3"],
+                                      twsty_tags=[bg/green/100, W/"1/3"],
                                       on_change=on_input_change
                                       )
 

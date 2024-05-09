@@ -573,53 +573,53 @@ class PassiveDivs:
 class PassiveComponents:
     
     from .icons import (
-    Icon_Cog,
-    Icon_Teams,
-    Icon_Billing,
-    Icon_Invoices,
-    Icon_Account,
-    Icon_Menu,
-    Icon_Chevronright,
-    Icon_Chevrondown,
-    Icon_PaginationLeft,
-    Icon_PaginationRight,
-    Icon_Minus,
-    Icon_EncircledCheckmark,
-    Icon_Cross,
-    Icon_Preview,
-    Icon_Warning,
-    Icon_EuroCurrency,
-    Icon_BreadcrumbSepArrow,
-    Icon_Home,
-    Icon_Edit,
-    Icon_View,
-    Icon_Delete,
-    Icon_Emailat,
-    Icon_Search,
-        Icon_HeartCircle,
-        Icon_Facebook,
-        Icon_Instagram,
-        Icon_Twitter,
-        Icon_GitHub,
-        Icon_Dribble,
-        Icon_ShoutOut,
-        Icon_Plus,
-        Icon_RightArrow,
-        Icon_Openlink,
-        Icon_Notification,
-        Icon_Squid,
-        Icon_IncrementDecrement,
-        Icon_ChartUp,
-        Icon_ChartDown,
-        Icon_PaperMoney,
-        Icon_IdCard,
-        Icon_AddressPin,
-        Icon_PaymentCard,
-        Icon_Chevronleft,
-        Icon_Degree,
-        Icon_Rated,
-        Icon_SliderNext,
-        Icon_SliderPrev,
+    # Icon_Cog,
+    # Icon_Teams,
+    # Icon_Billing,
+    # Icon_Invoices,
+    # Icon_Account,
+    # Icon_Menu,
+    # Icon_Chevronright,
+    # Icon_Chevrondown,
+    # Icon_PaginationLeft,
+    # Icon_PaginationRight,
+    # Icon_Minus,
+    # Icon_EncircledCheckmark,
+    # Icon_Cross,
+    # Icon_Preview,
+    # Icon_Warning,
+    # Icon_EuroCurrency,
+    # Icon_BreadcrumbSepArrow,
+    # Icon_Home,
+    # Icon_Edit,
+    # Icon_View,
+    # Icon_Delete,
+    # Icon_Emailat,
+    # Icon_Search,
+    #     Icon_HeartCircle,
+    #     Icon_Facebook,
+    #     Icon_Instagram,
+    #     Icon_Twitter,
+    #     Icon_GitHub,
+    #     Icon_Dribble,
+    #     Icon_ShoutOut,
+    #     Icon_Plus,
+    #     Icon_RightArrow,
+    #     Icon_Openlink,
+    #     Icon_Notification,
+    #     Icon_Squid,
+    #     Icon_IncrementDecrement,
+    #     Icon_ChartUp,
+    #     Icon_ChartDown,
+    #     Icon_PaperMoney,
+    #     Icon_IdCard,
+    #     Icon_AddressPin,
+    #     Icon_PaymentCard,
+    #     Icon_Chevronleft,
+    #     Icon_Degree,
+    #     Icon_Rated,
+    #     Icon_SliderNext,
+    #     Icon_SliderPrev,
         FontAwesomeIcon
 )
     Label = gen_HC_type(
@@ -1124,7 +1124,6 @@ class ActiveComponents:
         """
 
         def wrapper(dbref, msg, to_shell):
-            print("cb_hook wrapper invoked")
 
             msg.value = msg.checked
             return ufunc(dbref, msg, to_shell)
@@ -1277,14 +1276,10 @@ class ActiveDivs:
         """
 
         def validate_wrapper(dbref, msg, to_shell_target):
-            print("invoking from pre-hook")
-            print("num comps = ", len(dbref.components))
-            print(type(dbref))
+
             # for citem in dbref.components:
             for citem, pitem in traverse_component_hierarchy(dbref):
                 if hasattr(citem, "key"):
-                    print(citem.key, " ", citem, " ")
-                    print(msg.value)
                     if hasattr(citem, "data_validators"):
                         print("child has data_validator ", citem.data_validators)
 
@@ -1305,7 +1300,6 @@ class ActiveDivs:
             super().__init__(*args, event_prehook=ActiveDivs.form_hook, **kwargs)
             for citem, pitem in traverse_component_hierarchy(self):
                 if hasattr(citem, "key"):
-                    print(citem.key, " ", citem, " ")
                     if hasattr(citem, "data_validators"):
                         print("child has data_validator ", citem.data_validators)
 
@@ -1318,7 +1312,6 @@ class ActiveDivs:
         """
 
         def wrapper(dbref, msg, to_shell):
-            print("cb_hook wrapper invoked")
 
             msg.value = msg.checked
             return ufunc(dbref, msg, to_shell)

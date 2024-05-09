@@ -33,7 +33,7 @@ sm = oj.get_session_manager(request)
                           ({'tag': 'button', 'text' : "hello", 'id': '/a',  'classes':"p-1"}, oj.Mutable.Button(key="a", text="hello", twsty_tags=[pd/1])),
                     ({'tag': 'div', 'id': '/a',  'classes':"p-1"}, oj.HCCStatic.Div(key="a",  twsty_tags=[pd/1])),
                     ({'tag': 'div',  'classes':"p-1"}, oj.HCCMutable.Div(twsty_tags=[pd/1])),
-                    ({'tag': 'div',  'classes':"p-1", 'childs':[{'tag': 'button', 'text' : "Submit", 'classes':"bg-green-100", "id":"/abtn"}]}, oj.HCCMutable.Div(childs = [oj.Mutable.Button(key="abtn", twsty_tags=[bg/green/1], text="Submit")], twsty_tags=[pd/1])),
+                    ({'tag': 'div',  'classes':"p-1", 'childs':[{'tag': 'button', 'text' : "Submit", 'classes':"bg-green-100", "id":"/abtn"}]}, oj.HCCMutable.Div(childs = [oj.Mutable.Button(key="abtn", twsty_tags=[bg/green/100], text="Submit")], twsty_tags=[pd/1])),
                     
                           ]
                      

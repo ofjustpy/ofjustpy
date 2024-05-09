@@ -1,17 +1,18 @@
 # https://www.creative-tim.com/learning-lab/tailwind-starter-kit/documentation/css/typography/headings
 from py_tailwind_utils import *
 
-h1 = [xl3, fw.bold,  mr/sl/2, fc/slate/7]
+h1 = [xl3, fw.bold,  mr/sl/2, fc/slate/700]
 
-h2 = [fz.lg, fw.semibold, mr / sl / 2,  fc/slate/7]  # "prose", "prose-2xl"
+h2 = [fz.lg, fw.semibold, mr / sl / 2,  fc/slate/700]  # "prose", "prose-2xl"
 
-h3 = [fz.lg, fw.normal,  mr / sl / 2, fc/slate/6]  # "prose", "prose-2xl"
+h3 = [fz.lg, fw.normal,  mr / sl / 2, fc/slate/600]  # "prose", "prose-2xl"
 
-h4 = [fz._,  fw.normal, mr / sl / 2, fc/slate/6]  # "prose", "prose-2xl"
+h4 = [fz._,  fw.normal, mr / sl / 2, fc/slate/600]  # "prose", "prose-2xl"
 
-h5 = [fz._,  fw.light, mr / sl / 2, fc/slate/5]  # "prose", "prose-2xl"
+h5 = [fz._,  fw.light, mr / sl / 2, fc/slate/500]  # "prose", "prose-2xl"
 
-h6 = [fz.sm,  fw.light, mr / sl / 2, fc/slate/5]  # "prose", "prose-2xl"
+h6 = [fz.sm,  fw.light, mr / sl / 2, fc/slate/500]  # "prose", "prose-2xl"
+
 
 para = [
     base,
@@ -28,8 +29,8 @@ img = [mr / 2, pd / 2]
 # name collision can be confusing
 li = []
 button = [
-    bg / gray / 1,
-    fc / gray / 6,
+    bg / gray / 100,
+    fc / gray / 600,
     mr / sr / 1,
     mr / sb / 1,
     pd / x / 4,
@@ -39,7 +40,7 @@ button = [
     shadow._,
     shadow.sm,
     tt.u,
-    *hover(shadow.md, bg / gray / 2, outline / 4, bdr.md),
+    *hover(shadow.md, bg / gray / 200, outline / 4, bdr.md),
 ]
 
 
@@ -78,7 +79,7 @@ form = [db.f, jc.center]
 theme = []  # default background, font, border, etc stuff
 P = [pd / x / 2, pd / y / 1]  # W/"11/12" <-- this should be done optionally
 A = [
-    fc / gray / 6,
+    fc / gray / 600,
     pd / 1,
     pd / x / 1,
     *hover(fc / gray / 9),
@@ -99,12 +100,12 @@ _.result = [hidden / ""]
 border_style = []
 
 icon_button = [
-    bg / gray / 1,
+    bg / gray / 100,
     ta.center,
     pd / 1,
     shadow.md,
     pd / 1,
-    *hover(bg / gray / 2),
+    *hover(bg / gray / 200),
 ]
 
 
@@ -117,7 +118,7 @@ heading2_span = subheading_text
 
 # span = [*theme, *spacing, db.f, ai.center]
 prose = [
-    fc / gray / 8,
+    fc / gray / 800,
     ta.justify,
     prose.lg,
     max / W / "prose",
@@ -128,11 +129,11 @@ divbutton = [db.f, jc.center]
 # button = [fz.xl, bg/gray/2,  fc/gray/6, ta.center, bt.bd,
 #           bdr.md,   pd/1, shadow.md, mr/2, op.c, hover(bg/gray/4)]
 
-expansion_item = [mr / st / 0, bg / gray / 2, shadow.sm]
+expansion_item = [mr / st / 0, bg / gray / 200, shadow.sm]
 
-inputJbutton = [pd / 4, bg / gray / 1, flex, jc.center, *border_style]
+inputJbutton = [pd / 4, bg / gray / 100, flex, jc.center, *border_style]
 select = [fz.sm, mr / "2", bg / "inherit"]
-selectwbanner = [boxtopo.bd, bdr.md, bd / gray / 1, pd / 1, mr / x / 2]
+selectwbanner = [boxtopo.bd, bdr.md, bd / gray / 100, pd / 1, mr / x / 2]
 
 infocard = [mr / 4]
 # [db.f, flx.col, bg/pink/1]
@@ -140,8 +141,8 @@ infocard = [mr / 4]
 barpanel = [mr / 1]
 
 slider = [
-    bg / slate / 5,
-    bg / opacity / 5,
+    bg / slate / 500,
+    bg / opacity / 500,
     db.f,
     ai.center,
     mr / 1,
@@ -158,10 +159,10 @@ circle = [
     db.bi,
     bdr.full,
     boxtopo.bd,
-    bd/slate/6,
-    bg/slate/6,
+    bd/slate/600,
+    bg/slate/600,
     fc/white,
-    *hover(bg/transparent, fc/slate/6),
+    *hover(bg/transparent, fc/slate/600),
     #*focus(outline.none, boxtopo.ring),
     #*active(fc/slate/5),
     fz.sm
@@ -176,13 +177,13 @@ circle = [
     # *hover(noop / bds.double, noop / bd, bg / gray / 1, bd / gray / 2),
 ]  # bg/gray/5
 
-expansion_item = [mr / 1, bg / gray / 2]
+expansion_item = [mr / 1, bg / gray / 200]
 
 textarea = [
     fz.sm,
     fw.bold,
-    fc / gray / 6,
-    bg / gray / 1,
+    fc / gray / 600,
+    bg / gray / 100,
     opacity / 80,
     fw.light,
     ta.center,
@@ -191,11 +192,11 @@ textarea = [
     H / "full",
 ]
 
-textinput = [db.f, jc.center, boxtopo.bd, bdr.md, bd / gray / 1]
-input = [bg / gray / 1, opacity / 80]
+textinput = [db.f, jc.center, boxtopo.bd, bdr.md, bd / gray / 100]
+input = [bg / gray / 100, opacity / 80]
 
 
-cell = [fc / gray / 6, fz.xl, pd / 1, bg / gray / 2]
+cell = [fc / gray / 600, fz.xl, pd / 1, bg / gray / 200]
 
 left_cell = [*cell, ta.end, W / "5/12"]
 right_cell = [*cell, ta.start, W / "5/12"]
@@ -203,7 +204,7 @@ eq_cell = [*cell, ta.center, op.c]
 
 option = []
 label = [pd / 1]
-wp = [bg / gray / 2, bg / opacity / "25"]
+wp = [bg / gray / 200, bg / opacity / "25"]
 
 # TODO:z-10
 # W/full or max or screen is not working at all
@@ -217,7 +218,7 @@ hr = [
     boxtopo.bd,
     bd / gray / "400/20",
     bg / gray / "400/20",
-    container,
+    noop/container,
 ]
 
 
@@ -235,8 +236,8 @@ def build_classes(*args):
 
 td = [boxtopo.bd, pd / 2, ta.center]
 tr = [
-    [bg / gray / 2, fc / gray / 6],
-    [bg / pink / 1, fc / gray / 6],
+    [bg / gray / 200, fc / gray / 600],
+    [bg / pink / 100, fc / gray / 600],
 ]  # for odd/even row  # 'text-gray-600'
 
 tbl = [
@@ -247,7 +248,7 @@ tbl = [
     overflowx.auto,
 ]  # TODO: incorporate into twtags
 
-expansion_container = [mr / st / 8, bg / gray / 1, shadow.sm, fz.lg]
+expansion_container = [mr / st / 8, bg / gray / 100, shadow.sm, fz.lg]
 
 togglebtn = ["q-ma-md"]
 
@@ -279,28 +280,28 @@ def align(halign="center", valign="center"):
 
 # Caution keep this at the last
 # otherwise will override use of container at the top
-container = [mr / x / auto, container]
+container = [mr / x / auto, noop/container]
 
-default_border = [bd / 2, bd / gray / 4, bdr.lg]
+default_border = [bd / 2, bd / gray / 400, bdr.lg]
 dockbar = [
     *stackh,
-    bg / pink / 1,
+    bg / pink / 100,
     *default_border,
     jc.center,
     space / x / 2,
     W / full,
     H / 16,
 ]
-code = [bg / gray / 1]
-pre = [bg / gray / 1]
+code = [bg / gray / 100]
+pre = [bg / gray / 100]
 collapsible = []
 chartjs = []
 
-undock_button = [bd/blue/3, boxtopo.bd, bdr.full,  bg/gray/8, pd/x/3, pd/y/2, *hover(bd/blue/5)]
+undock_button = [bd/blue/300, boxtopo.bd, bdr.full,  bg/gray/800, pd/x/3, pd/y/2, *hover(bd/blue/500)]
 table = []
-tr = [*variant(bg/gray/3, rv="odd"), *variant(bg/gray/2,  rv="even")]
+tr = [*variant(bg/gray/300, rv="odd"), *variant(bg/gray/200,  rv="even")]
 
-td = [pd/x/4, pd/y/2, bd]
+td = [pd/x/4, pd/y/2, noop/bd]
 dt = []
 dd = []
 dl = []
@@ -377,9 +378,10 @@ shadcnui_button  = []
 
 shadcnui_select  = []
 
-shadcnui_selectitem  = []
+shadcnui_select_item  = []
 
-shadcnui_selectgroup  = []
+shadcnui_select_group  = []
+shadcnui_select_content  = []
 
 shadcnui_input  = []
 shadcnui_carouselitem = []
@@ -398,5 +400,5 @@ shadcnui_carousel_content = []
 shadcnui_carousel_item = []
 shadcnui_carousel_previous = []
 shadcnui_carousel_next = []
-
+shadcnui_progress = []
 

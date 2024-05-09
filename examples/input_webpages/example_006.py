@@ -14,7 +14,7 @@ async def onBtnClick(self, msg, target_of):
     
 dl = oj.AD.Datalist(key="aimg",
                     childs=[oj.PC.Option(text="hello", value="hh", twsty_tags=[H/32, W/32])],
-                     twsty_tags=[H/32, W/32, bg/green/1],
+                     twsty_tags=[H/32, W/32, bg/green/100],
                 on_click = onBtnClick
                 )
 

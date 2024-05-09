@@ -7,12 +7,12 @@ from py_tailwind_utils import *
 app = oj.load_app()
 
 
-label = oj.PC.Label(text="labeltext", twsty_tags=[bg/blue/3])
-span =  oj.PC.Span(text="spantext", twsty_tags=[bg/green/3])
+label = oj.PC.Label(text="labeltext", twsty_tags=[bg/blue/300])
+span =  oj.PC.Span(text="spantext", twsty_tags=[bg/green/300])
 div = oj.PC.StackV(childs=[label,
                         span
                         ],
-                 twsty_tags=[W/"1/2", bg/rose/4,  db.f, jc.center, space/x/8]
+                 twsty_tags=[W/"1/2", bg/rose/400,  db.f, jc.center, space/x/8]
                  )
                   
 
