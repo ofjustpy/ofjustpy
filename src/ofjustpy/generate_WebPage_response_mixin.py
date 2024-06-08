@@ -196,7 +196,11 @@ class ResponsiveStatic_CSR_ResponseMixin:
         if body_classes:
             body_classes = f"""class="{body_classes}"
             """
-        frontend_engine_srcs = "\n".join([f"<script src='/templates/js/{frontend_engine_type}/{file_name}.js'></script>" for file_name in frontend_engine_libs])
+        # this was used in the old justpy to load supported javascript libraries like Quasar etc.
+        # won't work now since we have no external libs as now
+        # and framework js are moved to the svelte directory
+        
+        # frontend_engine_srcs = "\n".join([f"<script src='/templates/js/{frontend_engine_type}/{file_name}.js'></script>" for file_name in frontend_engine_libs])
         
         html_response_string = f"""
         <!DOCTYPE html>

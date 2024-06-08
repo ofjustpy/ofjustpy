@@ -31,7 +31,8 @@ class EventMixin(TR.EventMixinBase):
         "keypress",
     ]
 
-
+    def __init__(self, *args, **kwargs):
+        TR.EventMixinBase.__init__(self, *args, **kwargs)
 class StaticCoreBaseMixin(
         TR.IdMixin,
         TR.TwStyMixin,
@@ -220,7 +221,7 @@ class StaticCoreSharerMixin:
         return self.staticCore.twsty_tags
     
     def get_event_handler(self, event_type):
-        return self.staticCore.event_handlers[event_type]
+        return self.staticCore.event_handlers['on_' + event_type]
 
 class RenderHTML_HCCMutableChildsMixin:
     attr_tracked_keys = []

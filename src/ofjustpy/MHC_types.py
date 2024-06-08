@@ -200,6 +200,7 @@ class StackDMixin:
         """
         spath: the target component which needs to be brought in front
         """
+        
         tapk = spath
         if tapk in self.spathMap.keys():
             # hide the current front

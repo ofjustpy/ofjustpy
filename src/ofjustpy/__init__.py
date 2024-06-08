@@ -7,23 +7,18 @@ import logging
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 import os
+import sys
+import importlib
+
 import ofjustpy_engine as jp
 from starlette.routing import Mount, Route
-import importlib
+
 from .ui_styles import set_style, TwStyCtx
 import importlib.util
-import sys
 from ofjustpy_engine import *
-
-# from .ofjustpy_utils import get_svelte_safelist, csrfprotect
-
 from . import data_validator as validator
-
 from . import app_code_introspect as aci
 
-
-
-    
 def build_app(*args, **kwargs):
     """
     We maintain only one app per
@@ -134,10 +129,10 @@ def create_endpoint_impl(wp_template):
     return wp_endpoint
 
 
-def default_page_builder(key=None, childs=[], **kwargs):
+def default_page_builder(key=None, childs=[], rendering_type="CSR", **kwargs):
     # by default we perform client side rendering
     # its more powerful -- incorporates svelte components
-    rendering_type = kwargs.get("rendering_type", "CSR")
+
     if rendering_type == "CSR":
         return Mutable.ResponsiveStatic_CSR_WebPage(
             key=key,
@@ -152,6 +147,8 @@ def default_page_builder(key=None, childs=[], **kwargs):
                                                     
                                                     **kwargs
                                                    )
+
+    assert False
     
 
 
