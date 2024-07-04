@@ -33,7 +33,7 @@ button = [
     pd / x / 4,
     pd / y / 2,
     bold,
-    outlinesty._,
+    boxtopo.outline,
     shadow._,
     shadow.sm,
     tt.u,

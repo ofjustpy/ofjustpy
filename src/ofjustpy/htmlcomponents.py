@@ -93,7 +93,7 @@ class ActiveComponents:
                 PassiveComponents.Option(
                     text=option,
                     value=option,
-                    twsty_tags=[bg / sty.get_color_tag(option) / 5],
+                    twsty_tags=[bg / sty.get_color_tag(option) / 500],
                 )
                 for option in twcc2hex.keys()
             ]

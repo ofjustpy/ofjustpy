@@ -1,7 +1,7 @@
 """
 A webdev framework that enables development of full-stack webpages and apps purely in Python
 """
-__version__ = "1.1.3"
+__version__ = "1.1.4"
 import logging
 
 logger = logging.getLogger(__name__)

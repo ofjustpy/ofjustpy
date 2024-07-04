@@ -352,6 +352,28 @@ class HCCStatic:
 class HCCMutable:
     # The div css is static; but childs are mutable;
     Div = gen_Div_type(HCType.hcc_mutable_div, "HCCMutableDiv", TR.DivMixin)
+    Details = gen_Div_type(
+        HCType.hcc_mutable_div,
+        "Details",
+        TR.DetailsMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.details,
+        static_addon_mixins = [TR.HCTextMixin],
+    )
+    Summary = gen_Div_type(
+        HCType.hcc_mutable_div,
+        "Summary",
+        TR.SummaryMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.summary,
+        static_addon_mixins = [TR.HCTextMixin],
+    )
+
+    Ul = gen_Div_type(
+        HCType.hcc_mutable_div,
+        "Ul",
+        TR.UlMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.ul,
+        static_addon_mixins = [TR.HCTextMixin],
+    )
     StackV = gen_Div_type(
         HCType.hcc_mutable_div,
         "Div",

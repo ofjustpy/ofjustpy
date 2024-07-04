@@ -23,7 +23,7 @@ all_btns = [oj.AC.Button(key=f"btn_{idx}",
                                          bd/gray/300,
                                          boxtopo.bd,
                                          fw.medium,
-                                         *gradient(gray/200, gray/200, gray/100),
+                                         *build_gradient_expr(gray/200, gray/200, gray/100),
                                          shadow/gray/200,
                                          shadow.md
                                          ],

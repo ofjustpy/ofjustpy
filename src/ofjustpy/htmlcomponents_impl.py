@@ -45,13 +45,19 @@ def on_circle_click(dbref, msg, target_of, slider_core=None):
 
     if slider.selected_circle is not None:
         slider.selected_circle.remove_twsty_tags(
-            outlinesty._, outline/blue/9, outline/2
+            #boxtopo.ring,  ring/2, ring/offset/4, ring/red/500
+            #shadow.xl2, boxshadow/red/500
+            opacity/25
         )
         pass
 
     slider.selected_circle = dbref
     slider.selected_circle.add_twsty_tags(
-        outlinesty._, outline/blue/9, outline/2
+        #bg/white, text/gray/8
+        #outlinesty._, outline/blue/9, outline/2
+        #boxtopo.ring,  ring/2, ring/offset/4, ring/red/500
+        #shadow.xl2 , boxshadow/red/500
+        opacity/25
     )
     # call the slider div registed function
     slider.app_value = dbref.staticCore.value

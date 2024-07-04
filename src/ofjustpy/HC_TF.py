@@ -103,22 +103,19 @@ def gen_HC_type(
             )
 
             def genStub(**kwargs):
-                assert stytags_getter_func
-                stytags = stytags_getter_func()
-                twsty_tags = conc_twtags(*stytags, *kwargs.pop("twsty_tags", []))
-                return gen_Stub_HCMutable(mutable_shell_type, twsty_tags=twsty_tags, **kwargs)
-                # return Stub_HCMutable(
-                #     mutable_shell_type, twsty_tags=twsty_tags, **kwargs
-                # )
+                return gen_Stub_HCMutable(mutable_shell_type, **kwargs)
+
             
 
             class WithStub(core_hc_type):
                 def __init__(self, *args, **kwargs):
-                    super().__init__(*args, **kwargs)
+                    stytags = stytags_getter_func()
+                    self.twsty_tags = conc_twtags(*stytags, *kwargs.pop("twsty_tags", []))
+                    super().__init__(*args, twsty_tags=self.twsty_tags, **kwargs)
                     self.kwargs = kwargs
-
+                    
                 def stub(self):
-                    return genStub(staticCore=self, **self.kwargs)
+                    return genStub(staticCore=self, twsty_tags=self.twsty_tags, **self.kwargs)
                     pass
 
             return WithStub

@@ -4,7 +4,7 @@ from py_tailwind_utils import *
 
 app = oj.load_app()
 
-labels = [oj.Mutable.Label(text="mytext1", key="mylabel1"),
+labels = [oj.Mutable.Label(text="mytext1", key="mylabel1", twsty_tags=[W/8]),
           oj.Mutable.Label(text="mytext2", key="mylabel2"),
           oj.Mutable.Label(text="mytext3", key="mylabel3"),
           oj.Mutable.Label(text="mytext4", key="mylabel4"),
@@ -12,12 +12,11 @@ labels = [oj.Mutable.Label(text="mytext1", key="mylabel1"),
 
 mydeck = oj.Mutable.StackD(key="mydeck",
                            childs=labels,
-                           height_anchor_key="mylabel1",
+                           height_anchor_key="mylabel3",
                            
                            twsty_tags=[W/"1/2"])
 
 
-print(mydeck.convert_object_to_jsondict)
 def on_btn_click(dbref, msg, target_of):
     wp_ms = msg.page
     request = wp_ms.session_manager.request
@@ -31,7 +30,7 @@ def on_btn_click(dbref, msg, target_of):
         
 mybtn = oj.AC.Button(key="mybtn",
                    text="abtn",
-                   twsty_tags=[W/32, H/32, bg/rose/600],
+                   twsty_tags=[W/64, H/8, bg/yellow/300],
                    on_click=on_btn_click
                    )
 def on_mutableShell_create(wp_ms):
@@ -43,9 +42,18 @@ def on_mutableShell_create(wp_ms):
     request.state.btn_idx = 1
     pass
 
-wp_endpoint = oj.create_endpoint(key="example_005",
-                                 childs = [mydeck,
+tlc = oj.HCCMutable.Valign(oj.HCCMutable.Halign(oj.HCCMutable.StackV(childs = [mydeck,
                                            mybtn
+                                     ],
+                           twsty_tags=[space/y/8, pd/4]
+                                                ), 
+                           twsty_tags=[W/full]
+                           )
+                           )
+
+              
+wp_endpoint = oj.create_endpoint(key="example_005",
+                                 childs = [tlc
                                            ],
                                  title = "example_005",
                                  post_mutableshell_create_callback = on_mutableShell_create

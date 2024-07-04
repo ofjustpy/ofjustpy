@@ -1,17 +1,18 @@
-from ofjustpy_engine.jpcore import justpy_app
 import json
+from urllib.parse import urlparse
+from ofjustpy_engine.jpcore import justpy_app
 from ofjustpy_engine.jpcore import jpconfig
-
 from starlette.responses import HTMLResponse
 # updates justpy_app.component_file_list
 justpy_app.create_component_file_list()
 
-frontend_engine_type = justpy_app.jpconfig.FRONTEND_ENGINE_TYPE
+frontend_engine_type = jpconfig.FRONTEND_ENGINE_TYPE
 frontend_engine_libs = jpconfig.FRONTEND_ENGINE_LIBS
     
 class ResponsiveStatic_SSR_ResponseMixin:
 
-    
+
+        
     def get_html_response_string(page_id,
                              title,
                              use_websockets,
@@ -104,6 +105,7 @@ class ResponsiveStatic_SSR_ResponseMixin:
 
 
     def __init__(self, *args, **kwargs):
+        print("calling SSR-WEBPAGE: kwargs", kwargs)
         pass
 
     def get_response_for_load_page(self, request):
@@ -164,6 +166,7 @@ class ResponsiveStatic_CSR_ResponseMixin:
     CSR: client side rendering: we pass a json, that is rendered by svelte runtime.
     """
 
+               
     def get_html_response_string(page_id,
                              title,
                              use_websockets,
@@ -183,7 +186,8 @@ class ResponsiveStatic_CSR_ResponseMixin:
                              body_html = "",
                                  components_link_srcs = "",
                                  setup_skeleton_script_src = "",
-                                 skeleton_data_theme="modern"
+                                 skeleton_data_theme="modern",
+                                 csr_bundle_dir = ""
                              ):
         """
         components_link_srcs: reference custom javascript components within /static/ directory
@@ -197,19 +201,21 @@ class ResponsiveStatic_CSR_ResponseMixin:
             body_classes = f"""class="{body_classes}"
             """
         # this was used in the old justpy to load supported javascript libraries like Quasar etc.
-        # won't work now since we have no external libs as now
-        # and framework js are moved to the svelte directory
+        # won't work now since we have no external libs as of now
+        # and client side framework js are moved to the svelte directory
         
         # frontend_engine_srcs = "\n".join([f"<script src='/templates/js/{frontend_engine_type}/{file_name}.js'></script>" for file_name in frontend_engine_libs])
-        
+
+        # get domain name from base_url
+
         html_response_string = f"""
         <!DOCTYPE html>
         <html>
         <head>
         <base href={base_url}>
         <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js" async></script>
-        <script src="/templates/js/svelte/bundle.iife.js"></script>
-        <link href="/templates/js/svelte/style.css" rel="stylesheet"
+        <script src="/static/{csr_bundle_dir}bundle.iife.js"></script>
+        <link href="/static/{csr_bundle_dir}style.css" rel="stylesheet"
           type="text/css">
         <link href="/templates/js/svelte/skeleton-ui-token-style.css" rel="stylesheet"
           type="text/css">
@@ -259,6 +265,12 @@ class ResponsiveStatic_CSR_ResponseMixin:
 
 
     def __init__(self, *args, **kwargs):
+        self.csr_bundle_dir = kwargs.get("csr_bundle_dir", "")
+
+        if self.csr_bundle_dir:
+            self.csr_bundle_dir = self.csr_bundle_dir  + "/"
+
+        print("csr_bundle_dir  = ", self.csr_bundle_dir)
         pass
 
     def get_response_for_load_page(self, request):
@@ -273,6 +285,7 @@ class ResponsiveStatic_CSR_ResponseMixin:
             Reponse: the response for the given load_page
         """
 
+      
         components_link_srcs = "\n".join([f"""<script src={request.url_for(jpconfig.STATIC_NAME, path=file_name)}</script>""" for file_name in justpy_app.component_file_list
         ])
 
@@ -315,7 +328,8 @@ class ResponsiveStatic_CSR_ResponseMixin:
                                                    body_html=self.body_html,
                                                                                       components_link_srcs=components_link_srcs,
                                                                                       setup_skeleton_script_src = setup_skeleton_script_src,
-                                                                                      skeleton_data_theme = self.skeleton_data_theme
+                                                                                      skeleton_data_theme = self.skeleton_data_theme,
+                                                                                      csr_bundle_dir = self.csr_bundle_dir
                                                    )
         return HTMLResponse(content=response_string)
     
