@@ -100,7 +100,7 @@ class MutableShell_CSMixin:
 
         for shade_btn in scs.components:
             shid = int(shade_btn.value)
-            new_color = bg / get_color_instance(colortag) / shid
+            new_color = bg / get_color_instance(colortag) / (shid* 100)
             shade_btn.add_twsty_tags(new_color)
 
 

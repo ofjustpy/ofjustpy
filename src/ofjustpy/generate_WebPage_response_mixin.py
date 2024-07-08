@@ -270,7 +270,6 @@ class ResponsiveStatic_CSR_ResponseMixin:
         if self.csr_bundle_dir:
             self.csr_bundle_dir = self.csr_bundle_dir  + "/"
 
-        print("csr_bundle_dir  = ", self.csr_bundle_dir)
         pass
 
     def get_response_for_load_page(self, request):

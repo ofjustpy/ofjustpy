@@ -36,13 +36,9 @@ class TwStyCtx:
         pass
 
     def __enter__(self):
-        #set_style(self.arg_sty)
         global sty
-        print ("setting global sty to ", self.arg_sty)
-        
         sty = self.arg_sty
-        print ("setting global sty to ", self.arg_sty)
 
     def __exit__(self, exc_type, exc_value, traceback):
         set_style("snow")
-        print("Exiting context")
+
