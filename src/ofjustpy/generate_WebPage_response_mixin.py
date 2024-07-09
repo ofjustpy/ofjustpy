@@ -31,6 +31,7 @@ class ResponsiveStatic_SSR_ResponseMixin:
                              body_classes="",
                              body_html = "",
                              components_link_srcs = "",
+                                 csr_bundle_dir = ""
 
                              ):
         """
@@ -46,15 +47,18 @@ class ResponsiveStatic_SSR_ResponseMixin:
             """
 
 
+        # not sure if really required
+        #<script src="/static/{csr_bundle_dir}bundle.iife.js"></script>
+
         html_response_string = f"""
         <!DOCTYPE html>
         <html>
         <head>
         <base href={base_url}>
 
-        <link href="/templates/js/svelte/style_ssr.css" rel="stylesheet"
+        
+        <link href="/static/{csr_bundle_dir}style.css" rel="stylesheet"
           type="text/css">
-
         <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js" async></script>
 
         {head_html}
@@ -94,9 +98,6 @@ class ResponsiveStatic_SSR_ResponseMixin:
         justpy_core.setup()
         </script>
         
-        <!-- async download for working client-side-rendering pages -->
-        <script src='/templates/js/event_handler.js' async></script>
-        <script src="/templates/js/svelte/bundle.iife.js" async></script>
          </body>
         </html>
         </html>
@@ -106,6 +107,7 @@ class ResponsiveStatic_SSR_ResponseMixin:
 
     def __init__(self, *args, **kwargs):
         print("calling SSR-WEBPAGE: kwargs", kwargs)
+        self.csr_bundle_dir = kwargs.get("csr_bundle_dir", "") + "/"
         pass
 
     def get_response_for_load_page(self, request):
@@ -153,7 +155,8 @@ class ResponsiveStatic_SSR_ResponseMixin:
                                                    body_style=self.body_style,
                                                    body_classes= self.body_classes,
                                                    body_html=self.body_html,
-                                                   components_link_srcs=components_link_srcs
+                                                                                      components_link_srcs=components_link_srcs,
+                                                                                      csr_bundle_dir = self.csr_bundle_dir
                                                    )
         return HTMLResponse(content=response_string)
     
