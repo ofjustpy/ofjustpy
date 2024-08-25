@@ -70,6 +70,7 @@ class ResponsiveStatic_SSR_ResponseMixin:
         </div>
         <!-- main stuff -->
         {components_link_srcs}
+        <script src='/templates/js/event_handler_ssr.js'></script>
         <script src='/templates/js/comm_channel.js'></script>
 
 
@@ -91,7 +92,7 @@ class ResponsiveStatic_SSR_ResponseMixin:
                 {debug}   // debug
         );
         </script>
-        <script src='/templates/js/event_handler_ssr.js'></script>
+
 
         <script>
         console.log("setting up justpy_core");

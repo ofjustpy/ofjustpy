@@ -65,10 +65,10 @@ def on_circle_click(dbref, msg, target_of, slider_core=None):
     pass
 
 
-def event_prehook(on_event_callback):
-    def hook(dbref, msg, target_of):
+async def event_prehook(on_event_callback):
+    async def hook(dbref, msg, target_of):
         msg.value = dbref.app_value
-        return on_event_callback(dbref, msg, target_of)
+        return await on_event_callback(dbref, msg, target_of)
 
     return hook
 
@@ -139,7 +139,7 @@ def on_scs_click(dbref, msg, target_of, cs_core=None):
 
 
 def CS_event_prehook(on_event_callback):
-    def hook(cs_shell, msg, target_of):
+    async def hook(cs_shell, msg, target_of):
 
         if cs_shell.component_clicked == "mcs":
             cs_shell.update_slider(cs_shell.mcs_value)
@@ -150,7 +150,7 @@ def CS_event_prehook(on_event_callback):
             ]
         msg["value"] = cs_shell.cs_value
         # call the user registered event handler
-        return on_event_callback(cs_shell, msg, target_of)
+        return await on_event_callback(cs_shell, msg, target_of)
 
     return hook
 

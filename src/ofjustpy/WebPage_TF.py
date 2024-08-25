@@ -258,7 +258,8 @@ def gen_WebPage_type(staticCoreMixins=None,
             WebPageMixin, HCCMutable_Mixin, StaticCoreSharerMixin,  *mutableShellMixins
     ):
         def __init__(self, *args, **kwargs):
-            # should be part StaticCoreSharerBaseMixin:
+            # to keep track of the mutable attributes
+            self.domDict = Dict(track_changes=True)
             self.staticCore = kwargs.get("staticCore")
             WebPageMixin.__init__(self, *args, **kwargs)
             HCCMutable_Mixin.__init__(self, *args, **kwargs)
@@ -271,9 +272,10 @@ def gen_WebPage_type(staticCoreMixins=None,
             """
             invoke the post_init callback once the function is initialized. 
             """
+            print ("post_init invoked")
             if self.staticCore.post_init:
-                print ("calling static core post init")
-                self.staticCore.post_init(**kwargs)
+                print ("calling static core post init : ", kwargs)
+                self.staticCore.post_init(self, **kwargs)
                 
             
         def react(self):

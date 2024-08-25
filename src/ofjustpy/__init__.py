@@ -116,6 +116,7 @@ from .HC_wrappers import Halign, StackH_Aligned, WithBanner
 def create_endpoint_impl(wp_template):
     @webpage_cache(wp_template.id)
     def wp_endpoint(request, *args, **kwargs):
+
         sm = get_session_manager(request)
         with sessionctx(sm):
             wp_ = wp_template.stub()
@@ -159,6 +160,9 @@ def get_page_builder():
 
 
 def create_endpoint(key, childs, **kwargs):
+    """
+    childs: list
+    """
     page_builder = get_page_builder()
     wp_template = page_builder(key, childs, **kwargs)
     wp_endpoint = create_endpoint_impl(wp_template)

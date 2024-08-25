@@ -1269,24 +1269,26 @@ class ActiveDivs:
         static_addon_mixins = [TR.HCTextMixin]
         
     )
-    def form_hook(ufunc):
-        """
-        a pre-hook called before user function is called.
-        pre-hook will perform data validation before invoking user response
-        """
+    # def form_hook(ufunc):
+    #     """
+    #     a pre-hook called before user function is called.
+    #     pre-hook will perform data validation before invoking user response
+    #     """
 
-        def validate_wrapper(dbref, msg, to_shell_target):
+    #     def validate_wrapper(dbref, msg, to_shell_target):
 
-            # for citem in dbref.components:
-            for citem, pitem in traverse_component_hierarchy(dbref):
-                if hasattr(citem, "key"):
-                    if hasattr(citem, "data_validators"):
-                        print("child has data_validator ", citem.data_validators)
+    #         # for citem in dbref.components:
+    #         for citem, pitem in traverse_component_hierarchy(dbref):
+    #             if hasattr(citem, "key"):
+    #                 if hasattr(citem, "data_validators"):
+    #                     print("child has data_validator ", citem.data_validators)
+    #                     print("child has events ", citem.event_handlers)
+                        
 
-            return ufunc(dbref, msg, to_shell_target)
-            pass
-
-        return validate_wrapper
+    #         return ufunc(dbref, msg, to_shell_target)
+    #         pass
+        
+    #     return validate_wrapper
 
     FormBase = gen_Div_type(
         HCType.active,
@@ -1297,12 +1299,48 @@ class ActiveDivs:
 
     class Form(FormBase):
         def __init__(self, *args, **kwargs):
-            super().__init__(*args, event_prehook=ActiveDivs.form_hook, **kwargs)
+            self.default_values = {}
+            def form_event_handler_hook(ufunc):
+                """
+                a hook over components of the form to 
+                capture the input value of child components;
+                - keeping the child info on request.state
+                """
+                def wrapper(dbref, msg, to_shell):
+                    print ("within prehook = ", self.id, " ", dbref.id)
+                    request = msg.page.session_manager.request
+                    request.state.form_data[self.id][dbref.id] = msg.value
+                    # calling the original event handler
+                    return ufunc(dbref, msg, to_shell)
+
+                return wrapper
+            super().__init__(*args,
+                             #event_prehook=ActiveDivs.form_hook,
+                             **kwargs)
             for citem, pitem in traverse_component_hierarchy(self):
                 if hasattr(citem, "key"):
-                    if hasattr(citem, "data_validators"):
-                        print("child has data_validator ", citem.data_validators)
+                    # we assign key to passive objects as well
+                    if not citem.key.startswith('po_'):
+                        #if hasattr(citem, "data_validators"):
+                        #print("child has data_validator ", citem.data_validators)
+                        # form will keep track of component value and its data validators
 
+                        self.default_values[citem.id] = citem.value
+
+                        citem.add_prehook(form_event_handler_hook)
+        def get_comp_value(self, page, comp_id):
+            """
+            return value of the child component  defined by comp_id
+            """
+            request = page.session_manager.request
+            if comp_id in request.state.form_data[self.id]:
+                return request.state.form_data[self.id][comp_id]
+            elif comp_id in self.default_values:
+                return self.default_values[comp_id]
+            else:
+                assert False
+            
+            
 
         # ========================= CheckboxInput ========================
     def cb_hook(ufunc):
@@ -1314,6 +1352,9 @@ class ActiveDivs:
         def wrapper(dbref, msg, to_shell):
 
             msg.value = msg.checked
+            # Static components do not keep track
+            # per connection value
+            # dbref.checked = msg.checked
             return ufunc(dbref, msg, to_shell)
 
         return wrapper
@@ -1322,7 +1363,7 @@ class ActiveDivs:
         HCType.active,
         "CheckboxInput",
         TR.CheckboxInputMixin,
-        stytags_getter_func=lambda m=ui_styles: m.sty.input,
+        stytags_getter_func=lambda m=ui_styles: m.sty.checkbox,
     )
 
     class CheckboxInput(CheckboxInputBase):

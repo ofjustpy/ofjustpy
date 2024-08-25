@@ -144,6 +144,7 @@ class Mutable:
         svelte_safelist = [space/x/2, outline / offset / 2, outline / black / 0, outline / 2, outlinesty.double]
         def __init__(self, *args, num_iter=range(1, 5), **kwargs):
             key = kwargs.get("key")
+            
             with uictx(f"___{key}"):
                 childs = [
                     Mutable.Circle(
@@ -153,6 +154,7 @@ class Mutable:
                         on_click=lambda *args, slider_core=self: on_circle_click(
                             *args, slider_core=slider_core
                         ),
+
                     )
                     for i in num_iter
                 ]

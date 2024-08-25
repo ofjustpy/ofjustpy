@@ -90,18 +90,22 @@ class ChartJSBaseMixin:
     # everything belongs to mutable shell
     def __init__(self, *args, **kwargs):
         pass
-
+    
+    @property
+    def html_tag(self):
+        return self.domDict.html_tag
 
 class ChartJSMixin:
-    vue_type = "ChartJS"
-
+    vue_type = "chartjs_component"
+    html_tag = "canvas" # not sure what to use -- going with canvas for now
     # chart_types = [] #TODO
     def __init__(self, *args, **kwargs):
         # self.cjs_cfg = kwargs.get('cjs_cfg')
 
         self.chart_name = kwargs.get("chart_name")
         self.domDict.cjs_cfg = kwargs.get("cjs_cfg")
-        self.domDict.vue_type = "ChartJS"
+        self.domDict.html_tag = "canvas"
+        self.domDict.vue_type = "chartjs_component"
         self.domDict.class_name = "ChartJS"
         # self.domDict.chart_type = self.cjs_cfg.type
         # self.domDict.chart_options = self.cjs_cfg.options
@@ -127,7 +131,7 @@ class ChartJSMixin:
     #     spath = "/options/scales/x/title/text"
     #     dnew(self.cjs_cfg, spath, "new_title")
 
-
+# TODO: not working
 ChartJS = gen_HC_type(
     HCType.mutable,
     "ChartJS",
@@ -137,7 +141,7 @@ ChartJS = gen_HC_type(
 )
 
 
-# div's css and child both are mutable
+
 Div = gen_Div_type(HCType.mutable, "Div", TR.DivMixin)
 
 ButtonDiv = gen_Div_type(HCType.mutable,

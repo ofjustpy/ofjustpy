@@ -125,8 +125,7 @@ def generator(Span, StackV, Div, H3, H5, Para,  PassiveDiv=None):
             **kwargs,
         )
 
-    def Subsection(
-        heading_text: AnyStr, content: Callable, align="center", twsty_tags=[],
+    def Subsection(heading_text: AnyStr, content: Callable, align="center", twsty_tags=[],
             childs = [],
 
             **kwargs
