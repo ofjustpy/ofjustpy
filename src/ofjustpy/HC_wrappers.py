@@ -9,7 +9,7 @@ from typing import List
 from py_tailwind_utils import cc
 from py_tailwind_utils import conc_twtags
 from py_tailwind_utils import db
-from py_tailwind_utils import flx
+from py_tailwind_utils import flxrsz
 from py_tailwind_utils import H
 from py_tailwind_utils import jc
 from py_tailwind_utils import noop
@@ -52,7 +52,7 @@ def StackH_Aligned(
     match content_type:
         case "passive":
             valigned = PC.Div(childs=[content], twsty_tags=sty.valign(valign))
-            return PC.Div(childs=[valigned], twsty_tags=[flx.one, *sty.halign(valign)])
+            return PC.Div(childs=[valigned], twsty_tags=[flxrsz.one, *sty.halign(valign)])
         case "active":
             # passive/active should be same
             assert False
@@ -63,7 +63,7 @@ def StackH_Aligned(
                 childs=[content], twsty_tags=sty.valign(valign)
             )  # adjust height of valigned and place it horizontally centered
             return HCCMutable.Div(
-                childs=[valigned], twsty_tags=[flx.one, *sty.valign(valign)]
+                childs=[valigned], twsty_tags=[flxrsz.one, *sty.valign(valign)]
             )
 
 

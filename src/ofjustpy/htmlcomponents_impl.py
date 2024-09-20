@@ -40,7 +40,7 @@ SliderBase = gen_Div_type(
 )
 
 
-def on_circle_click(dbref, msg, target_of, slider_core=None):
+async def on_circle_click(dbref, msg, target_of, slider_core=None):
     slider = target_of(slider_core)
 
     if slider.selected_circle is not None:
@@ -65,7 +65,7 @@ def on_circle_click(dbref, msg, target_of, slider_core=None):
     pass
 
 
-async def event_prehook(on_event_callback):
+def event_prehook(on_event_callback):
     async def hook(dbref, msg, target_of):
         msg.value = dbref.app_value
         return await on_event_callback(dbref, msg, target_of)

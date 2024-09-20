@@ -77,7 +77,6 @@ class PassiveDivs:
         static_addon_mixins = [TR.HCTextMixin]  
         
     )
-
     Prose = gen_Div_type(
         HCType.passive,
         "P",
@@ -119,6 +118,23 @@ class PassiveDivs:
         static_addon_mixins = [TR.HCTextMixin]  
     )
 
+
+    Script = gen_Div_type(
+    HCType.passive,
+    "Script",
+    TR.ScriptMixin,  
+    stytags_getter_func=lambda m=ui_styles: m.sty.script,  
+    static_addon_mixins=[TR.HCTextMixin]  
+    )
+
+    Blockquote = gen_Div_type(
+        HCType.passive,
+        "Blockquote",
+        TR.BlockquoteMixin,  # Assuming you have the BlockquoteMixin class
+        stytags_getter_func=lambda m=ui_styles: m.sty.blockquote,  # Adjust as needed
+        static_addon_mixins=[TR.HCTextMixin]  # Assuming you want to retain text styling
+    )
+
     H1 = gen_Div_type(
         HCType.passive,
         "H1",
@@ -127,36 +143,6 @@ class PassiveDivs:
         static_addon_mixins = [TR.HCTextMixin]  
     )
 
-    H1Div = gen_Div_type(
-        HCType.passive,
-        "H1Div",
-        TR.H1Mixin,
-        stytags_getter_func=lambda m=ui_styles: m.sty.h1,
-        static_addon_mixins = [TR.HCTextMixin]  
-    )
-
-    H2Div = gen_Div_type(
-        HCType.passive,
-        "H2Div",
-        TR.H1Mixin,
-        stytags_getter_func=lambda m=ui_styles: m.sty.h2,
-        static_addon_mixins = [TR.HCTextMixin]
-    )
-    ScriptDiv = gen_Div_type(
-    HCType.passive,
-    "ScriptDiv",
-    TR.ScriptMixin,  
-    stytags_getter_func=lambda m=ui_styles: m.sty.script,  
-    static_addon_mixins=[TR.HCTextMixin]  
-    )
-
-    BlockquoteDiv = gen_Div_type(
-        HCType.passive,
-        "BlockquoteDiv",
-        TR.BlockquoteMixin,  # Assuming you have the BlockquoteMixin class
-        stytags_getter_func=lambda m=ui_styles: m.sty.blockquote,  # Adjust as needed
-        static_addon_mixins=[TR.HCTextMixin]  # Assuming you want to retain text styling
-    )
 
     H2 = gen_Div_type(
         HCType.passive,
@@ -174,15 +160,6 @@ class PassiveDivs:
         static_addon_mixins = [TR.HCTextMixin]  
     )
 
-    H3Div = gen_Div_type(
-        HCType.passive,
-        "H3",
-        TR.H3Mixin,
-        stytags_getter_func=lambda m=ui_styles: m.sty.h3,
-        static_addon_mixins = [TR.HCTextMixin],
-    )
-
-        
     H4 = gen_Div_type(
         HCType.passive,
         "H4",
@@ -232,45 +209,11 @@ class PassiveDivs:
         static_addon_mixins = [TR.HCTextMixin],
     )
     
-    # Div component types
     Div = gen_Div_type(        static_addon_mixins = [TR.HCTextMixin])
     Container = gen_Div_type(stytags_getter_func=lambda m=ui_styles: m.sty.container,
                              static_addon_mixins = [TR.HCTextMixin],
                              )
 
-    LabelDiv = gen_Div_type(
-        HCType.passive,
-        "Label",
-        TR.LabelMixin,
-        stytags_getter_func=lambda m=ui_styles: m.sty.label,
-        static_addon_mixins = [TR.HCTextMixin],
-    )
-
-    SpanDiv = gen_Div_type(
-        HCType.passive,
-        "Span",
-        TR.SpanMixin,
-        static_addon_mixins = [TR.HCTextMixin],
-        stytags_getter_func=lambda m=ui_styles: m.sty.span,
-
-    )
-    
-    PDiv = gen_Div_type(
-        HCType.passive,
-        "Span",
-        TR.PMixin,
-        static_addon_mixins = [TR.HCTextMixin],
-        stytags_getter_func=lambda m=ui_styles: m.sty.p,
-    )
-        
-
-    
-
-    StackV = gen_Div_type(stytags_getter_func=lambda m=ui_styles: m.sty.stackv)
-
-    StackH = gen_Div_type(stytags_getter_func=lambda m=ui_styles: m.sty.stackh)
-
-    StackW = gen_Div_type(stytags_getter_func=lambda m=ui_styles: m.sty.stackw)
 
     Ul = gen_Div_type(
         HCType.passive,
@@ -288,27 +231,11 @@ class PassiveDivs:
         static_addon_mixins = [TR.HCTextMixin],
     )
 
-    Li = gen_Div_type(
-        HCType.passive,
-        "Li",
-        TR.LiMixin,
-        stytags_getter_func=lambda m=ui_styles: m.sty.li,
-        static_addon_mixins = [TR.HCTextMixin],
-    )
-
     Dl = gen_Div_type(
         HCType.passive,
         "Dl",
         TR.DlMixin,
         stytags_getter_func=lambda m=ui_styles: m.sty.dl,
-        static_addon_mixins = [TR.HCTextMixin],
-    )
-
-    Ul = gen_Div_type(
-        HCType.passive,
-        "Ul",
-        TR.UlMixin,
-        stytags_getter_func=lambda m=ui_styles: m.sty.ul,
         static_addon_mixins = [TR.HCTextMixin],
     )
 
@@ -353,21 +280,6 @@ class PassiveDivs:
         static_addon_mixins = [TR.HCTextMixin],
     )
 
-    DtDiv = gen_Div_type(
-        HCType.passive,
-        "Dt",
-        TR.DtMixin,
-        stytags_getter_func=lambda m=ui_styles: m.sty.dt,
-        static_addon_mixins = [TR.HCTextMixin],
-    )
-    
-    DdDiv = gen_Div_type(
-        HCType.passive,
-        "Dd",
-        TR.DdMixin,
-        stytags_getter_func=lambda m=ui_styles: m.sty.dd,
-        static_addon_mixins = [TR.HCTextMixin],
-    )
     Dd = gen_Div_type(
         HCType.passive,
         "Dd",
@@ -377,23 +289,6 @@ class PassiveDivs:
     )
     
 
-    # for PyCodeFormatter we need PreDiv/CodeDiv so that new lines are rendered
-    # as newlines
-    CodeDiv = gen_Div_type(
-        HCType.passive,
-        "Code",
-        TR.CodeMixin,
-        stytags_getter_func=lambda m=ui_styles: m.sty.code,
-        static_addon_mixins = [TR.HCTextMixin],
-    )
-
-    PreDiv = gen_Div_type(
-        HCType.passive,
-        "Pre",
-        TR.PreMixin,
-        stytags_getter_func=lambda m=ui_styles: m.sty.pre,
-        static_addon_mixins = [TR.HCTextMixin],
-    )
     Collapsible = gen_Div_type(
         HCType.passive,
         "Collapsible",
@@ -402,9 +297,6 @@ class PassiveDivs:
         static_addon_mixins = [TR.HCTextMixin],
     )
 
-    # ChartJS  = gen_Div_type(HCType.passive, "ChartJS", TR.ChartJSMixin,
-    #                        stytags=sty.chartjs
-    #                   )
 
     Nav = gen_Div_type(
         HCType.passive,
@@ -523,46 +415,19 @@ class PassiveDivs:
         static_addon_mixins = [TR.HCTextMixin],
     )
 
-    Img = gen_HC_type(
-        HCType.passive,
-        "Img",
-        TR.ImgMixin,
-        stytags_getter_func=lambda m=ui_styles: m.sty.img,
-    )
-    Legend = gen_HC_type(
-        HCType.passive,
-        "Legend",
-        TR.LegendMixin,
-        stytags_getter_func=lambda m=ui_styles: m.sty.legend,
-    )
-    Small = gen_HC_type(
-        HCType.passive,
-        "Small",
-        TR.SmallMixin,
-        stytags_getter_func=lambda m=ui_styles: m.sty.small,
-    )
-    Th = gen_Div_type(
-        HCType.passive,
-        "Th",
-        TR.ThMixin,
-        stytags_getter_func=lambda m=ui_styles: m.sty.th,
-        static_addon_mixins = [TR.HCTextMixin],
-    )
-    Td = gen_Div_type(
-        HCType.passive,
-        "Td",
-        TR.TdMixin,
-        stytags_getter_func=lambda m=ui_styles: m.sty.td,
-        static_addon_mixins = [TR.HCTextMixin],
-    )
+
+    StackV = gen_Div_type(stytags_getter_func=lambda m=ui_styles: m.sty.stackv)
+
+    StackH = gen_Div_type(stytags_getter_func=lambda m=ui_styles: m.sty.stackh)
+
+    StackW = gen_Div_type(stytags_getter_func=lambda m=ui_styles: m.sty.stackw)
 
     (
         Halign,
         Valign,
+        SubheadingBannerIml,
         SubheadingBanner,
-        SubsubheadingBanner,
         Subsection,
-        Subsubsection,
         Title,
         SubTitle,
         StackG,
@@ -1077,10 +942,10 @@ class PassiveComponents:
     (
         Halign,
         Valign,
+        SubheadingBannerImpl,
         SubheadingBanner,
-        SubsubheadingBanner,
         Subsection,
-        Subsubsection,
+        #Subsubsection,
         Title,
         SubTitle,
         StackG,
@@ -1116,7 +981,6 @@ class ActiveComponents:
         stytags_getter_func=lambda m=ui_styles: m.sty.input,
     )
 
-    # ========================= CheckboxInput ========================
     def cb_hook(ufunc):
         """
         a wrapper over user event handler to
@@ -1148,12 +1012,12 @@ class ActiveComponents:
         stytags_getter_func=lambda m=ui_styles: m.sty.input,
     )
     Div = gen_Div_type(HCType.active, hc_tag="ActiveDiv")
-    ButtonDiv = gen_Div_type(
-        HCType.active,
-        "ButtonDiv",
-        TR.ButtonMixin,
-        stytags_getter_func=lambda m=ui_styles: m.sty.button,
-    )
+    # ButtonDiv = gen_Div_type(
+    #     HCType.active,
+    #     "ButtonDiv",
+    #     TR.ButtonMixin,
+    #     stytags_getter_func=lambda m=ui_styles: m.sty.button,
+    # )
     StackH = gen_Div_type(HCType.active,
                           stytags_getter_func=lambda m=ui_styles: m.sty.stackh,
                           hc_tag="AStackH"

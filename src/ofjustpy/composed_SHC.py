@@ -14,7 +14,7 @@ from py_tailwind_utils import get_color_instance
 from py_tailwind_utils import green
 from py_tailwind_utils import H
 from py_tailwind_utils import hidden
-from py_tailwind_utils import invisible
+from py_tailwind_utils import lv
 from py_tailwind_utils import jc
 from py_tailwind_utils import noop
 from py_tailwind_utils import offset
@@ -61,7 +61,7 @@ def generator(Span, StackV, Div, H3, H5, Para,  PassiveDiv=None):
             **kwargs,
         )
 
-    def SubheadingBanner(
+    def SubheadingBannerImpl(
             heading_text: AnyStr,
             twsty_tags: List = [],
             heading_text_sty = oj.ui_styles.sty.subheading_text,  #[fw.bold]
@@ -81,7 +81,7 @@ def generator(Span, StackV, Div, H3, H5, Para,  PassiveDiv=None):
             text=heading_text,
             twsty_tags=[
                 pd/sl/2, pd/st/2, pd/sb/2,
-                noop/invisible,
+                lv.iv,
                 *variant(W / "1/3", rv="md"),
                 # hide for small screen; noop is required to
                 # not pollute the hidden.modifier_chain
@@ -92,7 +92,7 @@ def generator(Span, StackV, Div, H3, H5, Para,  PassiveDiv=None):
             text=heading_text,
             twsty_tags=[
                 pd/sl/2, pd/st/2, pd/sb/2,
-                noop/invisible,
+                lv.iv,
                 *variant(W / "1/3", rv="md"),
                 # hide for small screen; noop is required to
                 # not pollute the hidden.modifier_chain
@@ -107,10 +107,10 @@ def generator(Span, StackV, Div, H3, H5, Para,  PassiveDiv=None):
 
         return target
 
-    def SubsubheadingBanner(
+    def SubheadingBanner(
         heading_text: AnyStr,
         twsty_tags: List = [],
-        heading_text_sty=oj.ui_styles.sty.subsubheading_text,
+            section_depth = 0,
         **kwargs,
     ):
         """
@@ -118,34 +118,38 @@ def generator(Span, StackV, Div, H3, H5, Para,  PassiveDiv=None):
         subheading is fw.bold
         subsubheading is fw.medium
         """
-        return SubheadingBanner(
+
+        section_title_sty = oj.ui_styles.sty.section_title_sty[section_depth]
+
+        return SubheadingBannerImpl(
             heading_text,
             twsty_tags=twsty_tags,
-            heading_text_sty=oj.ui_styles.sty.subsubheading_text,
+            heading_text_sty=section_title_sty,
             **kwargs,
         )
 
     def Subsection(heading_text: AnyStr, content: Callable, align="center", twsty_tags=[],
-            childs = [],
-
-            **kwargs
-    ):
+                   childs = [],
+                   section_depth = 0, 
+                   
+                   **kwargs
+                   ):
         return StackV(
             twsty_tags=[*twsty_tags, space/y/2],
-            childs=[SubheadingBanner(heading_text), Halign(content, align=align), *childs],
+            childs=[SubheadingBanner(heading_text, section_depth=section_depth), Halign(content, align=align), *childs],
         )
 
-    def Subsubsection(heading_text: AnyStr,
-                      content: Callable,
-                      twsty_tags: List = [],
-                      align="center",
-                      childs = [],
-                      **kwargs,
-                      ):
-        return StackV(
-            twsty_tags=twsty_tags,
-            childs=[SubsubheadingBanner(heading_text), Halign(content, align=align), *childs],
-        )
+    # def Subsubsection(heading_text: AnyStr,
+    #                   content: Callable,
+    #                   twsty_tags: List = [],
+    #                   align="center",
+    #                   childs = [],
+    #                   **kwargs,
+    #                   ):
+    #     return StackV(
+    #         twsty_tags=twsty_tags,
+    #         childs=[SubsubheadingBanner(heading_text), Halign(content, align=align), *childs],
+    #     )
 
     def Title(title_text: AnyStr, twsty_tags=[], align="center", **kwargs):
         return Halign(
@@ -178,6 +182,7 @@ def generator(Span, StackV, Div, H3, H5, Para,  PassiveDiv=None):
             twsty_tags=[],
             fix_sty_section_nesting=False,
             childs= [],
+            section_depth = 0,
             **kwargs
     ):
         if fix_sty_section_nesting:
@@ -189,18 +194,25 @@ def generator(Span, StackV, Div, H3, H5, Para,  PassiveDiv=None):
                 _.add_twsty_tags(pd / sl / 4)
                     
 
+
         twsty_tags = conc_twtags(*oj.ui_styles.sty.titledPara, *twsty_tags)
-        return StackV(
-            childs=[H5(text=heading_text), *childs], twsty_tags=twsty_tags, **kwargs
+        title_sty = oj.ui_styles.sty.section_title_sty[section_depth]
+        return StackV(childs=[H5(text=heading_text,
+                                 twsty_tags=title_sty
+                                 ),
+                              *childs
+                              ],
+                      twsty_tags=twsty_tags,
+                      **kwargs
         )
 
     return (
         Halign,
         Valign,
+        SubheadingBannerImpl,
         SubheadingBanner,
-        SubsubheadingBanner,
         Subsection,
-        Subsubsection,
+        #Subsubsection,
         Title,
         SubTitle,
         StackG,

@@ -10,10 +10,9 @@ from py_tailwind_utils import (
     conc_twtags,
     jc,
     db,
-    flx,
+    flxrsz,
     H,
     screen,
-    invisible,
     ppos,
     overflow,
     overflowx,
@@ -24,9 +23,10 @@ from py_tailwind_utils import (
     full,
     max as twmax,
     cc,
+    lv
 )
 
-from py_tailwind_utils import db, flx
+from py_tailwind_utils import db, flxrsz
 from ofjustpy_engine import HC_Div_type_mixins as TR
 from ofjustpy_engine import mutable_TF_impl as mutable_TF_mixins
 from . import ui_styles
@@ -181,7 +181,7 @@ class StackDMixin:
     when it is shuffled.
     """
 
-    svelte_safelist = [W/full, H/twmax, overflow.auto, ppos.absolute, noop/invisible]
+    svelte_safelist = [W/full, H/twmax, overflow.auto, ppos.absolute, lv.iv]
     
         
     attr_tracked_keys = []
@@ -195,10 +195,10 @@ class StackDMixin:
                 dbref.add_twsty_tags(W / full, H / twmax)
             else:
                 dbref.add_twsty_tags(W / full, H / twmax, overflow.auto, ppos.absolute)
-            dbref.add_twsty_tags(noop/invisible)
+            dbref.add_twsty_tags(lv.iv)
         self.selected_card_spath = self.components[0].id
         selected_dbref = self.spathMap[self.selected_card_spath]
-        selected_dbref.remove_twsty_tags(noop/invisible)
+        selected_dbref.remove_twsty_tags(lv.iv)
 
     def bring_to_front(self, spath):
         """
@@ -208,10 +208,10 @@ class StackDMixin:
         tapk = spath
         if tapk in self.spathMap.keys():
             # hide the current front
-            self.spathMap[self.selected_card_spath].add_twsty_tags(noop/invisible)
+            self.spathMap[self.selected_card_spath].add_twsty_tags(lv.iv)
             # make the selected card visible
             selected_dbref = self.spathMap[tapk]
-            selected_dbref.remove_twsty_tags(noop/invisible)
+            selected_dbref.remove_twsty_tags(lv.iv)
             self.selected_card_spath = tapk
 
         else:
@@ -224,7 +224,7 @@ class StackDMixin:
 class StackDSvelteSafelist:
     """
     """
-    svelte_safelist = [W/full, H/twmax, overflow.auto, ppos.absolute, noop/invisible]
+    svelte_safelist = [W/full, H/twmax, overflow.auto, ppos.absolute, lv.iv]
 
     def __init__(self, *args, **kwargs):
         pass
@@ -236,7 +236,7 @@ StackD = gen_Div_type(
     static_core_mixins = [StackDSvelteSafelist],
     mutable_shell_mixins=[StackDMixin],
     
-    stytags_getter_func=lambda m=ui_styles: [db.f, flx.one, ppos.relative],
+    stytags_getter_func=lambda m=ui_styles: [db.f, flxrsz.one, ppos.relative],
 )
 
 
@@ -446,7 +446,7 @@ class HCCMutable:
         return HCCMutable.StackV(
             twsty_tags=twsty_tags,
             childs=[
-                PC.SubsubheadingBanner(heading_text),
+                PC.SubheadingBanner(heading_text),
                 HCCMutable.Halign(content, align=align),
             ],
         )

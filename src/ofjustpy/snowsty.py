@@ -22,8 +22,8 @@ para = [
     mr / sb / 4,
 ]
 
-ul = [mr / 2, pd / 2, li.disc]
-ol = [mr / 2, pd / 2, W / "1/2", li.disc]
+ul = [mr / 2, pd / 2, lst.disc]
+ol = [mr / 2, pd / 2, W / "1/2", lst.disc]
 img = [mr / 2, pd / 2]
 # li is also tailwind constructs
 # name collision can be confusing
@@ -63,12 +63,39 @@ subheading_text = [
     # sw/slate/"500/50"
 ]  # "prose", "prose-2xl"
 
-subsubheading_text = [
-    fw.medium,
-    fc/slate/"500/50"
-    #W / 96  # shadow.lg,
-    # sw/slate/"500/80"
-]  # "prose", "prose-2xl"
+# subsubheading_text = [
+#     fw.medium,
+#     fc/slate/"500/50"
+#     #W / 96  # shadow.lg,
+#     # sw/slate/"500/80"
+# ]  # "prose", "prose-2xl"
+
+# no difference between medium and normal for mono - changing to light, extralight
+# light extralight also not working
+# switch to thin
+
+section_title_sty = [    (fz.xl4, fw.bold, ff.mono),(fz.xl4, fw.semibold, ff.mono),(fz.xl4, fw.medium, ff.mono),(fz.xl4, fw.light, ff.mono),(fz.xl4, fw.thin, ff.mono),
+    (fz.xl3, fw.bold, ff.mono),(fz.xl3, fw.semibold, ff.mono),(fz.xl3, fw.medium, ff.mono),(fz.xl3, fw.light, ff.mono),(fz.xl3, fw.thin, ff.mono),
+    (fz.xl2, fw.bold, ff.mono),(fz.xl2, fw.semibold, ff.mono),(fz.xl2, fw.medium, ff.mono),(fz.xl2, fw.light, ff.mono),(fz.xl2, fw.thin, ff.mono),
+    (fz.xl, fw.bold, ff.mono),(fz.xl, fw.semibold, ff.mono),(fz.xl, fw.medium, ff.mono),(fz.xl, fw.light, ff.mono),(fz.xl, fw.thin, ff.mono),
+    (fz.lg, fw.bold, ff.mono),(fz.lg, fw.semibold, ff.mono),(fz.lg, fw.medium, ff.mono),(fz.lg, fw.light, ff.mono),(fz.lg, fw.thin, ff.mono),
+    (fz._, fw.bold, ff.mono),(fz._, fw.semibold, ff.mono),(fz._, fw.medium, ff.mono),(fz._, fw.light, ff.mono),(fz._, fw.thin , ff.mono)
+
+    ]
+
+# section_title_sty = [
+#     (fz.xl4, fw.bold, ff.mono), (fz.xl3, fw.bold, ff.mono), (fz.xl2, fw.bold, ff.mono), 
+#     (fz.xl, fw.bold, ff.mono), (fz.lg, fw.bold, ff.mono), (fz._, fw.bold, ff.mono), 
+#     (fz.xl4, fw.semibold, ff.mono), (fz.xl3, fw.semibold, ff.mono), (fz.xl2, fw.semibold, ff.mono), 
+#     (fz.xl, fw.semibold, ff.mono), (fz.lg, fw.semibold, ff.mono), (fz._, fw.semibold, ff.mono), 
+#     (fz.xl4, fw.medium, ff.mono), (fz.xl3, fw.medium, ff.mono), (fz.xl2, fw.medium, ff.mono), 
+#     (fz.xl, fw.medium, ff.mono), (fz.lg, fw.medium, ff.mono), (fz._, fw.medium, ff.mono), 
+#     (fz.xl4, fw.normal, ff.mono), (fz.xl3, fw.normal, ff.mono), (fz.xl2, fw.normal, ff.mono), 
+#     (fz.xl, fw.normal, ff.mono), (fz.lg, fw.normal, ff.mono), (fz._, fw.normal, ff.mono), 
+#     (fz.xl4, fw.light, ff.mono), (fz.xl3, fw.light, ff.mono), (fz.xl2, fw.light, ff.mono), 
+#     (fz.xl, fw.light, ff.mono), (fz.lg, fw.light, ff.mono), (fz._, fw.light, ff.mono)
+# ]
+
 
 spacing = []
 centering_div = [db.f, jc.center]
@@ -84,11 +111,11 @@ A = [
     pd / x / 1,
     *hover(fc / gray / 9),
 ]  # pd/x/4 : again optionally
-stackv = [db.f, flx.col]
+stackv = [db.f, flxdir.col]
 stackh = [db.f, *spacing]
 stackw = [
     db.f,
-    flx.wrap,
+    flxw.w,
     jc.center,
 ]
 stackd = [db.f, *spacing]
@@ -121,7 +148,7 @@ prose = [
     fc / gray / 800,
     ta.justify,
     prose.lg,
-    max / W / "prose",
+    #max / W / "prose",
 ]  # TODO:use some other name than prose
 # prose = [fc/gray/6, "prose", "prose-2xl"]
 
@@ -136,7 +163,7 @@ select = [fz.sm, mr / "2", bg / "inherit"]
 selectwbanner = [boxtopo.bd, bdr.md, bd / gray / 100, pd / 1, mr / x / 2]
 
 infocard = [mr / 4]
-# [db.f, flx.col, bg/pink/1]
+
 
 barpanel = [mr / 1]
 

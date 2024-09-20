@@ -21,8 +21,8 @@ para = [
     mr / sb / 4,
 ]
 
-ul = [mr / 2, pd / 2, li.disc, space/x/3]
-ol = [mr / 2, pd / 2, W / "1/2", li.disc]
+ul = [mr / 2, pd / 2, lst.disc, space/x/3]
+ol = [mr / 2, pd / 2, W / "1/2", lst.disc]
 img = [mr / 2, pd / 2]
 # li is also tailwind constructs
 # name collision can be confusing
@@ -80,11 +80,11 @@ A = [
     pd / x / 1,
 
 ]  # pd/x/4 : again optionally
-stackv = [db.f, flx.col]
+stackv = [db.f, flxdir.col]
 stackh = [db.f, *spacing]
 stackw = [
     db.f,
-    flx.wrap,
+    flxw.w,
     jc.center,
 ]
 stackd = [db.f, *spacing]
@@ -128,7 +128,7 @@ select = [fz.sm, mr / "2", bg / "inherit"]
 selectwbanner = [boxtopo.bd, bdr.md,  pd / 1, mr / x / 2]
 
 infocard = [mr / 4]
-# [db.f, flx.col, bg/pink/1]
+
 
 barpanel = [mr / 1]
 

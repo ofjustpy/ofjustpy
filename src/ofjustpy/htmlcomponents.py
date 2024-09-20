@@ -12,7 +12,7 @@ from py_tailwind_utils import conc_twtags
 from py_tailwind_utils import db
 from py_tailwind_utils import dnew
 from py_tailwind_utils import dupdate
-from py_tailwind_utils import flx
+from py_tailwind_utils import flxrsz
 from py_tailwind_utils import H
 from py_tailwind_utils import jc
 from py_tailwind_utils import screen
@@ -144,6 +144,8 @@ class Mutable:
         svelte_safelist = [space/x/2, outline / offset / 2, outline / black / 0, outline / 2, outlinesty.double]
         def __init__(self, *args, num_iter=range(1, 5), **kwargs):
             key = kwargs.get("key")
+            async def x(*args, slider_core=self):
+                return await on_circle_click(*args, slider_core = slider_core)
             
             with uictx(f"___{key}"):
                 childs = [
@@ -151,9 +153,10 @@ class Mutable:
                         text=f"{i}",
                         value=i,
                         key=f"circle_{i}",
-                        on_click=lambda *args, slider_core=self: on_circle_click(
-                            *args, slider_core=slider_core
-                        ),
+                        # on_click=lambda *args, slider_core=self: on_circle_click(
+                        #     *args, slider_core=slider_core
+                        # ),
+                        on_click = x
 
                     )
                     for i in num_iter

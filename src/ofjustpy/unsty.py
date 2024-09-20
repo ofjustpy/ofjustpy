@@ -39,9 +39,9 @@ theme = []
 P = []
 A = []
 
-stackv = [db.f, flx.col]
+stackv = [db.f, flxdir.col]
 stackh = [db.f]
-stackw = [db.f, flx.wrap, jc.center]
+stackw = [db.f, flxw.w, jc.center]
 stackd = [db.f]
 _ = dbr = Dict()
 _.banner = []
@@ -386,3 +386,11 @@ skeletonui_ratings = []
 skeletonui_stepper = []
 skeletonui_step = []
 
+section_title_sty = [    (fz.xl4, fw.bold, ff.mono),(fz.xl4, fw.semibold, ff.mono),(fz.xl4, fw.medium, ff.mono),(fz.xl4, fw.light, ff.mono),(fz.xl4, fw.thin, ff.mono),
+    (fz.xl3, fw.bold, ff.mono),(fz.xl3, fw.semibold, ff.mono),(fz.xl3, fw.medium, ff.mono),(fz.xl3, fw.light, ff.mono),(fz.xl3, fw.thin, ff.mono),
+    (fz.xl2, fw.bold, ff.mono),(fz.xl2, fw.semibold, ff.mono),(fz.xl2, fw.medium, ff.mono),(fz.xl2, fw.light, ff.mono),(fz.xl2, fw.thin, ff.mono),
+    (fz.xl, fw.bold, ff.mono),(fz.xl, fw.semibold, ff.mono),(fz.xl, fw.medium, ff.mono),(fz.xl, fw.light, ff.mono),(fz.xl, fw.thin, ff.mono),
+    (fz.lg, fw.bold, ff.mono),(fz.lg, fw.semibold, ff.mono),(fz.lg, fw.medium, ff.mono),(fz.lg, fw.light, ff.mono),(fz.lg, fw.thin, ff.mono),
+    (fz._, fw.bold, ff.mono),(fz._, fw.semibold, ff.mono),(fz._, fw.medium, ff.mono),(fz._, fw.light, ff.mono),(fz._, fw.thin , ff.mono)
+
+    ]
