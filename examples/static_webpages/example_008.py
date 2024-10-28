@@ -18,11 +18,13 @@ fa_icons = [FontAwesomeIcon(label=_, size="4x",
 
 
 
-fa_icons_section = oj.PC.Subsubsection("FontAwesomeIcons",
+fa_icons_section = oj.PC.Subsection("FontAwesomeIcons",
                     oj.PC.StackH(childs=fa_icons,
                                  twsty_tags=[space/x/8]
                                  
-                                 )
+                                 ),
+                                    section_depth = 10
+
                     )
 
 
@@ -55,7 +57,7 @@ md_icons = [FontAwesomeIcon(label=_[0], size="4x",
 
 
 
-md_icons_section = oj.PC.Subsubsection("Material Design Icons",
+md_icons_section = oj.PC.Subsection("Material Design Icons",
                     oj.PC.StackH(childs=md_icons,
                                  twsty_tags=[space/x/8]
                                  

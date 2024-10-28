@@ -111,7 +111,7 @@ class ResponsiveStatic_SSR_ResponseMixin:
         self.csr_bundle_dir = kwargs.get("csr_bundle_dir", "") + "/"
         pass
 
-    def get_response_for_load_page(self, request):
+    async def get_response_for_load_page(self, request):
         """
         get the response for the given webpage
 
@@ -123,6 +123,19 @@ class ResponsiveStatic_SSR_ResponseMixin:
             Reponse: the response for the given load_page
         """
 
+
+        # first call the registered request handler
+        request_handler_response = None
+        if self.request_handler:
+            request_handler_response = await self.request_handler(request,
+                                                                  **request.path_params
+                                                                  )
+
+
+
+        if request_handler_response is not None:
+            return request_handler_response
+        
         components_link_srcs = "\n".join([f"""<script src={request.url_for(jpconfig.STATIC_NAME, path=file_name)}</script>""" for file_name in justpy_app.component_file_list
         ])
 
@@ -136,7 +149,8 @@ class ResponsiveStatic_SSR_ResponseMixin:
             
 
         static_resources_url = request.url_for("static",
-                                               path="/") 
+                                               path="/")
+
         response_string = ResponsiveStatic_SSR_ResponseMixin.get_html_response_string(self.page_id,
                                                                          self.title,
                                                                          json.dumps(
@@ -276,7 +290,7 @@ class ResponsiveStatic_CSR_ResponseMixin:
 
         pass
 
-    def get_response_for_load_page(self, request):
+    async def get_response_for_load_page(self, request):
         """
         get the response for the given webpage
 
@@ -288,7 +302,18 @@ class ResponsiveStatic_CSR_ResponseMixin:
             Reponse: the response for the given load_page
         """
 
-      
+
+        # first call the registered request handler
+        request_handler_response = None
+        if self.request_handler:
+            request_handler_response = self.request_handler(request,
+                                                            **request.path_params
+                                                            )
+
+
+        
+        if request_handler_response is not None:
+            return request_handler_response
         components_link_srcs = "\n".join([f"""<script src={request.url_for(jpconfig.STATIC_NAME, path=file_name)}</script>""" for file_name in justpy_app.component_file_list
         ])
 
@@ -323,7 +348,7 @@ class ResponsiveStatic_CSR_ResponseMixin:
                                                    static_resources_url,
                                                    json.dumps(self.debug),
                                                    jpconfig.BASE_URL,
-                                                                                      
+                                                                                       
                                                                                       page_json,
                                                                                       head_html = self.head_html,
                                                    body_style=self.body_style,

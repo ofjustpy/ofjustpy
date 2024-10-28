@@ -5,7 +5,7 @@ from py_tailwind_utils import tstr, conc_twtags, remove_from_twtag_list, dget
 app = oj.load_app()
 
 def on_slider_select(dbref, msg, target_of):
-    print ("ON Circle Clicked called ")
+    print ("ON Circle Clicked called ", msg.value)
     pass
 
 with oj.uictx("tlc") as tlctx:
@@ -20,7 +20,7 @@ wp_endpoint = oj.create_endpoint(key="example_002",
                                  childs = [slider
                                            ],
                                  title="example_002",
-                                 template_file="production_hosting.html"
+                                 #template_file="production_hosting.html"
 
                                  )
 

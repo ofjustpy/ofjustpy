@@ -272,9 +272,7 @@ def gen_WebPage_type(staticCoreMixins=None,
             """
             invoke the post_init callback once the function is initialized. 
             """
-            print ("post_init invoked")
             if self.staticCore.post_init:
-                print ("calling static core post init : ", kwargs)
                 self.staticCore.post_init(self, **kwargs)
                 
             
@@ -296,6 +294,9 @@ def gen_WebPage_type(staticCoreMixins=None,
             return self.staticCore.id
 
 
+        @property
+        def request_handler(self):
+            return self.staticCore.request_handler
             
     # class Stub_WebPage:
     #     def __init__(self, *args, **kwargs):
@@ -346,6 +347,10 @@ def gen_WebPage_type(staticCoreMixins=None,
             self.attrs = Dict()
             self.htmlRender_attr = []
             self.htmlRender_body = []
+
+            # a hook to callaback user function for additional processing
+            # on requestion -- like handling post object, or path params etc. 
+            self.request_handler = kwargs.get("request_handler", None)
             self.id = None
 
             for _ in staticCoreMixins:

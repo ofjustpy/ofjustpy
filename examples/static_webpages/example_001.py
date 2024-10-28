@@ -27,3 +27,4 @@ oj.add_jproute("/", wp_endpoint)
 # from starlette.testclient import TestClient
 # client = TestClient(app)
 # response = client.get('/')
+

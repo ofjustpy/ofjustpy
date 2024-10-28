@@ -3,6 +3,7 @@ Provide impl for advanced components like Slider,
 and ColorSelector
 
 """
+import inspect
 from ofjustpy_engine import HC_Div_type_mixins as TR
 from py_tailwind_utils import *
 from ofjustpy_engine.HCType import HCType
@@ -66,9 +67,13 @@ async def on_circle_click(dbref, msg, target_of, slider_core=None):
 
 
 def event_prehook(on_event_callback):
-    async def hook(dbref, msg, target_of):
+    assert on_event_callback is not None
+    async def hook(dbref, msg, target_of, on_event_callback = on_event_callback):
         msg.value = dbref.app_value
-        return await on_event_callback(dbref, msg, target_of)
+        if inspect.iscoroutinefunction(on_event_callback):
+            return await on_event_callback(dbref, msg, target_of)
+        else:
+            return on_event_callback(dbref, msg, target_of)
 
     return hook
 

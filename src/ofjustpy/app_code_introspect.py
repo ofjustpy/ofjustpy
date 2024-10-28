@@ -1,10 +1,10 @@
 from addict import Dict
-from starlette.config import Config
+from ofjustpy_engine.jpcore import jpconfig
 
-config = Config(".env")
-models_pymodule_path = config("models_pymodule", default="models")
-user_model_name = config("user_model", default="User")
-sqlalchemy_base_name = config("sqlalchemy_base_name", default="Base")
+
+#models_pymodule_path = config("models_pymodule", default="models")
+# user_model_name = config("user_model", default="User")
+# sqlalchemy_base_name = config("sqlalchemy_base_name", default="Base")
 
 import sys
 
@@ -14,7 +14,7 @@ the_starlette_app = None
 
 mount_route_stack = None
 
-page_builder = None
+pagecontent_builder = None
 
 
 def load_models():

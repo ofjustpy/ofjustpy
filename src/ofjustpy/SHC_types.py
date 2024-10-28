@@ -416,6 +416,9 @@ class PassiveDivs:
     )
 
 
+
+    
+
     StackV = gen_Div_type(stytags_getter_func=lambda m=ui_styles: m.sty.stackv)
 
     StackH = gen_Div_type(stytags_getter_func=lambda m=ui_styles: m.sty.stackh)
@@ -561,6 +564,13 @@ class PassiveComponents:
         stytags_getter_func=lambda m=ui_styles: m.sty.hr,
     )
 
+    Iframe = gen_Div_type(
+        HCType.passive,
+        "Iframe",
+        TR.IframeMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.iframe,
+        static_addon_mixins = [TR.HCTextMixin]  
+        )            
     Time = gen_Div_type(
         HCType.passive,
         "Time",
@@ -937,7 +947,9 @@ class PassiveComponents:
         static_addon_mixins = [TR.HCTextMixin],
     )
 
-        
+    # no text; no childs as well, so not a div
+
+
     
     (
         Halign,

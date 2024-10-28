@@ -77,7 +77,9 @@ class MountCtx:
         aci.mount_route_stack[-1].append(mount_obj)
 
 
-def add_jproute(path, endpoint, **kwargs):
+def add_jproute(path,
+                endpoint,
+                **kwargs):
     """
     endpoint: is a function that returns WebPage-like object
     wrap endpoint in a function that will return a starlette-response like object
@@ -91,6 +93,7 @@ def add_jproute(path, endpoint, **kwargs):
     pass
 
 
+
 from ofjustpy_engine.static_core_tracker import uictx
 
 from ofjustpy_engine.tracker import (
@@ -98,6 +101,7 @@ from ofjustpy_engine.tracker import (
     sessionctx,
     curr_session_manager,
     webpage_cache,
+    webpage_cache_nosession
 )
 from .htmlcomponents import (Mutable,
                              HCCMutable,
@@ -114,23 +118,68 @@ from .HC_wrappers import Halign, StackH_Aligned, WithBanner
 
 
 def create_endpoint_impl(wp_template):
-    @webpage_cache(wp_template.id)
-    def wp_endpoint(request, *args, **kwargs):
 
-        sm = get_session_manager(request)
-        with sessionctx(sm):
-            wp_ = wp_template.stub()
-            wp = wp_(request, *args, **kwargs)
-            wp.post_init(session_manager=sm)
-            wp.to_json_optimized = True
-            wp.session_manager = sm
-        return wp
+    match (jpconfig.SESSIONS, jpconfig.CACHE_WEBPAGES):
+        case (True, True):
+            @webpage_cache(wp_template.id)
+            def wp_endpoint(request, *args, **kwargs):
+                sm = get_session_manager(request)
+                with sessionctx(sm):
+                    wp_ = wp_template.stub()
+                    wp = wp_(request, *args, **kwargs)
+                    wp.post_init(session_manager=sm)
+                    wp.to_json_optimized = True
+                    wp.session_manager = sm
+                return wp
+            wp_endpoint.route_name = wp_template.key
+            return wp_endpoint
+    
+        case (True, False):
+            def wp_endpoint(request, *args, **kwargs):
+                print("Sessions are enabled, but webpage caching is disabled.")
+                sm = get_session_manager(request)
+                with sessionctx(sm):
+                    wp_ = wp_template.stub()
+                    wp = wp_(request, *args, **kwargs)
+                    wp.post_init(session_manager=sm)
+                    wp.to_json_optimized = True
+                    wp.session_manager = sm
+                return wp
+            wp_endpoint.route_name = wp_template.key
+            return wp_endpoint
+        
+        case (False, True):
+            @webpage_cache_nosession(wp_template.id)
+            def wp_endpoint(request, *args, **kwargs):
+                wp_ = wp_template.stub()
+                wp = wp_(request, *args, **kwargs)
+                wp.post_init(session_manager=None)
+                wp.to_json_optimized = True
+                return wp
+            wp_endpoint.route_name = wp_template.key
+            return wp_endpoint
+    
+        case (False, False):
+            def wp_endpoint(request, *args, **kwargs):
+                wp_ = wp_template.stub()
+                wp = wp_(request, *args, **kwargs)
+                wp.post_init(session_manager=None)
+                wp.to_json_optimized = True
+                return wp
+            wp_endpoint.route_name = wp_template.key
+            return wp_endpoint
+                
+        case _:
+            print("Unknown state.")
 
-    wp_endpoint.route_name = wp_template.key
-    return wp_endpoint
+        
 
 
-def default_page_builder(key=None, childs=[], rendering_type="CSR", **kwargs):
+def page_builder(key=None,
+                         childs=[],
+                         rendering_type="CSR",
+                         request_handler = None, 
+                         **kwargs):
     # by default we perform client side rendering
     # its more powerful -- incorporates svelte components
 
@@ -138,14 +187,17 @@ def default_page_builder(key=None, childs=[], rendering_type="CSR", **kwargs):
         return Mutable.ResponsiveStatic_CSR_WebPage(
             key=key,
             childs=childs,
+            request_handler=request_handler,
+            
             cookie_state_attr_names=aci.the_starlette_app.cookie_state_attr_names,
             **kwargs,
         )
     if rendering_type == "SSR":
         return Mutable.ResponsiveStatic_SSR_WebPage(key=key,
                                                     childs =childs,
+
                                                     cookie_state_attr_names=aci.the_starlette_app.cookie_state_attr_names,
-                                                    
+                                                    request_handler=request_handler,
                                                     **kwargs
                                                    )
 
@@ -153,37 +205,81 @@ def default_page_builder(key=None, childs=[], rendering_type="CSR", **kwargs):
     
 
 
-def get_page_builder():
-    if aci.page_builder is None:
-        return default_page_builder
-    return aci.page_builder
+def default_pagecontent_builder(childs):
+    return childs
+
+def get_pagecontent_builder():
+    if aci.pagecontent_builder is None:
+        return default_pagecontent_builder
+    return aci.pagecontent_builder
 
 
-def create_endpoint(key, childs, **kwargs):
+# def create_endpoint_pagebuilder(key,
+#                     childs,
+#                     request_handler=None,
+#                     **kwargs):
+#     """
+#     childs: 
+#     """
+#     print ("pagebuilder endpoint called")
+#     page_builder = get_page_builder()
+#     wp_template = page_builder(key,
+#                                childs,
+#                                request_handler= request_handler,
+#                                **kwargs
+#                                )
+#     wp_endpoint = create_endpoint_impl(wp_template)
+#     return wp_endpoint
+
+# def create_endpoint_default(key,
+#                     childs,
+#                     request_handler=None,
+#                     **kwargs):
+#     """
+#     childs: list
+#     """
+
+#     print ("default endpoint called")
+#     wp_template = page_builder(key,
+#                                childs,
+#                                request_handler= request_handler,
+#                                **kwargs
+#                                )
+#     wp_endpoint = create_endpoint_impl(wp_template)
+#     return wp_endpoint
+
+def create_endpoint(key, childs,  **kwargs):
     """
-    childs: list
+    allows oj.create_endpoint to be used from within the PageBuilderCtx.
+    Note: currently PageBuilderCtx cannot be nested
     """
-    page_builder = get_page_builder()
-    wp_template = page_builder(key, childs, **kwargs)
+
+    pagecontent_builder = get_pagecontent_builder()
+    pagecontent_childs = pagecontent_builder(childs)
+    wp_template = page_builder(key, childs=pagecontent_childs,
+                                    **kwargs)
+    
     wp_endpoint = create_endpoint_impl(wp_template)
     return wp_endpoint
 
 
-def set_page_builder(page_builder):
-    aci.page_builder = page_builder
+
+def set_pagecontent_builder(pagecontent_builder):
+    aci.pagecontent_builder = pagecontent_builder
+    
 
 
 class PageBuilderCtx:
-    def __init__(self, page_builder):
-        self.page_builder = page_builder
-
+    def __init__(self, pagecontent_builder):
+        self.pagecontent_builder = pagecontent_builder
+        
         # create container for routes for this mount point
 
     def __enter__(self):
-        set_page_builder(self.page_builder)
-
+        set_pagecontent_builder(self.pagecontent_builder)
+        
     def __exit__(self, exc_type, exc_value, traceback):
-        set_page_builder(default_page_builder)
+        set_pagecontent_builder(default_pagecontent_builder)
 
 
 def href_builder_factory(route_name):
