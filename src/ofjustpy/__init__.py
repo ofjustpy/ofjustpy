@@ -18,7 +18,7 @@ import importlib.util
 from ofjustpy_engine import *
 from . import data_validator as validator
 from . import app_code_introspect as aci
-
+from .icons import FontAwesomeIcon
 def build_app(*args, **kwargs):
     """
     We maintain only one app per

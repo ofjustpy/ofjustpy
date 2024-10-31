@@ -75,7 +75,9 @@ coffee_icon = FontAwesomeIcon(label="faCoffee", size="4x",
 wp_endpoint = oj.create_endpoint(key="example_008",
                                  childs = [fa_icons_section,
                                            md_icons_section],
-                                 title="example_008")
+                                 title="example_008",
+                                 csr_bundle_dir = "hyperui"
+                                 )
 
 
 oj.add_jproute("/", wp_endpoint)

@@ -19,7 +19,9 @@ div = oj.PC.StackV(childs=[label,
 
 wp_endpoint = oj.create_endpoint(key="example_001",
                                  childs = [div],
-                                 title="example_001")
+                                 title="example_001",
+                                 csr_bundle_dir = "hyperui"
+                                 )
 
 
 oj.add_jproute("/", wp_endpoint)

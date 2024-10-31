@@ -5,7 +5,7 @@ from ofjustpy_engine import HC_Div_type_mixins as TR
 from . import ui_styles
 
 class fontawesomeBaseComponentMixin:
-    def __init__(self, **kwargs):
+    def __init__(self, *args, **kwargs):
         """
 
         """
@@ -14,16 +14,30 @@ class fontawesomeBaseComponentMixin:
         self.domDict.events = []
         self.domDict.show = kwargs.get("show", True)
         self.domDict.debug = kwargs.get("debug", False)
-
         pass
 
 
+
+class updateFAClasses:
+    """
+    post process to apply fontawesome classes to self.domDict.classes
+    """
+    
+    def __init__(self, *args, **kwargs):
+        """
+        """
+        self.update_extra_classes("svg-inline--fa fa-user fa-fw fa-2x")
+
+        pass
         
+    
+    
 FontAwesomeIcon = gen_HC_type(HCType.passive,
                               "FontAwesomeIcon",
                               TR.FontAwesomeIconMixin,
                               stytags_getter_func=lambda m=ui_styles: m.sty.fontawesome,
-                              baseComponentMixinType = fontawesomeBaseComponentMixin
+                              baseComponentMixinType = fontawesomeBaseComponentMixin,
+                              static_addon_mixins = [updateFAClasses]
                               )
 # Icon_Cog = lambda **kwargs: parse_svg_component("""<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 #   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
