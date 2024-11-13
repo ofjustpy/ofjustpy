@@ -430,3 +430,6 @@ shadcnui_carousel_next = []
 shadcnui_progress = []
 
 iframe = []
+
+# ======================== ofjustpy_components =======================
+varlistdiv = [] # ofjustpy_components.variable_length_list_TF
