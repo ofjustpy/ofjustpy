@@ -214,40 +214,6 @@ def get_pagecontent_builder():
     return aci.pagecontent_builder
 
 
-# def create_endpoint_pagebuilder(key,
-#                     childs,
-#                     request_handler=None,
-#                     **kwargs):
-#     """
-#     childs: 
-#     """
-#     print ("pagebuilder endpoint called")
-#     page_builder = get_page_builder()
-#     wp_template = page_builder(key,
-#                                childs,
-#                                request_handler= request_handler,
-#                                **kwargs
-#                                )
-#     wp_endpoint = create_endpoint_impl(wp_template)
-#     return wp_endpoint
-
-# def create_endpoint_default(key,
-#                     childs,
-#                     request_handler=None,
-#                     **kwargs):
-#     """
-#     childs: list
-#     """
-
-#     print ("default endpoint called")
-#     wp_template = page_builder(key,
-#                                childs,
-#                                request_handler= request_handler,
-#                                **kwargs
-#                                )
-#     wp_endpoint = create_endpoint_impl(wp_template)
-#     return wp_endpoint
-
 def create_endpoint(key, childs,  **kwargs):
     """
     allows oj.create_endpoint to be used from within the PageBuilderCtx.

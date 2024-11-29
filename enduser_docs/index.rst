@@ -1008,6 +1008,37 @@ In Ofjustpy, endpoint is created via helper function `oj.create_endpoint`.
 			      classes="bg-green-100"
 			      )
 
+Arguments to create endpoint are  applied to webpage creation. 
+Additional arguments to create endpoint include:
+
+#. head_html : Allows you to add custom HTML inside the `<head>` section of the page.
+
+   .. code-block::
+      <html>
+      <head>
+      ... {head_html} ...
+      </head>
+      </html>
+
+   
+
+   
+#. `body_style`, `body_classes`,`body_html`: Used to customize the `<body>` section of the webpage.
+   - body_style: Adds inline styles to the <body> tag.
+   - body_classes: Specifies CSS classes for the <body> tag.
+   - body_html: Inserts custom HTML content directly inside the <body> tag.   
+   
+   .. code-block::
+
+      <body {body_style} {body_classes}>
+      ... {body_html} ...
+      </body>
+
+   
+
+
+
+
 Next, attach the endpoint to relative path as follows:
 
 .. code-block:: python
@@ -1025,6 +1056,8 @@ will return the relative path attached to the endpoint with name "my-first-webpa
 See section `Reverse URL lookups <https://www.starlette.io/routing/>`_ for details
 on reverse lookup on paths with arguments.
 
+
+
 Client Side vs. Server Side Rendering
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -1035,12 +1068,47 @@ Website/App programming in Ofjustpy
 An app or website for our current purpose is a collection of endpoints and their associated routes.
 We will outline a few quality-of-life enhancements we have made in Ofjustpy over Starlette.
 
-Page Builder
-~~~~~~~~~~~~
+
+PageBuilder (WebPage Template) in Kavya
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In Kavya, instead of relying on traditional template engines like Jinja2, you can use the PageBuilder context to achieve a similar goal: generating multiple pages that share common elements. This approach offers flexibility and consistency while avoiding the need to manage external template engines.
+
+PageBuilder is a context-based mechanism that applies a predefined layout or structure (such as headers, footers, or side menus) to all pages created within its scope. It ensures that common facets are consistently added to multiple endpoints, simplifying maintenance and enhancing reusability.
+
+Below is an example of how to use the PageBuilderCtx to define and apply a common layout to multiple endpoints:
 
 
-..
- TODO
+.. code-block::
+   
+   def page_builder(childs):
+      sideMenu = SimpleSideMenu("See also")
+      header_panel = vy.PD.StackH(...)
+      footer_panel = vy.PD.StackV(...)
+      full_page = vy.PD.StackH(childs = [sideMenu,
+                           vy.PD.StackV(childs = [header_panel,
+                                                  vy.PD.Div(childs=childs),
+                                                  footer_panel
+                                                  ]
+                                        )
+                           ]
+                 )
+      return [full]
+
+
+   with oj.PageBuilderCtx(page_builder):
+       endpoint1 = vy.create_endpoint(childs=[..], ...)
+       vy.add_jproute("/endpoint1", endpoint1)
+       
+       vy.create_endpoint(childs=[...],... )
+       vy.add_jproute("/endpoint2", endpoint2)
+       
+       import module_with_endpoints
+       
+
+In this example, the webpages served by endpoint1, endpoint2, and all endpoints defined within the module module_with_endpoints will be retrofitted with the same common layout and structures defined in the `page_builder` function.
+
+
  
 Routes and Mounts
 ~~~~~~~~~~~~~~~~~

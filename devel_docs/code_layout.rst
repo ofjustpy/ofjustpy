@@ -1,6 +1,20 @@
 Code Layout
 =============
 
+kavya/__init__.py
+-----------------
+#. build_app(*args, **kwargs)
+#. load_app()
+#. class MountCtx
+#. def add_jproute(path,
+#. def create_endpoint_impl(wp_template):
+#. page_builder(key=None,
+#. def set_pagecontent_builder(pagecontent_builder)
+#. def href_builder_factory(route_name):
+#. href_builder_factory(route_name)
+#. class PageBuilderCtx
+
+   
 ui_styles.py
 ------------
 #. class TwStyCtx:
@@ -230,8 +244,8 @@ from pageID to webpages and their sockets
 #. loop
 
 
-core_engine/WebpagePageMixin
-----------------------------
+core_engine/WebPage_type_mixin.py
+---------------------------------
 #. class WebPageType(Enum):
 #. class WebPageMixin:
 
