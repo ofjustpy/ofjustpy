@@ -57,14 +57,6 @@ def set_sqlalchemy_session(session):
     global sa_session
     sa_session = session
 
-
-# this needs dependency injection
-# no longer needed. oj.build_app takes care of it.
-# def set_app(app):
-#     global the_starlette_app
-#     the_starlette_app = app
-
-
 def get_app():
     assert the_starlette_app is not None
     return the_starlette_app

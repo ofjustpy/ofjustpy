@@ -196,7 +196,7 @@ Examples of HCCStatic components:
 2. oj.HCCStatic.StackV
 
 See [MHC_types.py](https://github.com/ofjustpy/ofjustpy/blob/09fe497badc74d306de3e1e019dcad251de08c11/src/ofjustpy/MHC_types.py#L168C12-L168C12) for list of all HCCStatic components. 
-jj
+
 
 
 #### Tailwind-derived higher-order components

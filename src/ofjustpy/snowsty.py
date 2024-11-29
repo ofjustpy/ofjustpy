@@ -14,13 +14,7 @@ h5 = [fz._,  fw.light, mr / sl / 2, fc/slate/500]  # "prose", "prose-2xl"
 h6 = [fz.sm,  fw.light, mr / sl / 2, fc/slate/500]  # "prose", "prose-2xl"
 
 
-para = [
-    base,
-    fw.light,
-    relaxed,
-    mr / st / 0,
-    mr / sb / 4,
-]
+para = [ base, fw.light, relaxed, mr / st / 0, mr / sb / 4, ]
 
 ul = [mr / 2, pd / 2, lst.disc]
 ol = [mr / 2, pd / 2, W / "1/2", lst.disc]
@@ -28,19 +22,7 @@ img = [mr / 2, pd / 2]
 # li is also tailwind constructs
 # name collision can be confusing
 li = []
-button = [
-    bg / gray / 100,
-    fc / gray / 600,
-    mr / sr / 1,
-    mr / sb / 1,
-    pd / x / 4,
-    pd / y / 2,
-    bold,
-    boxtopo.outline,
-    shadow._,
-    shadow.sm,
-    tt.u,
-    *hover(shadow.md, bg / gray / 200, outline / 4, bdr.md),
+button = [ bg / gray / 100, fc / gray / 600, mr / sr / 1, mr / sb / 1, pd / x / 4, pd / y / 2, bold, boxtopo.outline, shadow._, shadow.sm, tt.u, *hover(shadow.md, bg / gray / 200, outline / 4, bdr.md),
 ]
 
 
