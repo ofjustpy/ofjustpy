@@ -17,7 +17,7 @@ from py_tailwind_utils import H
 from py_tailwind_utils import jc
 from py_tailwind_utils import screen
 from py_tailwind_utils import twcc2hex
-from py_tailwind_utils.colors import _tw_color_list, get_color_instance
+from py_tailwind_utils.common import _tw_color_list, get_color_instance
 from py_tailwind_utils import (outline,
                                outlinesty,
                                offset,
