@@ -35,7 +35,7 @@ SliderBase = gen_Div_type(
     HCType.mutable,
     "Slider",
     TR.DivMixin,
-    static_core_mixins=[],
+    static_addon_mixins=[],
     mutable_shell_mixins=[MutableShell_SliderMixin],
     stytags_getter_func = lambda m = ui_styles: m.sty.slider
 )
@@ -115,7 +115,7 @@ CSBase = gen_Div_type(
     HCType.mutable,
     "ColorSelector",
     TR.DivMixin,
-    static_core_mixins=[],
+    static_addon_mixins=[],
     mutable_shell_mixins=[MutableShell_CSMixin],
 )
 

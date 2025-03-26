@@ -101,7 +101,8 @@ from ofjustpy_engine.tracker import (
     sessionctx,
     curr_session_manager,
     webpage_cache,
-    webpage_cache_nosession
+    webpage_cache_nosession,
+    session_manager_store 
 )
 from .htmlcomponents import (Mutable,
                              HCCMutable,
@@ -175,7 +176,7 @@ def create_endpoint_impl(wp_template):
         
 
 
-def page_builder(key=None,
+def default_page_builder(key=None,
                          childs=[],
                          rendering_type="CSR",
                          request_handler = None, 
@@ -205,7 +206,7 @@ def page_builder(key=None,
     
 
 
-def default_pagecontent_builder(childs):
+def default_pagecontent_builder(key, childs):
     return childs
 
 def get_pagecontent_builder():
@@ -213,6 +214,10 @@ def get_pagecontent_builder():
         return default_pagecontent_builder
     return aci.pagecontent_builder
 
+def get_page_builder():
+    if aci.page_builder is None:
+        return default_page_builder
+    return aci.page_builder
 
 def create_endpoint(key, childs,  **kwargs):
     """
@@ -221,7 +226,8 @@ def create_endpoint(key, childs,  **kwargs):
     """
 
     pagecontent_builder = get_pagecontent_builder()
-    pagecontent_childs = pagecontent_builder(childs)
+    pagecontent_childs = pagecontent_builder(key, childs)
+    page_builder = get_page_builder()
     wp_template = page_builder(key, childs=pagecontent_childs,
                                     **kwargs)
     
@@ -230,23 +236,33 @@ def create_endpoint(key, childs,  **kwargs):
 
 
 
-def set_pagecontent_builder(pagecontent_builder):
-    aci.pagecontent_builder = pagecontent_builder
     
 
 
-class PageBuilderCtx:
+class PageContentBuilderCtx:
     def __init__(self, pagecontent_builder):
         self.pagecontent_builder = pagecontent_builder
         
         # create container for routes for this mount point
 
     def __enter__(self):
-        set_pagecontent_builder(self.pagecontent_builder)
+        aci.pagecontent_builder = self.pagecontent_builder
         
     def __exit__(self, exc_type, exc_value, traceback):
-        set_pagecontent_builder(default_pagecontent_builder)
+        aci.pagecontent_builder = default_pagecontent_builder
+        
 
+class PageBuilderCtx:
+    def __init__(self, page_builder):
+        self.page_builder = page_builder
+        
+        # create container for routes for this mount point
+
+    def __enter__(self):
+        aci.page_builder = self.page_builder
+        
+    def __exit__(self, exc_type, exc_value, traceback):
+        aci.page_builder = default_page_builder
 
 def href_builder_factory(route_name):
     """
@@ -267,7 +283,6 @@ def href_builder_factory(route_name):
         # it seems we are getting
         # assert url.startswith("http")
         Acomp_ref.href = str(url)  # "https" + url[4:]
-        print ("updating href = ", str(url), " ", Acomp_ref.to_html())
         # Acomp_ref.href = url
 
     return href_updater

@@ -16,8 +16,8 @@ h6 = [fz.sm,  fw.light, mr / sl / 2, fc/slate/500]  # "prose", "prose-2xl"
 
 para = [ base, fw.light, relaxed, mr / st / 0, mr / sb / 4, ]
 
-ul = [mr / 2, pd / 2, lst.disc]
-ol = [mr / 2, pd / 2, W / "1/2", lst.disc]
+ul = [pd /sl/ 2, mr/st/1, lst.disc]
+ol = [pd /sl/ 2, mr/st/1, lst.disc]
 img = [mr / 2, pd / 2]
 # li is also tailwind constructs
 # name collision can be confusing
@@ -415,3 +415,7 @@ iframe = []
 
 # ======================== ofjustpy_components =======================
 varlistdiv = [] # ofjustpy_components.variable_length_list_TF
+
+sup = []
+sub = []
+cite = []

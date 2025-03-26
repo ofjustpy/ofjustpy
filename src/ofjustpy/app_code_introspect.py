@@ -15,7 +15,7 @@ the_starlette_app = None
 mount_route_stack = None
 
 pagecontent_builder = None
-
+page_builder = None
 
 def load_models():
     global user_model

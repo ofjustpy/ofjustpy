@@ -21,14 +21,14 @@ def gen_Div_type(
     div_type=HCType.passive,
     hc_tag="PassiveDiv",
     hctype_mixin=TR.DivMixin,
-    static_addon_mixins=[],     
-    static_core_mixins=None,
+    static_addon_mixins=None,     
+    #static_core_mixins=None,
     mutable_shell_mixins=None,
     stytags_getter_func=None,
         **kwargs
 ):
-    if not static_core_mixins:
-        static_core_mixins = []
+    if not static_addon_mixins:
+        static_addon_mixins = []
 
     if not mutable_shell_mixins:
         mutable_shell_mixins = []
@@ -92,11 +92,11 @@ def gen_Div_type(
         case HCType.hcc_mutable_div:
             # This is essentially ContainerMSHC/Deck
             # twsty-tags is shared
-            static_core_mixins.append(TR.SvelteSafelistMixin)
+            static_addon_mixins.append(TR.SvelteSafelistMixin)
             core_hc_type, mutable_shell_type = mutableClassTypeGen(
                 hc_tag=hc_tag,
                 hctag_mixin=hctype_mixin,
-                static_core_mixins=static_core_mixins,
+                static_core_mixins=static_addon_mixins,
                 mutable_shell_mixins=mutable_shell_mixins,
             )
 
@@ -121,11 +121,11 @@ def gen_Div_type(
             return WithStub
 
         case HCType.mutable:  # implies div is css mutable and contains mutable children
-            static_core_mixins.append(TR.SvelteSafelistMixin)
+            static_addon_mixins.append(TR.SvelteSafelistMixin)
             core_hc_type, mutable_shell_type = mutableClassTypeGen(
                 hc_tag=hc_tag,
                 hctag_mixin=hctype_mixin,
-                static_core_mixins=static_core_mixins,
+                static_core_mixins=static_addon_mixins,
                 mutable_shell_mixins=mutable_shell_mixins,
                 is_self_mutable=True,
                 is_childs_mutable=True,
@@ -166,13 +166,13 @@ def gen_Div_type(
             return WithStub
 
         case HCType.hcc_static_div:  # implies div's css mutable and contains mutable children
-            static_core_mixins.append(TR.SvelteSafelistMixin)
+            static_addon_mixins.append(TR.SvelteSafelistMixin)
             core_hc_type, mutable_shell_type = mutableClassTypeGen(
                 hc_tag=hc_tag,
                 hctag_mixin=hctype_mixin,
                 is_childs_mutable=False,
                 is_self_mutable=True,
-                static_core_mixins=static_core_mixins
+                static_core_mixins=static_addon_mixins
 
             )
 

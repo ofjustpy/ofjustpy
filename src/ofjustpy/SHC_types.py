@@ -36,6 +36,13 @@ class PassiveDivs:
         stytags_getter_func=lambda m=ui_styles: m.sty.br,
         static_addon_mixins = [TR.HCTextMixin]  
     )
+
+    Hr = gen_Div_type(
+        HCType.passive,
+        "Hr",
+        TR.HrMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.hr,
+    )
     
     Strong = gen_Div_type(
         HCType.passive,
@@ -89,7 +96,7 @@ class PassiveDivs:
         HCType.passive,
         "Option",
         TR.OptionMixin,
-        stytags_getter_func=lambda m=ui_styles: m.sty.prose,
+        stytags_getter_func=lambda m=ui_styles: m.sty.option,
         static_addon_mixins = [TR.HCTextMixin]  
     )
 
@@ -415,6 +422,30 @@ class PassiveDivs:
         static_addon_mixins = [TR.HCTextMixin],
     )
 
+    Cite = gen_Div_type(
+        HCType.passive,
+        "Cite",
+        TR.CiteMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.cite,
+        static_addon_mixins = [TR.HCTextMixin],
+    )
+
+    Sup = gen_Div_type(
+        HCType.passive,
+        "Sup",
+        TR.SupMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.sup,
+        static_addon_mixins = [TR.HCTextMixin],
+    )    
+
+    Sub = gen_Div_type(
+        HCType.passive,
+        "Sub",
+        TR.SubMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.sub,
+        static_addon_mixins = [TR.HCTextMixin],
+    )    
+
 
 
     
@@ -554,7 +585,7 @@ class PassiveComponents:
         HCType.passive,
         "Option",
         TR.OptionMixin,
-        stytags_getter_func=lambda m=ui_styles: m.sty.prose,
+        stytags_getter_func=lambda m=ui_styles: m.sty.option,
     )
 
     Hr = gen_HC_type(

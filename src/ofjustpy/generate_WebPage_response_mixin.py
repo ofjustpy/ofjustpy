@@ -31,7 +31,7 @@ class ResponsiveStatic_SSR_ResponseMixin:
                              body_classes="",
                              body_html = "",
                              components_link_srcs = "",
-                                 csr_bundle_dir = ""
+                                 ssr_bundle_dir = ""
 
                              ):
         """
@@ -57,9 +57,9 @@ class ResponsiveStatic_SSR_ResponseMixin:
         <base href={base_url}>
 
         
-        <link href="/static/{csr_bundle_dir}style.css" rel="stylesheet"
+        <link href="/static/{ssr_bundle_dir}style.css" rel="stylesheet"
           type="text/css">
-        <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js" async></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js" async></script> -->
 
         {head_html}
         </head>
@@ -107,8 +107,7 @@ class ResponsiveStatic_SSR_ResponseMixin:
 
 
     def __init__(self, *args, **kwargs):
-        print("calling SSR-WEBPAGE: kwargs", kwargs)
-        self.csr_bundle_dir = kwargs.get("csr_bundle_dir", "") + "/"
+        self.ssr_bundle_dir = kwargs.get("ssr_bundle_dir", "") + "/"
         pass
 
     async def get_response_for_load_page(self, request):
@@ -171,7 +170,7 @@ class ResponsiveStatic_SSR_ResponseMixin:
                                                    body_classes= self.body_classes,
                                                    body_html=self.body_html,
                                                                                       components_link_srcs=components_link_srcs,
-                                                                                      csr_bundle_dir = self.csr_bundle_dir
+                                                                                      ssr_bundle_dir = self.ssr_bundle_dir
                                                    )
         return HTMLResponse(content=response_string)
     
@@ -231,7 +230,7 @@ class ResponsiveStatic_CSR_ResponseMixin:
         <html>
         <head>
         <base href={base_url}>
-        <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js" async></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js" async></script> -->
         <script src="/static/{csr_bundle_dir}bundle.iife.js"></script>
         <link href="/static/{csr_bundle_dir}style.css" rel="stylesheet"
           type="text/css">

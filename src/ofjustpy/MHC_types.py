@@ -233,7 +233,7 @@ StackD = gen_Div_type(
     div_type=HCType.mutable,
     hc_tag="StackD",
     hctype_mixin=TR.DivMixin,
-    static_core_mixins = [StackDSvelteSafelist],
+    static_addon_mixins = [StackDSvelteSafelist],
     mutable_shell_mixins=[StackDMixin],
     
     stytags_getter_func=lambda m=ui_styles: [db.f, flxrsz.one, ppos.relative],

@@ -45,7 +45,7 @@ def page_builder(childs):
     return [full_page]
 
 
-with oj.PageBuilderCtx(page_builder):
+with oj.PageContentBuilderCtx(page_builder):
     # content for blog_page_
     blog_pagebody_topic_1 = oj.PD.Div(childs = [oj.PD.Span(text="content for blog topic 1")
                                                 ]

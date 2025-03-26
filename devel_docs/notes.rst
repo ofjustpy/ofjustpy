@@ -121,7 +121,21 @@ at startup_event
 
 		uvicorn.run(app, host="127.0.0.1", port=8000)
 
+#. to_html_iter vs. build_json
+   to_html_iter is used for server side rendering
+   while build_json is used for client side rendering
 
+#. SSR vs. CSR
+   - SSR use CommChannelHandler
+   - 
+#. TODO: document ssr_bundle_dir along the lines of csr_bundle_dir   
+
+   
+#. removing components_link_srcs from generate_Responsive_Static_Webpage
+   - see if it is needed 
+#. Explain role of static files:
+
+#. Talk about oj.Subsection with section_depth
 
 FAQs
 ++++
