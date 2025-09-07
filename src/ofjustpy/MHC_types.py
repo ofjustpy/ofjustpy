@@ -23,7 +23,9 @@ from py_tailwind_utils import (
     full,
     max as twmax,
     cc,
-    lv
+    lv,
+    space,
+    y
 )
 
 from py_tailwind_utils import db, flxrsz
@@ -181,7 +183,11 @@ class StackDMixin:
     when it is shuffled.
     """
 
-    svelte_safelist = [W/full, H/twmax, overflow.auto, ppos.absolute, lv.iv]
+    svelte_safelist = [#W/full, not required
+                       H/twmax,
+                       overflow.auto,
+                       ppos.absolute,
+                       lv.iv]
     
         
     attr_tracked_keys = []
@@ -192,9 +198,13 @@ class StackDMixin:
 
         for dbref in self.components:
             if dbref.staticCore.key == height_anchor_key:
-                dbref.add_twsty_tags(W / full, H / twmax)
+                dbref.add_twsty_tags(#W / full,
+                                     H / twmax
+                                     )
             else:
-                dbref.add_twsty_tags(W / full, H / twmax, overflow.auto, ppos.absolute)
+                dbref.add_twsty_tags( H / twmax, #W / full, 
+                    overflow.auto,
+                    ppos.absolute)
             dbref.add_twsty_tags(lv.iv)
         self.selected_card_spath = self.components[0].id
         selected_dbref = self.spathMap[self.selected_card_spath]
@@ -425,28 +435,33 @@ class HCCMutable:
             twsty_tags=conc_twtags(*ui_styles.sty.valign(align), height_tag, *twsty_tags),
             **kwargs,
         )
-    def Subsection(
-        heading_text: AnyStr, content: Callable, align="center", twsty_tags=[], **kwargs
+    def Subsection(heading_text: AnyStr,
+                   content: Callable,
+                   align="center",
+                   twsty_tags=[],
+                   childs=[],
+                   section_depth=0,
+                   
+                   **kwargs
     ):
-        return HCCMutable.StackV(
-            twsty_tags=twsty_tags,
-            childs=[
-                PC.SubheadingBanner(heading_text),
+        return HCCMutable.StackV(twsty_tags=[*twsty_tags, space/y/2],
+            childs=[PC.SubheadingBanner(heading_text, section_depth=section_depth),
                 HCCMutable.Halign(content, align=align),
+                *childs
             ],
         )
 
-    def Subsubsection(
-        heading_text: AnyStr,
-        content: Callable,
-        twsty_tags: List = [],
-        align="center",
-        **kwargs,
-    ):
-        return HCCMutable.StackV(
-            twsty_tags=twsty_tags,
-            childs=[
-                PC.SubheadingBanner(heading_text),
-                HCCMutable.Halign(content, align=align),
-            ],
-        )
+    # def Subsubsection(
+    #     heading_text: AnyStr,
+    #     content: Callable,
+    #     twsty_tags: List = [],
+    #     align="center",
+    #     **kwargs,
+    # ):
+    #     return HCCMutable.StackV(
+    #         twsty_tags=twsty_tags,
+    #         childs=[
+    #             PC.SubheadingBanner(heading_text),
+    #             HCCMutable.Halign(content, align=align),
+    #         ],
+    #     )

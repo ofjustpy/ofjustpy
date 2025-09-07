@@ -377,6 +377,11 @@ shadcnui_alertdialog_action  = []
 shadcnui_alertdialog_title  = []
 shadcnui_alertdialog_description  = []
 
+shadcnui_hovercard = []
+shadcnui_hovercard_trigger = []
+shadcnui_hovercard_content = []
+
+
 shadcnui_calendar  = []
 
 shadcnui_checkbox  = []
@@ -419,3 +424,5 @@ varlistdiv = [] # ofjustpy_components.variable_length_list_TF
 sup = []
 sub = []
 cite = []
+
+lucide=[]

@@ -26,7 +26,14 @@ from py_tailwind_utils import twcc2hex
 from py_tailwind_utils import variant
 from py_tailwind_utils import W
 from py_tailwind_utils import pd
-from py_tailwind_utils import sl, st, sb, mr, fw, space, y
+from py_tailwind_utils import (sl,
+                               st,
+                               sb,
+                               mr,
+                               fw,
+                               space,
+                               y,
+                               whitespace)
 
 
 #from .ui_styles import sty
@@ -101,7 +108,7 @@ def generator(Span, StackV, Div, H3, H5, Para,  PassiveDiv=None):
         )
 
         target = Div(
-            twsty_tags=conc_twtags(*twsty_tags, mr/st/4, *heading_text_sty),
+            twsty_tags=conc_twtags(*twsty_tags, mr/st/4, whitespace.nowrap, *heading_text_sty),
             childs=[spanl, spanm, spanx],
         )
 

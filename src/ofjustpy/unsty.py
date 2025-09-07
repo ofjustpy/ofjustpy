@@ -17,6 +17,10 @@ para = []
 ul = []
 ol = []
 img = []
+
+figure = []
+
+figcaption = []
 li = []
 button = []
 
@@ -198,12 +202,13 @@ fontawesome = []
 
 shadcnui_accordionitem  = []
 
-shadcnui_alert  = []
+shadcnui_alert_root  = []
 shadcnui_alert_title  = []
 shadcnui_alert_description  = []
 
 shadcnui_alertdialog  = []
 
+shadcnui_alertdialog_root  = []
 shadcnui_alertdialog_trigger  = []
 shadcnui_alertdialog_content  = []
 shadcnui_alertdialog_header  = []
@@ -213,7 +218,10 @@ shadcnui_alertdialog_action  = []
 shadcnui_alertdialog_title  = []
 shadcnui_alertdialog_description  = []
 
+shadcnui_aspectratio = []
+
 shadcnui_calendar  = []
+shadcnui_range_calendar  = []
 
 shadcnui_checkbox  = []
 
@@ -230,15 +238,17 @@ shadcnui_select_item = []
 shadcnui_select_label = []
 
 shadcnui_card= []
-
+shadcnui_card_root = []
 shadcnui_card_header = []
 shadcnui_card_title = []
 shadcnui_card_description = []
 shadcnui_card_content = []
 shadcnui_card_footer = []
+shadcnui_card_action = []
 
 
 shadcnui_input  = []
+shadcnui_carousel_root = []
 shadcnui_carousel_item = []
 shadcnui_carousel_content = []
 shadcnui_carousel_previous = []
@@ -247,26 +257,39 @@ shadcnui_carousel = []
 
 shadcnui_collapsible = []
 
+
 shadcnui_breadcrumb = []
 
 shadcnui_breadcrumb_list = []
 
 shadcnui_avatar = []
+shadcnui_avatar_root = []
 
 shadcnui_avatar_image = []
 
 shadcnui_avatar_fallback = []
 
+shadcnui_badge = []
 shadcnui_breadcrumb = []
+shadcnui_breadcrumb_root = []
 shadcnui_breadcrumb_list = []
 shadcnui_breadcrumb_item = []
 shadcnui_breadcrumb_link = []
 shadcnui_breadcrumb_separator = []
 shadcnui_breadcrumb_page = []
 
+shadcnui_chart = []
+shadcnui_chart_container = []
 shadcnui_collapsible = []
+shadcnui_collapsible_root = []
 shadcnui_collapsible_trigger = []
 shadcnui_collapsible_content = []
+
+
+shadcnui_contextmenu_root = []
+shadcnui_contextmenu_trigger = []
+shadcnui_contextmenu_content = []
+shadcnui_contextmenu_item = []
 
 shadcnui_command = []
 shadcnui_command_input = []
@@ -279,13 +302,16 @@ shadcnui_command_separator = []
 
 
 shadcnui_dialog = []
+shadcnui_dialog_root = []
 shadcnui_dialog_trigger = []
 shadcnui_dialog_content = []
 shadcnui_dialog_header = []
 shadcnui_dialog_title = []
 shadcnui_dialog_description = []
+shadcnui_dialog_footer = []
 
 shadcnui_drawer = []
+shadcnui_drawer_root = []
 shadcnui_drawer_trigger = []
 shadcnui_drawer_content = []
 shadcnui_drawer_header = []
@@ -296,6 +322,7 @@ shadcnui_drawer_button = []
 shadcnui_drawer_close = []
 
 shadcnui_dropdownmenu = []
+shadcnui_dropdownmenu_root = []
 shadcnui_dropdownmenu_trigger = []
 shadcnui_dropdownmenu_content = []
 shadcnui_dropdownmenu_group = []
@@ -304,10 +331,12 @@ shadcnui_dropdownmenu_separator = []
 shadcnui_dropdownmenu_item = []
 
 shadcnui_hovercard = []
+shadcnui_hovercard_root = []
 shadcnui_hovercard_trigger = []
 shadcnui_hovercard_content = []
 
 shadcnui_menubar = []
+shadcnui_menubar_root = []
 shadcnui_menubar_menu = []
 shadcnui_menubar_trigger = []
 shadcnui_menubar_content = []
@@ -315,22 +344,42 @@ shadcnui_menubar_item = []
 shadcnui_menubar_separator = []
 shadcnui_menubar_shortcut = []
 
+shadcnui_navigationmenu = []
+shadcnui_navigationmenu_root = []
+shadcnui_navigationmenu_list = []
+shadcnui_navigationmenu_item = []
+shadcnui_navigationmenu_trigger = []
+shadcnui_navigationmenu_content = []
+shadcnui_navigationmenu_link = []
+
+
 shadcnui_pagination = []
+shadcnui_pagination_root = []
 shadcnui_pagination_content = []
 shadcnui_pagination_item = []
 shadcnui_pagination_prevbutton = []
 shadcnui_pagination_ellipsis = []
 shadcnui_pagination_link = []
 shadcnui_pagination_nextbutton = []
+
+# unsty.py entries for Popover
+shadcnui_popover = []
+shadcnui_popover_root = []
+shadcnui_popover_trigger = []
+shadcnui_popover_content = []
+
+
 shadcnui_progress = []
 
 
 shadcnui_radiogroup = []
+shadcnui_radiogroup_root = []
 shadcnui_radiogroup_item = []
 shadcnui_radiogroup_input = []
 
 
 shadcnui_resizable = []
+shadcnui_resizable_root = []
 shadcnui_resizable_panegroup = []
 shadcnui_resizable_pane = []
 shadcnui_resizable_handle = []
@@ -340,11 +389,14 @@ shadcnui_scrollarea = []
 shadcnui_separator = []
 
 shadcnui_sheet = []
+shadcnui_sheet_root = []
 shadcnui_sheet_trigger = []
 shadcnui_sheet_content = []
 shadcnui_sheet_header = []
 shadcnui_sheet_title = []
 shadcnui_sheet_description = []
+shadcnui_sheet_close = []
+shadcnui_sheet_footer = []
 
 shadcnui_skeleton = []
 
@@ -356,6 +408,7 @@ shadcnui_table = []
 shadcnui_table_root = []
 shadcnui_table_caption = []
 shadcnui_table_header = []
+shadcnui_table_footer = []
 shadcnui_table_body = []
 shadcnui_table_row = []
 shadcnui_table_head = []
@@ -370,10 +423,13 @@ shadcnui_tabs_content = []
 
 shadcnui_textarea = []
 
+# unsty.py entries for Tooltip
 shadcnui_tooltip = []
+shadcnui_tooltip_provider = []
 shadcnui_tooltip_root = []
 shadcnui_tooltip_trigger = []
 shadcnui_tooltip_content = []
+
 
 shadcnui_accordion = []
 shadcnui_accordion_root = []
@@ -395,3 +451,14 @@ section_title_sty = [    (fz.xl4, fw.bold, ff.mono),(fz.xl4, fw.semibold, ff.mon
 
     ]
 iframe = []
+lucide=[]
+
+# skeleton components
+
+skui_tabs = []
+skui_tabscontrol = []
+skui_tabspanel = []
+
+    
+layerchart_areachart = []
+layerchart_barchart = []

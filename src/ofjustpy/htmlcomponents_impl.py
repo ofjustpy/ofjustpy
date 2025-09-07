@@ -31,8 +31,7 @@ class MutableShell_SliderMixin:
         self.selected_circle = None
 
 
-SliderBase = gen_Div_type(
-    HCType.mutable,
+SliderBase = gen_Div_type(HCType.mutable,
     "Slider",
     TR.DivMixin,
     static_addon_mixins=[],

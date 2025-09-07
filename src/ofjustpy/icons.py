@@ -39,3 +39,23 @@ FontAwesomeIcon = gen_HC_type(HCType.passive,
                               baseComponentMixinType = fontawesomeBaseComponentMixin,
                               static_addon_mixins = [updateFAClasses]
                               )
+
+class lucideBaseComponentMixin:
+    def __init__(self, *args, **kwargs):
+        """
+
+        """
+        self.domDict.vue_type = "lucide_component"
+
+        self.domDict.events = []
+        self.domDict.show = kwargs.get("show", True)
+        self.domDict.debug = kwargs.get("debug", False)
+        pass
+
+    
+LucideIcon = gen_HC_type(HCType.passive,
+                              "LucideIcon",
+                              TR.LucideIconMixin,
+                              stytags_getter_func=lambda m=ui_styles: m.sty.lucide,
+                              baseComponentMixinType = lucideBaseComponentMixin,
+                              )

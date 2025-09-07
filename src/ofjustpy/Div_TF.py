@@ -28,7 +28,9 @@ def gen_Div_type(
         **kwargs
 ):
     if not static_addon_mixins:
-        static_addon_mixins = []
+        static_addon_mixins = [TR.HtmlTagMixin]
+    else:
+        static_addon_mixins.append(TR.HtmlTagMixin)
 
     if not mutable_shell_mixins:
         mutable_shell_mixins = []

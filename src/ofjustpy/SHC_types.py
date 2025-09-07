@@ -125,6 +125,20 @@ class PassiveDivs:
         static_addon_mixins = [TR.HCTextMixin]  
     )
 
+    Figure = gen_Div_type(
+        HCType.passive,
+        "Figure",
+        TR.FigureMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.figure,
+    )
+    Figcaption = gen_Div_type(
+            HCType.passive,
+        "Figcaption",
+        TR.FigcaptionMixin,
+        stytags_getter_func=lambda m=ui_styles: m.sty.figcaption,
+    )
+        
+
 
     Script = gen_Div_type(
     HCType.passive,
@@ -519,7 +533,8 @@ class PassiveComponents:
     #     Icon_Rated,
     #     Icon_SliderNext,
     #     Icon_SliderPrev,
-        FontAwesomeIcon
+        FontAwesomeIcon,
+        LucideIcon
 )
     Label = gen_HC_type(
         HCType.passive,
@@ -535,6 +550,7 @@ class PassiveComponents:
         stytags_getter_func=lambda m=ui_styles: m.sty.span,
     )
 
+    from .plaintext_component import PlainText
     Br = gen_HC_type(
         HCType.passive,
         "Br",

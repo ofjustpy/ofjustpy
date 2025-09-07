@@ -204,7 +204,9 @@ class ResponsiveStatic_CSR_ResponseMixin:
                                  components_link_srcs = "",
                                  setup_skeleton_script_src = "",
                                  skeleton_data_theme="modern",
-                                 csr_bundle_dir = ""
+                                 light_dark_mode="light",
+                                 csr_bundle_dir = "",
+                                 lang="en"
                              ):
         """
         components_link_srcs: reference custom javascript components within /static/ directory
@@ -227,7 +229,7 @@ class ResponsiveStatic_CSR_ResponseMixin:
 
         html_response_string = f"""
         <!DOCTYPE html>
-        <html>
+        <html class="{light_dark_mode}" lang="{lang}" data-theme="{skeleton_data_theme}">
         <head>
         <base href={base_url}>
         <!-- <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js" async></script> -->
@@ -238,7 +240,7 @@ class ResponsiveStatic_CSR_ResponseMixin:
           type="text/css">
         {head_html}
         </head >
-        <body {body_style} {body_classes} data-theme="{skeleton_data_theme}">
+        <body {body_style} {body_classes} >
         {body_html}
         <div id="components">
         </div>
@@ -284,6 +286,9 @@ class ResponsiveStatic_CSR_ResponseMixin:
     def __init__(self, *args, **kwargs):
         self.csr_bundle_dir = kwargs.get("csr_bundle_dir", "")
 
+        self.lang = kwargs.get("lang", "en")
+        self.light_dark_mode = kwargs.get("light_dark_mode", "light")
+        
         if self.csr_bundle_dir:
             self.csr_bundle_dir = self.csr_bundle_dir  + "/"
 
@@ -335,29 +340,32 @@ class ResponsiveStatic_CSR_ResponseMixin:
         if jpconfig.USE_SVELTE_SKELETON:
             setup_skeleton_script_src = "<script src='/templates/js/svelte/skeleton_setup.js'></script>"
         response_string = ResponsiveStatic_CSR_ResponseMixin.get_html_response_string(self.page_id,
-                                                                         self.title,
-                                                                         json.dumps(
-                                                                             self.use_websockets),
-                                                   self.redirect,
-                                                   self.display_url,
-                                                   json.dumps(page_ready),
-                                                   json.dumps(result_ready),
-                                                   reload_interval_ms,
-                                                   self.events,
-                                                   static_resources_url,
-                                                   json.dumps(self.debug),
-                                                   jpconfig.BASE_URL,
+                                                                                      self.title,
+                                                                                      json.dumps(
+                                                                                          self.use_websockets),
+                                                                                      self.redirect,
+                                                                                      self.display_url,
+                                                                                      json.dumps(page_ready),
+                                                                                      json.dumps(result_ready),
+                                                                                      reload_interval_ms,
+                                                                                      self.events,
+                                                                                      static_resources_url,
+                                                                                      json.dumps(self.debug),
+                                                                                      jpconfig.BASE_URL,
                                                                                        
-                                                                                      page_json,
-                                                                                      head_html = self.head_html,
-                                                   body_style=self.body_style,
-                                                   body_classes= self.body_classes,
-                                                   body_html=self.body_html,
-                                                                                      components_link_srcs=components_link_srcs,
-                                                                                      setup_skeleton_script_src = setup_skeleton_script_src,
+                                                                                       page_json,
+                                                                                       head_html = self.head_html,
+                                                                                       body_style=self.body_style,
+                                                                                       body_classes= self.body_classes,
+                                                                                       body_html=self.body_html,
+                                                                                       components_link_srcs=components_link_srcs,
+                                                                                       setup_skeleton_script_src = setup_skeleton_script_src,
                                                                                       skeleton_data_theme = self.skeleton_data_theme,
-                                                                                      csr_bundle_dir = self.csr_bundle_dir
-                                                   )
+                                                                                      csr_bundle_dir = self.csr_bundle_dir, 
+                                                                                      light_dark_mode=self.light_dark_mode,
+                                                                                      lang=self.lang
+
+                                                                                      )
         return HTMLResponse(content=response_string)
     
     
